@@ -775,8 +775,10 @@ return {tour, jouerTour, jouerPartie, resoudreChoix};
 if(typeof module !== "undefined") module.exports = IA;
 
 </script>
-<script src="config.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.js"></script>
+<script>
+window.P5_CONFIG = {supabaseUrl: "https://tojuxyrlqipsnxcwngzn.supabase.co", supabaseAnonKey: "sb_publishable_AS-R-rzn69tkYpcvbrcstw_LChyW9dr"};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.117.3/dist/umd/supabase.js"></script>
 <script>
 /* ============================================================
    STOCKAGE — où sont gardées les données du joueur
