@@ -502,6 +502,339 @@
         "image": "https://tojuxyrlqipsnxcwngzn.supabase.co/storage/v1/object/public/images/cartes/mwas9d5e-qu0t08.webp",
         "arcane": "amants",
         "legendaire": false
+      },
+      "barong": {
+        "nom": "Barong",
+        "kind": "persona",
+        "el": "ele",
+        "arcane": "empereur",
+        "rang": 3,
+        "cout": 5,
+        "effet": {
+          "deg": 5
+        },
+        "combo": {
+          "pioche": 1
+        },
+        "lien": {
+          "yen": 1
+        },
+        "legendaire": false,
+        "niveau": 52,
+        "skills": [
+          "ziodyne",
+          "wage_war",
+          "elec_break",
+          "maziodyne"
+        ],
+        "image": "https://tojuxyrlqipsnxcwngzn.supabase.co/storage/v1/object/public/images/cartes/mwb96m2g-a9t6xa.webp"
+      },
+      "beelzebub": {
+        "nom": "Beelzebub",
+        "kind": "persona",
+        "el": "mau",
+        "arcane": "diable",
+        "rang": 5,
+        "cout": 7,
+        "effet": {
+          "deg": 8,
+          "pv": 3
+        },
+        "combo": {
+          "purge": 2
+        },
+        "lien": {
+          "yen": 1
+        },
+        "legendaire": true,
+        "niveau": 87,
+        "skills": [
+          "mamudoon",
+          "maeigaon",
+          "evil_smile",
+          "concentrate",
+          "demonic_decree",
+          "megidolaon"
+        ],
+        "image": "https://tojuxyrlqipsnxcwngzn.supabase.co/storage/v1/object/public/images/cartes/mwb97aej-atnbsz.webp"
+      },
+      "belial": {
+        "nom": "Belial",
+        "kind": "persona",
+        "el": "mau",
+        "arcane": "diable",
+        "rang": 5,
+        "cout": 7,
+        "effet": {
+          "deg": 8,
+          "pv": 3
+        },
+        "combo": {
+          "purge": 2
+        },
+        "lien": {
+          "yen": 1
+        },
+        "legendaire": true,
+        "niveau": 82,
+        "skills": [
+          "bloodbath",
+          "eigaon",
+          "maeigaon",
+          "mamudoon",
+          "demonic_decree"
+        ],
+        "image": "https://tojuxyrlqipsnxcwngzn.supabase.co/storage/v1/object/public/images/cartes/mwb98b9j-7tjo0c.webp"
+      },
+      "belphegor": {
+        "nom": "Belphegor",
+        "kind": "persona",
+        "el": "gla",
+        "arcane": "tour",
+        "rang": 2,
+        "cout": 4,
+        "effet": {
+          "deg": 6
+        },
+        "combo": {
+          "defausse": 1
+        },
+        "lien": {
+          "yen": 1
+        },
+        "legendaire": false,
+        "niveau": 37,
+        "skills": [
+          "mabufula",
+          "ice_break",
+          "bufudyne",
+          "concentrate"
+        ],
+        "image": "https://tojuxyrlqipsnxcwngzn.supabase.co/storage/v1/object/public/images/cartes/mwb98rcu-6epy61.webp"
+      },
+      "berith": {
+        "nom": "Berith",
+        "kind": "persona",
+        "el": "phy",
+        "arcane": "hierophante",
+        "rang": 1,
+        "cout": 3,
+        "effet": {
+          "deg": 5
+        },
+        "combo": {
+          "deg": 2
+        },
+        "lien": {
+          "yen": 1
+        },
+        "parPhysique": 1,
+        "legendaire": false,
+        "niveau": 9,
+        "skills": [
+          "cleave",
+          "rakukaja",
+          "tarukaja",
+          "power_slash"
+        ],
+        "image": "https://tojuxyrlqipsnxcwngzn.supabase.co/storage/v1/object/public/images/cartes/mwb996kx-1euyu2.webp"
+      },
+      "bicorn": {
+        "nom": "Bicorn",
+        "kind": "persona",
+        "el": "ven",
+        "arcane": "ermite",
+        "rang": 1,
+        "cout": 3,
+        "effet": {
+          "yen": 1,
+          "deg": 3
+        },
+        "combo": {
+          "yen": 1,
+          "deg": 1
+        },
+        "lien": {
+          "yen": 1
+        },
+        "legendaire": false,
+        "niveau": 4,
+        "skills": [
+          "lunge",
+          "tarunda",
+          "garu",
+          "ice_wall"
+        ],
+        "image": "https://tojuxyrlqipsnxcwngzn.supabase.co/storage/v1/object/public/images/cartes/mwb99hyi-ha0inx.webp"
+      },
+      "bishamonten": {
+        "nom": "Bishamonten",
+        "kind": "persona",
+        "el": "nuc",
+        "arcane": "hierophante",
+        "rang": 4,
+        "cout": 6,
+        "effet": {
+          "deg": 8
+        },
+        "combo": {
+          "deg": 2,
+          "parCombo": 1
+        },
+        "lien": {
+          "yen": 1
+        },
+        "legendaire": false,
+        "niveau": 67,
+        "skills": [
+          "deadly_fury",
+          "freidyne",
+          "diarahan",
+          "mafreidyne",
+          "tetrakarn",
+          "gods_hand"
+        ],
+        "image": "https://tojuxyrlqipsnxcwngzn.supabase.co/storage/v1/object/public/images/cartes/mwb9bc6z-xicglq.webp"
+      },
+      "black_frost": {
+        "nom": "Black Frost",
+        "kind": "persona",
+        "el": "pur",
+        "arcane": "fou",
+        "rang": 4,
+        "cout": 6,
+        "effet": {
+          "deg": 4,
+          "yen": 3
+        },
+        "combo": {
+          "deg": 3
+        },
+        "lien": {
+          "yen": 1
+        },
+        "legendaire": false,
+        "niveau": 67,
+        "skills": [
+          "miracle_punch",
+          "one_shot_kill",
+          "mabufudyne",
+          "diamond_dust"
+        ],
+        "image": "https://tojuxyrlqipsnxcwngzn.supabase.co/storage/v1/object/public/images/cartes/mwb9bwtv-oxbtzs.webp"
+      },
+      "black_ooze": {
+        "nom": "Black Ooze",
+        "kind": "persona",
+        "el": "mau",
+        "arcane": "lune",
+        "rang": 1,
+        "cout": 3,
+        "effet": {
+          "deg": 4,
+          "pv": 1
+        },
+        "combo": {
+          "purge": 1
+        },
+        "lien": {
+          "yen": 1
+        },
+        "legendaire": false,
+        "niveau": 18,
+        "skills": [
+          "sledgehammer",
+          "foul_breath",
+          "evil_touch",
+          "headbutt",
+          "brain_jack",
+          "flash_bomb"
+        ],
+        "image": "https://tojuxyrlqipsnxcwngzn.supabase.co/storage/v1/object/public/images/cartes/mwb9epbm-hvvv73.webp"
+      },
+      "black_rider": {
+        "nom": "Black Rider",
+        "kind": "persona",
+        "el": "mau",
+        "arcane": "tour",
+        "rang": 3,
+        "cout": 5,
+        "effet": {
+          "deg": 6,
+          "pv": 2
+        },
+        "combo": {
+          "purge": 1
+        },
+        "lien": {
+          "yen": 1
+        },
+        "legendaire": false,
+        "niveau": 59,
+        "skills": [
+          "flash_bomb",
+          "mamudoon",
+          "maeigaon",
+          "bloodbath",
+          "ghastly_wail",
+          "megidola"
+        ],
+        "image": "https://tojuxyrlqipsnxcwngzn.supabase.co/storage/v1/object/public/images/cartes/mwb9ghjg-331xkr.webp"
+      },
+      "bugs": {
+        "nom": "Bugs",
+        "kind": "persona",
+        "el": "pur",
+        "arcane": "fou",
+        "rang": 3,
+        "cout": 5,
+        "effet": {
+          "deg": 3,
+          "yen": 2
+        },
+        "combo": {
+          "deg": 3
+        },
+        "lien": {
+          "yen": 1
+        },
+        "legendaire": false,
+        "niveau": 49,
+        "skills": [
+          "miracle_punch",
+          "psiodyne",
+          "masukunda",
+          "triple_down"
+        ],
+        "image": "https://tojuxyrlqipsnxcwngzn.supabase.co/storage/v1/object/public/images/cartes/mwb9h0t6-s0020s.webp"
+      },
+      "byakhee": {
+        "nom": "Byakhee",
+        "kind": "persona",
+        "el": "feu",
+        "arcane": "lune",
+        "rang": 4,
+        "cout": 6,
+        "effet": {
+          "deg": 8
+        },
+        "combo": {
+          "deg": 3
+        },
+        "lien": {
+          "yen": 1
+        },
+        "legendaire": false,
+        "niveau": 70,
+        "skills": [
+          "death_scythe",
+          "agidyne",
+          "foul_breath",
+          "maragidyne",
+          "fire_break",
+          "heat_riser"
+        ],
+        "image": "https://tojuxyrlqipsnxcwngzn.supabase.co/storage/v1/object/public/images/cartes/mwb9hjxe-yi4qgy.webp"
       }
     },
     "supprimees": []
@@ -539,5 +872,6 @@
     }
   },
   "regles": {},
-  "progression": {}
+  "progression": {},
+  "fusion": {}
 }
