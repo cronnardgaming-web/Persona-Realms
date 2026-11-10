@@ -541,33 +541,36 @@ const ELEMENTS = {
   sac:{nom:"Sacré", court:"Sac"}, mau:{nom:"Maudit", court:"Mau"}, pur:{nom:"Pur", court:"Pur"}
 };
 const LEADERS = {
-  joker:{nom:"Joker", vrai:"Ren Amamiya", el:"mau", faiblesse:"sac", capa:{purge:1}, persona:"Arsène", evos:["Raoul", "Satanael"]},
-  skull:{nom:"Skull", vrai:"Ryuji Sakamoto", el:"ele", faiblesse:"ven", capa:{deg:1}, persona:"Captain Kidd", evos:["Seiten Taisei", "William"]},
-  panther:{nom:"Panther", vrai:"Ann Takamaki", el:"feu", faiblesse:"gla", capa:{deg:2}, persona:"Carmen", evos:["Hecate", "Célestine"]},
-  mona:{nom:"Mona", vrai:"Morgana", el:"ven", faiblesse:"ele", capa:{yen:1, deg:1}, persona:"Zorro", evos:["Mercurius", "Diego"]},
-  fox:{nom:"Fox", vrai:"Yusuke Kitagawa", el:"gla", faiblesse:"feu", capa:{defausse:1, deg:1}, persona:"Goemon", evos:["Kamu Susano-o", "Gorokichi"]},
-  queen:{nom:"Queen", vrai:"Makoto Niijima", el:"nuc", faiblesse:"psy", capa:{parCombo:1}, persona:"Johanna", evos:["Anat", "Agnes"]},
-  oracle:{nom:"Oracle", vrai:"Futaba Sakura", el:null, faiblesse:"phy", capa:{vision:2, yen:1, deg:2}, toutCombo:true, persona:"Necronomicon", evos:["Prometheus", "Al Azif"]},
-  noir:{nom:"Noir", vrai:"Haru Okumura", el:"psy", faiblesse:"nuc", capa:{vision:2, deg:2}, persona:"Milady", evos:["Astarte", "Lucy"]},
-  crow:{nom:"Crow", vrai:"Goro Akechi", el:"pur", faiblesse:"mau", capa:{deg:1, pv:1}, persona:"Robin Hood", evos:["Loki", "Hereward"]},
-  violet:{nom:"Violet", vrai:"Kasumi Yoshizawa", el:"sac", faiblesse:"mau", capa:{pv:2}, persona:"Cendrillon", evos:["Vanadis", "Ella"]}
+  joker:{nom:"Joker", vrai:"Ren Amamiya", arcane:"fou", el:"mau", faiblesse:"sac", capa:{purge:1}, persona:"Arsène", evos:["Raoul", "Satanael"]},
+  skull:{nom:"Skull", vrai:"Ryuji Sakamoto", arcane:"chariot", el:"ele", faiblesse:"ven", capa:{deg:1}, persona:"Captain Kidd", evos:["Seiten Taisei", "William"]},
+  panther:{nom:"Panther", vrai:"Ann Takamaki", arcane:"amants", el:"feu", faiblesse:"gla", capa:{deg:2}, persona:"Carmen", evos:["Hecate", "Célestine"]},
+  mona:{nom:"Mona", vrai:"Morgana", arcane:"magicien", el:"ven", faiblesse:"ele", capa:{yen:1, deg:1}, persona:"Zorro", evos:["Mercurius", "Diego"]},
+  fox:{nom:"Fox", vrai:"Yusuke Kitagawa", arcane:"empereur", el:"gla", faiblesse:"feu", capa:{defausse:1, deg:1}, persona:"Goemon", evos:["Kamu Susano-o", "Gorokichi"]},
+  queen:{nom:"Queen", vrai:"Makoto Niijima", arcane:"pretresse", el:"nuc", faiblesse:"psy", capa:{parCombo:1}, persona:"Johanna", evos:["Anat", "Agnes"]},
+  oracle:{nom:"Oracle", vrai:"Futaba Sakura", arcane:"ermite", el:null, faiblesse:"phy", capa:{vision:2, yen:1, deg:2}, toutCombo:true, persona:"Necronomicon", evos:["Prometheus", "Al Azif"]},
+  noir:{nom:"Noir", vrai:"Haru Okumura", arcane:"imperatrice", el:"psy", faiblesse:"nuc", capa:{vision:2, deg:2}, persona:"Milady", evos:["Astarte", "Lucy"]},
+  crow:{nom:"Crow", vrai:"Goro Akechi", arcane:"justice", el:"pur", faiblesse:"mau", capa:{deg:1, pv:1}, persona:"Robin Hood", evos:["Loki", "Hereward"]},
+  violet:{nom:"Violet", vrai:"Kasumi Yoshizawa", arcane:"foi", el:"sac", faiblesse:"mau", capa:{pv:2}, persona:"Cendrillon", evos:["Vanadis", "Ella"]}
 };
 
 // Cartes dérivées des Leaders : carte de départ évoluée (Confidents) et carte de visite.
 // Régénérées quand l’Admin modifie un Leader.
 function genererDerivees(){
   for(const id of Object.keys(C)) if(/^depart_.+_evo\d$|^visite_/.test(id)) delete C[id];
-  // Carte de départ évoluée par les Confidents : la Persona du Leader remplace le skill de départ
+  // Persona du Leader dans son deck de départ : forme de base (evo0), puis évolutions des Confidents (evo1, evo2)
   for(const [id, L] of Object.entries(LEADERS)){
     const base = C["depart_" + (L.el || "aucun")];
-    [0, 1].forEach(n => {
-      const plus = n + 1;
-      C[`depart_${id}_evo${plus}`] = {nom: L.evos[n], kind:"persona", el:L.el, arcane:null, rang:0, cout:0, depart:true,
-        effet: L.el ? {deg: 2 + plus} : {deg: 1 + plus, yen:1},
-        combo: base.combo ? Object.fromEntries(Object.entries(base.combo).map(([k, v]) => [k, k === "parCombo" ? v : v + (["pioche","defausse","purge"].includes(k) ? 0 : plus)])) : null,
+    [L.persona, ...(L.evos || [])].slice(0, 3).forEach((nom, n) => {
+      C[`depart_${id}_evo${n}`] = {nom: nom || L.nom, kind:"persona", el:L.el, arcane:L.arcane || null, rang:0, cout:0, depart:true, leader:id,
+        effet: n === 0 ? Object.assign({}, base.effet) : (L.el ? {deg: 2 + n} : {deg: 1 + n, yen:1}),
+        combo: base.combo ? Object.fromEntries(Object.entries(base.combo).map(([k, v]) => [k, k === "parCombo" ? v : v + (["pioche","defausse","purge"].includes(k) ? 0 : n)])) : null,
         parPhysique: base.parPhysique, finition: base.finition};
     });
   }
+  // Les Personas des Leaders et leurs évolutions leur sont réservées : ni marché, ni récompense, ni deck
+  const normal = t => String(t || "").toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").trim();
+  const reservees = new Set(Object.values(LEADERS).flatMap(L => [L.persona, ...(L.evos || [])]).map(normal).filter(Boolean));
+  for(const [id, c] of Object.entries(C)) if(!c.depart){ if(reservees.has(normal(c.nom))) c.reservee = true; else delete c.reservee; }
   // Carte de visite de chaque Leader : générée d’après son archétype
   for(const [id, L] of Object.entries(LEADERS)){
     const combo = L.el ? ({feu:{deg:4}, gla:{defausse:1, deg:2}, ele:{pioche:1, deg:2}, ven:{yen:2, deg:2}, psy:{vision:2, deg:3}, nuc:{parCombo:1, deg:2},
@@ -593,7 +596,7 @@ const valeur = e => (e.deg||0) + 1.3*(e.yen||0) + 0.7*(e.pv||0) + 2.5*(e.pioche|
 /* ---------- Deck de marché (30 cartes) généré pour les tests ---------- */
 function deckMarche(S, leader, rangMax, part){
   const el = LEADERS[leader].el;
-  const ok = Object.keys(C).filter(id => { const c = C[id]; return !c.depart && !c.unique && !c.visite && c.kind !== "objet" && c.rang >= 1 && c.rang <= rangMax; });
+  const ok = Object.keys(C).filter(id => { const c = C[id]; return !c.depart && !c.unique && !c.visite && !c.reservee && c.kind !== "objet" && c.rang >= 1 && c.rang <= rangMax; });
   const mien = ok.filter(id => C[id].el === el), autres = ok.filter(id => C[id].el !== el);
   const pick = (l, n) => { const out = []; for(let i = 0; i < n && l.length; i++) out.push(l[Math.floor(alea(S)*l.length)]); return out; };
   const n = Math.round(30 * part);
@@ -606,7 +609,7 @@ function nouvellePartie(cfg){
   S.joueurs = cfg.joueurs.map((jc, i) => {
     const L = LEADERS[jc.leader];
     const depart = [...Array(7)].map(() => nouvelleCarte(S, "yen"));
-    depart.push(nouvelleCarte(S, "liasse"), nouvelleCarte(S, "attaque"), nouvelleCarte(S, jc.evo ? `depart_${jc.leader}_evo${jc.evo}` : "depart_" + (L.el || "aucun")));
+    depart.push(nouvelleCarte(S, "liasse"), nouvelleCarte(S, "attaque"), nouvelleCarte(S, `depart_${jc.leader}_evo${jc.evo || 0}`));
     const marche = jc.marche || deckMarche(S, jc.leader, jc.rangMax || 5, jc.part ?? 0.5);
     return {nom: jc.nom || `Joueur ${i+1}`, ia: !!jc.ia, leader: jc.leader, L, pv: R.pv, deck: melanger(S, depart), main: [], defausse: [], aDefausser: 0, visite: false,
       marche, stats:{combos:0, combosElement:0, combosPossibles:0, aoa:0, faiblesse:0, degats:0, tours:0, purges:0, cartes:0}};
@@ -696,11 +699,12 @@ function verifierCombos(S, j){
       appliquer(S, j, j.L.capa, ctx, null, `Capacité de ${j.L.nom}`);
     }
   }
-  // Lien d’Arcane (Personas) ; les Personas du Fou comptent comme n’importe quelle Arcane
+  // Lien d’Arcane (Personas) : une autre Persona de la même Arcane jouée ce tour, ou un Leader de cette Arcane
   for(const x of ctx.joues){
     const dx = def(x);
     if(dx.kind !== "persona" || !dx.lien || ctx.liensFaits[x.uid]) continue;
-    if(ctx.joues.some(y => y !== x && def(y).kind === "persona" && (def(y).arcane === dx.arcane || def(y).arcane === "fou" || dx.arcane === "fou"))){
+    const parLeader = !!(dx.arcane && dx.arcane === j.L.arcane);
+    if(parLeader || ctx.joues.some(y => y !== x && def(y).kind === "persona" && def(y).arcane === dx.arcane)){
       ctx.liensFaits[x.uid] = true; log(S, `Lien d’Arcane : ${dx.nom}.`); fx(S, {t:"lien", uid:x.uid}); appliquer(S, j, dx.lien, ctx, null, `Lien d’Arcane · ${dx.nom}`);
     }
   }
@@ -720,7 +724,7 @@ function apercu(S, uid){
     for(const e of els) if(e !== "pur") compte[e] = (compte[e]||0) + 1;
     r.aoa = Math.max(pur, ...Object.values(compte).map(n => n + pur)) >= R.aoaCartes;
   }
-  if(d.kind === "persona" && d.lien) r.lien = ctx.joues.some(y => def(y).kind === "persona" && (def(y).arcane === d.arcane || def(y).arcane === "fou" || d.arcane === "fou"));
+  if(d.kind === "persona" && d.lien) r.lien = (d.arcane && d.arcane === j.L.arcane) || ctx.joues.some(y => def(y).kind === "persona" && def(y).arcane === d.arcane);
   return r;
 }
 // Éléments joués ce tour (pour le suivi des combos et de l’All-Out Attack)
@@ -973,7 +977,8 @@ async function envoyerImage(blob, dossier){
   if(etat.mode !== "supabase") throw new Error("Connexion requise.");
   const ext = blob.type === "image/webp" ? "webp" : "png";
   const chemin = `${dossier}/${Date.now().toString(36)}-${Math.random().toString(36).slice(2, 8)}.${ext}`;
-  const {error} = await sb.storage.from("images").upload(chemin, blob, {contentType: blob.type, upsert: false});
+  // Chaque image a un nom unique : les navigateurs peuvent la garder en cache un an
+  const {error} = await sb.storage.from("images").upload(chemin, blob, {contentType: blob.type, upsert: false, cacheControl: "31536000"});
   if(error) throw error;
   return sb.storage.from("images").getPublicUrl(chemin).data.publicUrl;
 }
@@ -1025,7 +1030,7 @@ let p = null, surChange = () => {};
 
 function collectionInitiale(){
   // 40 cartes de rang 1 différentes, tirées au hasard
-  const ids = Object.keys(M.C).filter(id => { const c = M.C[id]; return !c.depart && !c.unique && !c.visite && c.kind !== "objet" && c.rang === 1; });
+  const ids = Object.keys(M.C).filter(id => { const c = M.C[id]; return !c.depart && !c.unique && !c.visite && !c.reservee && c.kind !== "objet" && c.rang === 1; });
   for(let i = ids.length - 1; i > 0; i--){ const k = Math.floor(Math.random() * (i + 1)); [ids[i], ids[k]] = [ids[k], ids[i]]; }
   const col = {}; for(const id of ids.slice(0, REGLES.collectionInitiale)) col[id] = 1;
   return col;
@@ -1038,7 +1043,7 @@ function nouveau(){
 
 /* ---------- Règles de deck ---------- */
 const tailleDeck = () => REGLES.tailleDeck;
-const cartesJouables = () => Object.keys(M.C).filter(id => { const c = M.C[id]; return !c.depart && !c.visite && c.kind !== "objet" && c.rang >= 1; });
+const cartesJouables = () => Object.keys(M.C).filter(id => { const c = M.C[id]; return !c.depart && !c.visite && !c.reservee && c.kind !== "objet" && c.rang >= 1; });
 const maxCopies = id => M.C[id] && M.C[id].legendaire ? 1 : 2;
 const nbCartes = cartes => Object.values(cartes).reduce((n, v) => n + v, 0);
 function validerDeck(d){
@@ -1046,6 +1051,7 @@ function validerDeck(d){
   if(n !== tailleDeck()) erreurs.push(n < tailleDeck() ? `Il manque ${tailleDeck() - n} carte${tailleDeck() - n > 1 ? "s" : ""} (${n}/${tailleDeck()}).` : `Il y a ${n - tailleDeck()} carte${n - tailleDeck() > 1 ? "s" : ""} de trop (${n}/${tailleDeck()}).`);
   for(const [id, k] of Object.entries(d.cartes)){
     if(!M.C[id]){ erreurs.push(`Carte inconnue : ${id}.`); continue; }
+    if(M.C[id].reservee){ erreurs.push(`${M.C[id].nom} est réservée au deck de départ de son Leader.`); continue; }
     if(k > (p.collection[id] || 0)) erreurs.push(`${M.C[id].nom} : vous n’en possédez que ${p.collection[id] || 0}.`);
     if(k > maxCopies(id)) erreurs.push(`${M.C[id].nom} : ${maxCopies(id)} exemplaire${maxCopies(id) > 1 ? "s" : ""} au maximum${M.C[id].legendaire ? " (Légendaire)" : ""}.`);
   }
@@ -1054,8 +1060,9 @@ function validerDeck(d){
 // Complète un deck jusqu’à 30 cartes : d’abord l’élément du Leader, puis les cartes les plus chères
 function completerDeck(cartes, leader){
   const el = M.LEADERS[leader].el, res = Object.assign({}, cartes);
-  const score = id => { const c = M.C[id]; return (c.el === el ? 10 : c.el === "pur" ? 3 : 0) + c.cout + c.rang * 0.5; };
-  const dispo = Object.keys(p.collection).filter(id => M.C[id] && !M.C[id].depart).sort((a, b) => score(b) - score(a));
+  const arcane = M.LEADERS[leader].arcane;
+  const score = id => { const c = M.C[id]; return (c.el === el ? 10 : c.el === "pur" ? 3 : 0) + (c.kind === "persona" && c.arcane && c.arcane === arcane ? 3 : 0) + c.cout + c.rang * 0.5; };
+  const dispo = Object.keys(p.collection).filter(id => M.C[id] && !M.C[id].depart && !M.C[id].reservee).sort((a, b) => score(b) - score(a));
   for(const id of dispo){
     while(nbCartes(res) < tailleDeck() && (res[id] || 0) < Math.min(p.collection[id], maxCopies(id))) res[id] = (res[id] || 0) + 1;
     if(nbCartes(res) >= tailleDeck()) break;
@@ -1127,6 +1134,17 @@ function completer(x){
   for(const id of Object.keys(r.collection)) if(!M.C[id]) delete r.collection[id];
   return r;
 }
+// Les Personas des Leaders ne peuvent être ni dans la collection ni dans un deck : on les retire, puis on complète les decks
+function retirerReservees(){
+  let change = false;
+  for(const id of Object.keys(p.collection)) if(M.C[id] && M.C[id].reservee){ delete p.collection[id]; change = true; }
+  for(const d of p.decks){
+    let retire = false;
+    for(const id of Object.keys(d.cartes)) if(!M.C[id] || M.C[id].reservee){ delete d.cartes[id]; retire = true; }
+    if(retire){ d.cartes = completerDeck(d.cartes, d.leader); change = true; }
+  }
+  return change;
+}
 // Chaque profil a au moins un deck valide
 function premierDeck(){ if(p && !p.decks.length){ const d = {id:"d0", nom:"Deck de départ", leader:p.leaderFavori || "joker", cartes:{}}; p.decks.push(d); d.cartes = completerDeck({}, d.leader); p.deckActif = d.id; } }
 // Chargement : avec Supabase, le profil du compte connecté (aucun profil sans connexion)
@@ -1148,7 +1166,8 @@ async function charger(){
     const enregistre = await STOCKAGE.chargerProfil();
     p = completer(enregistre);
     premierDeck();
-    if(!enregistre) enregistrer(); // premier passage sur ce compte : nouveau profil
+    const nettoye = retirerReservees();
+    if(!enregistre || nettoye) enregistrer(); // nouveau profil, ou cartes réservées retirées
     // Droits d’administration : seulement les comptes inscrits dans la table admins
     etat.admin = await STOCKAGE.estAdmin().catch(() => false);
   } catch(e){ etat.erreur = "Votre profil n’a pas pu être chargé. Vérifiez votre connexion, puis rechargez la page."; }
@@ -1269,7 +1288,7 @@ const REGLES_PROG = [
   ["seuilBase","Rang suivant : expérience de base"],["seuilPente","Rang suivant : expérience en plus par rang"],["rangMax","Rang maximum"],
   ["tailleDeck","Cartes dans un deck de marché"],["plafondClasse","Mode Classé : somme des rangs maximum"],["collectionInitiale","Cartes de la collection de départ"]];
 
-const A = {onglet:"cartes", sel:null, selLeader:"joker", q:"", fType:"", fEl:"", fModif:"", b:null, sale:false, msg:null, erreur:null, enCours:false, stats:null, confirmer:null, envoiImage:false};
+const A = {envoyees:[], onglet:"cartes", sel:null, selLeader:"joker", q:"", fType:"", fEl:"", fModif:"", b:null, sale:false, msg:null, erreur:null, enCours:false, stats:null, confirmer:null, envoiImage:false};
 
 function ouvrir(){ A.b = CONFIGJEU.actuelle; A.sale = false; A.msg = null; A.erreur = null; A.confirmer = null; }
 const peutQuitter = () => !A.sale;
@@ -1314,7 +1333,7 @@ function listeCartes(){
   }).sort((a, b) => (carte(a) || ORI.cartes[a]).nom.localeCompare((carte(b) || ORI.cartes[b]).nom));
   return ids.map(id => {
     const c = carte(id) || ORI.cartes[id];
-    const tag = supprimee(id) ? `<span class="a-tag sup">supprimée</span>` : estNouvelle(id) ? `<span class="a-tag nou">nouvelle</span>` : estModifiee(id) ? `<span class="a-tag mod">modifiée</span>` : "";
+    const tag = supprimee(id) ? `<span class="a-tag sup">supprimée</span>` : c.reservee ? `<span class="a-tag">Leader</span>` : estNouvelle(id) ? `<span class="a-tag nou">nouvelle</span>` : estModifiee(id) ? `<span class="a-tag mod">modifiée</span>` : "";
     return `<li><button type="button" class="${A.sel === id ? "actif" : ""}" data-act="a-sel" data-id="${esc(id)}">
       <span class="chip ${c.el ? "el-" + c.el : c.kind === "objet" ? "el-objet" : "el-aucun"}">${c.el ? esc(M.ELEMENTS[c.el].court) : c.kind === "objet" ? "Obj" : "—"}</span>
       <span class="a-li-nom">${esc(c.nom)}</span><small>${TYPES[c.kind] || c.kind} · ${c.rang ? "★".repeat(c.rang) : "départ"} · ${c.cout || 0} ¥</small>${tag}</button></li>`;
@@ -1330,6 +1349,7 @@ function editeurCarte(id){
         <button type="button" class="btn petit" data-act="a-dupliquer" data-id="${esc(id)}">Dupliquer</button>
         ${A.confirmer === id ? `<button type="button" class="btn petit danger" data-act="a-supprimer" data-id="${esc(id)}">Confirmer la suppression</button><button type="button" class="btn petit" data-act="a-annuler-sup">Garder</button>`
           : `<button type="button" class="btn petit" data-act="a-demander-sup" data-id="${esc(id)}">Supprimer</button>`}</div></div>
+    ${(M.C[id] || {}).reservee ? `<p class="a-aide">Persona d’un Leader : elle n’apparaît que dans le deck de départ de son Leader (ni marché, ni récompense, ni deck). Ses effets dans le deck de départ se règlent dans l’onglet Leaders.</p>` : ""}
     <div class="a-grille">
       <div class="a-col">
         ${zoneImage(`${base}.image`, c.image, c.el)}
@@ -1351,7 +1371,7 @@ function editeurCarte(id){
         </div>
         ${blocEffets(`${base}.effet`, c.effet, "Effet", "Ce que la carte donne quand on la joue.")}
         ${blocEffets(`${base}.combo`, c.combo, "One More", "Se déclenche si une autre carte du même élément (ou Pur) est jouée dans le tour. Tout à 0 = pas de combo.")}
-        ${c.kind === "persona" ? blocEffets(`${base}.lien`, c.lien, "Lien d’Arcane", "Se déclenche si une autre Persona de la même Arcane est jouée dans le tour.") : ""}
+        ${c.kind === "persona" ? blocEffets(`${base}.lien`, c.lien, "Lien d’Arcane", "Se déclenche si une autre Persona de la même Arcane est jouée dans le tour, ou si le Leader est de cette Arcane.") : ""}
         ${blocEffets(`${base}.sacrifice`, c.sacrifice, "Sacrifice", "Effet obtenu en retirant la carte du deck après l’avoir jouée. Tout à 0 = pas de sacrifice.")}
       </div>
       <aside class="a-apercu"><p class="a-aide">Aperçu</p><div class="a-apercu-carte">${U().carteJeu({id, uid:"apercu"}, {def:c})}</div>
@@ -1401,6 +1421,7 @@ async function traiterImage(fichier, chemin){
     const [table] = chemin.split(".");
     const lien = await STOCKAGE.envoyerImage(blob, table === "leaders" ? "leaders" : "cartes");
     ecrire(chemin, lien);
+    A.envoyees.push(lien);
     A.msg = "Image envoyée. Pensez à publier.";
   } catch(e){ A.erreur = "L’envoi de l’image a échoué. Vérifiez votre connexion, puis réessayez."; }
   A.envoiImage = false; U().render();
@@ -1422,6 +1443,7 @@ function ongletLeaders(){
       <div class="a-ligne">
         ${champ("Élément", `<select data-a-f="${base}.el" data-t="el">${elementsOpts(L.el || "", "Aucun (soutien)")}</select>`, "Son skill de départ et sa capacité dépendent de cet élément.")}
         ${champ("Faiblesse", `<select data-a-f="${base}.faiblesse" data-t="el">${elementsOpts(L.faiblesse || "", "Aucune")}</select>`)}
+        ${champ("Arcane", `<select data-a-f="${base}.arcane">${Object.entries(U().ARCANES).map(([k, l]) => opt(k, l, L.arcane)).join("")}</select>`, "Les Personas de cette Arcane déclenchent toujours leur Lien d’Arcane.")}
       </div>
       <div class="a-cases">${caseA(`${base}.toutCombo`, "Capacité déclenchée par n’importe quel One More", L.toutCombo, "comme Oracle")}</div>
       ${blocEffets(`${base}.capa`, L.capa, "Capacité", "Bonus obtenu au premier One More de son élément dans le tour.")}
@@ -1464,7 +1486,7 @@ function ongletSauvegarde(){
       <button type="button" class="btn" data-act="a-exporter">Exporter la configuration</button></fieldset>
     <fieldset class="a-bloc"><legend>Importer</legend><p>Remplace le brouillon par le contenu d’un fichier exporté. Rien n’est appliqué avant « Publier ».</p>
       <label class="btn">Choisir un fichier JSON<input type="file" accept="application/json,.json" data-a-import hidden></label></fieldset>
-    <fieldset class="a-bloc"><legend>Revenir aux réglages d’origine</legend><p>Annule toutes les modifications : cartes, Leaders et règles reviennent à leur version générée à partir de P5R. Les images envoyées ne sont pas supprimées du stockage.</p>
+    <fieldset class="a-bloc"><legend>Revenir aux réglages d’origine</legend><p>Annule toutes les modifications : cartes, Leaders et règles reviennent à leur version générée à partir de P5R. Une fois publié, les images qui ne servent plus sont supprimées du stockage.</p>
       ${A.confirmer === "tout" ? `<button type="button" class="btn danger" data-act="a-reinit-ok">Oui, tout remettre à l’origine</button> <button type="button" class="btn" data-act="a-annuler-sup">Annuler</button>`
         : `<button type="button" class="btn" data-act="a-reinit">Revenir à l’origine</button>`}</fieldset>`;
 }
@@ -1484,6 +1506,17 @@ function html(){
       <button type="button" class="btn" data-act="a-annuler" ${A.enCours ? "disabled" : ""}>Annuler</button>
       <button type="button" class="btn fort" data-act="a-publier" ${A.enCours ? "disabled" : ""}>${A.enCours ? "Publication…" : "Publier"}</button></div>
   </div>`;
+}
+
+/* ---------- Ménage des images ---------- */
+// Adresses des images utilisées par une configuration
+const urlsDe = cfg => new Set((JSON.stringify(cfg || {}).match(/https?:\/\/[^"\s]+\/object\/public\/images\/[^"\s]+/g)) || []);
+// Supprime du stockage les images qui ne sont plus utilisées par la configuration publiée
+async function nettoyerImages(candidates){
+  const utilisees = urlsDe(CONFIGJEU.actuelle);
+  const aSupprimer = [...new Set(candidates)].filter(u => !utilisees.has(u));
+  for(const u of aSupprimer) await STOCKAGE.supprimerImage(u);
+  return aSupprimer.length;
 }
 
 /* ---------- Écriture dans le brouillon ---------- */
@@ -1545,6 +1578,7 @@ async function clic(act, id){
   switch(act){
     case "a-accueil":
       if(A.sale && !confirm("Vos modifications ne sont pas publiées. Quitter quand même ?")) return;
+      nettoyerImages(A.envoyees); A.envoyees = [];
       A.b = null; U().aller("accueil"); return;
     case "a-onglet": A.onglet = id; A.confirmer = null; break;
     case "a-sel": A.sel = id; A.confirmer = null; break;
@@ -1568,10 +1602,15 @@ async function clic(act, id){
     case "a-exporter": exporter(); return;
     case "a-reinit": A.confirmer = "tout"; break;
     case "a-reinit-ok": A.b = CONFIGJEU.vide(); A.confirmer = null; A.sale = true; A.msg = "Réglages d’origine chargés. Publiez pour les appliquer."; break;
-    case "a-annuler": ouvrir(); A.msg = "Modifications annulées."; break;
+    case "a-annuler": nettoyerImages(A.envoyees); A.envoyees = []; ouvrir(); A.msg = "Modifications annulées."; break;
     case "a-publier":
       A.enCours = true; U().render();
-      try { await CONFIGJEU.enregistrer(A.b); A.b = CONFIGJEU.actuelle; A.sale = false; A.msg = "Publié : tous les joueurs reçoivent ces réglages à leur prochaine visite."; }
+      try {
+        const avant = [...urlsDe(CONFIGJEU.actuelle), ...A.envoyees];
+        await CONFIGJEU.enregistrer(A.b); A.b = CONFIGJEU.actuelle; A.sale = false;
+        const n = await nettoyerImages(avant); A.envoyees = [];
+        A.msg = `Publié : tous les joueurs reçoivent ces réglages à leur prochaine visite.${n ? ` ${n} image${n > 1 ? "s" : ""} inutilisée${n > 1 ? "s" : ""} supprimée${n > 1 ? "s" : ""} du stockage.` : ""}`;
+      }
       catch(e){ A.erreur = "La publication a échoué. Vérifiez que votre compte est bien administrateur, et votre connexion."; }
       A.enCours = false; break;
     default: return;
@@ -1813,13 +1852,13 @@ function editeurDeck(){
   </div>`;
 }
 function ongletConfidents(){
-  return `<p>Chaque Leader a son <b>Confident</b>. Ses quêtes s’accomplissent en jouant des duels avec lui, une par rang. Au rang 10, sa carte de départ devient sa Persona éveillée ; au rang 11, sa forme ultime.</p>
+  return `<p>Chaque Leader a son <b>Confident</b>. Ses quêtes s’accomplissent en jouant des duels avec lui, une par rang. Sa Persona, présente dans son deck de départ, s’éveille au rang 10 et prend sa forme ultime au rang 11.</p>
     <div class="grille-conf">${Object.entries(LEADERS).map(([id, L]) => {
       const c = PROFIL.confident(id), q = c.quetes.find(x => x.active);
       return `<article class="conf"><header>${portrait(L, "")}
         <div><b>${esc(L.nom)}</b><br><span class="discret">${esc(L.vrai)}</span></div><span class="conf-rang">${c.rang}<small>/11</small></span></header>
         <div class="jauge"><i style="width:${Math.round(100 * c.rang / 11)}%"></i></div>
-        <p class="conf-carte">Carte de départ : <b>${esc(c.evo ? L.evos[c.evo - 1] : `Skill de départ (${L.el ? ELEMENTS[L.el].nom : "Navigation"})`)}</b></p>
+        <p class="conf-carte">Persona de départ : <b>${esc(c.evo ? L.evos[c.evo - 1] : L.persona)}</b></p>
         ${q ? `<p class="conf-quete"><span class="lbl">Quête du rang ${c.rang + 1}</span> ${esc(q.texte)} <b>${q.progres}/${q.but}</b>${q.recompense ? `<br><span class="conf-rec">Récompense : ${esc(q.recompense)}</span>` : ""}</p>
           <div class="jauge fine"><i style="width:${Math.round(100 * q.progres / q.but)}%"></i></div>` : `<p class="ok-txt">Confident au rang maximum !</p>`}
       </article>`;
@@ -1856,8 +1895,8 @@ function prepHTML(){
       <span class="aide">${c.deckId ? "Votre deck du Café Leblanc. Son Leader est utilisé." : "Un deck aléatoire, pour tester n’importe quel Leader."} Les decks se construisent au Café Leblanc.</span></div>` : "";
     return `<section class="bloc"><h2>${titre}</h2>${choixDeck}
       <div class="leaders">${Object.entries(LEADERS).map(([id, l]) => `<button type="button" class="leader-btn" data-act="leader" data-id="${k}:${id}" aria-pressed="${c.leader === id}">
-        ${portrait(l, "")}<b>${esc(l.nom)}</b><small>${esc(nomEl(l.el) || "Soutien")}</small></button>`).join("")}</div>
-      <p class="fiche-leader"><b>${esc(L.vrai)}</b> · ${chipEl(L.el)} · faiblesse ${chipEl(L.faiblesse)}<br>${txtCapa(L)}</p>
+        ${portrait(l, "")}<b>${esc(l.nom)}</b><small>${esc(nomEl(l.el) || "Soutien")} · ${esc(ARCANES[l.arcane] || "")}</small></button>`).join("")}</div>
+      <p class="fiche-leader"><b>${esc(L.vrai)}</b> · ${chipEl(L.el)} · Arcane ${esc(ARCANES[L.arcane] || "—")} · faiblesse ${chipEl(L.faiblesse)}<br>${txtCapa(L)}</p>
       ${k === 0 && c.deckId ? "" : `<div class="champ"><label for="rang${k}">Rang maximum des cartes apportées</label><output>${c.rangMax}</output>
         <input type="range" id="rang${k}" min="1" max="5" value="${c.rangMax}" data-champ="rangMax" data-j="${k}"></div>
       <div class="champ"><label for="part${k}">Cartes de l’élément du Leader dans son deck de marché</label><output>${Math.round(c.part*100)} %</output>
@@ -1903,7 +1942,8 @@ function reglesHTML(){
   return `<div class="voile"><div class="fenetre regles"><h2>Comment jouer</h2>
     <ol><li><b>Jouez vos cartes</b> en cliquant dessus (ou « Jouer toute ma main »). Elles rapportent des Yen, des dégâts et des PV.</li>
     <li><b>One More</b> : une carte déclenche son combo si une autre carte du même élément a été jouée ce tour. Les cartes Pur comptent comme n’importe quel élément.</li>
-    <li><b>Lien d’Arcane</b> : une Persona déclenche son lien si une autre Persona de la même Arcane a été jouée ce tour.</li>
+    <li><b>Votre Persona de départ</b> (Arsène, Carmen…) n’existe que dans le deck de départ de votre Leader. Elle évolue avec son Confident.</li>
+    <li><b>Lien d’Arcane</b> : une Persona déclenche son lien si une autre Persona de la même Arcane a été jouée ce tour, ou si votre Leader est de cette Arcane.</li>
     <li><b>All-Out Attack</b> : 3 cartes du même élément dans le tour donnent un bonus de dégâts.</li>
     <li><b>Achetez</b> au marché avec vos Yen. Le Trésor est toujours disponible pour 2 ¥.</li>
     <li><b>Fin du tour</b> : vos dégâts frappent l’adversaire, tout part à la défausse, vous piochez 5 cartes.</li></ol>
@@ -1956,7 +1996,7 @@ function loupeHTML(cid, dDirect){
   const d = dDirect || M.C[cid];
   const mots = [];
   if(d.combo) mots.push(["One More", `se déclenche si une autre carte ${nomEl(d.el) === "Pur" ? "élémentaire" : "de " + nomEl(d.el) + " (ou Pur)"} est jouée dans le même tour, avant ou après.`]);
-  if(d.lien) mots.push(["Lien d’Arcane", `se déclenche si une autre Persona ${ARCANES[d.arcane] || ""} (ou du Fou) est jouée dans le même tour.`]);
+  if(d.lien) mots.push(["Lien d’Arcane", `se déclenche si une autre Persona ${ARCANES[d.arcane] || ""} est jouée dans le même tour, ou si votre Leader est de l’Arcane ${ARCANES[d.arcane] || ""}.`]);
   if(d.sacrifice) mots.push(["Sacrifice", "après l’avoir jouée, vous pouvez la retirer définitivement de votre deck pour cet effet."]);
   const e = Object.assign({}, d.effet, d.combo || {});
   if(e.vision) mots.push(["Vision", "regardez les cartes du dessus de votre pioche et placez celles que vous voulez en dessous."]);
@@ -1983,7 +2023,7 @@ function bandeauHTML(i){
     <div class="portrait">${portrait(L, "")}
       <span><span class="qui">${esc(L.nom)}</span>${actif ? `<span class="son-tour">${moi ? "À vous" : "Joue"}</span>` : ""}<br><span class="sous">${esc(j.nom)}</span></span></div>
     <div class="pv-joueur"><div class="chiffre">${Math.max(0, j.pv)}<small>/ ${R.pv} PV</small></div><div class="jauge"><i style="width:${Math.max(0, Math.round(100*j.pv/R.pv))}%"></i></div></div>
-    <div class="infos-leader"><span>Élément ${chipEl(L.el)} · Faiblesse ${chipEl(L.faiblesse)}</span><span class="capa">${txtCapa(L)}</span></div>
+    <div class="infos-leader"><span>Élément ${chipEl(L.el)} · Arcane ${esc(ARCANES[L.arcane] || "—")} · Faiblesse ${chipEl(L.faiblesse)}</span><span class="capa">${txtCapa(L)}</span></div>
     <div class="compteurs">
       ${moi ? `<button type="button" class="res bouton" data-act="voir-deck">Mon deck</button>` : `<span class="res"><b>${j.main.length}</b>en main</span>`}
       <span class="res"><b>${j.deck.length}</b>pioche</span><span class="res"><b>${j.defausse.length}</b>défausse</span>
