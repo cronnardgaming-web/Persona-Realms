@@ -1,0 +1,543 @@
+{
+  "cartes": {
+    "modifiees": {
+      "anzu": {
+        "el": "ven",
+        "nom": "Anzu",
+        "cout": 4,
+        "kind": "persona",
+        "lien": {
+          "yen": 1
+        },
+        "rang": 2,
+        "combo": {
+          "deg": 1,
+          "yen": 1
+        },
+        "effet": {
+          "deg": 4,
+          "yen": 2
+        },
+        "image": "https://tojuxyrlqipsnxcwngzn.supabase.co/storage/v1/object/public/images/cartes/mwasbu1f-ggv1pq.webp",
+        "arcane": "hierophante",
+        "legendaire": false
+      },
+      "baal": {
+        "el": "ven",
+        "nom": "Baal",
+        "cout": 7,
+        "kind": "persona",
+        "lien": {
+          "yen": 1
+        },
+        "rang": 5,
+        "combo": {
+          "deg": 2,
+          "yen": 1
+        },
+        "effet": {
+          "deg": 6,
+          "yen": 3
+        },
+        "image": "https://tojuxyrlqipsnxcwngzn.supabase.co/storage/v1/object/public/images/cartes/mwaspkrr-sf2xv7.webp",
+        "arcane": "empereur",
+        "legendaire": true
+      },
+      "alice": {
+        "el": "mau",
+        "nom": "Alice",
+        "cout": 7,
+        "kind": "persona",
+        "lien": {
+          "yen": 1
+        },
+        "rang": 5,
+        "combo": {
+          "purge": 2
+        },
+        "effet": {
+          "pv": 3,
+          "deg": 8
+        },
+        "image": "https://tojuxyrlqipsnxcwngzn.supabase.co/storage/v1/object/public/images/cartes/mwagou7z-uh78ku.webp",
+        "arcane": "mort",
+        "legendaire": true
+      },
+      "angel": {
+        "el": "sac",
+        "nom": "Angel",
+        "cout": 3,
+        "kind": "persona",
+        "lien": {
+          "yen": 1
+        },
+        "rang": 1,
+        "combo": {
+          "pv": 3
+        },
+        "effet": {
+          "pv": 4,
+          "deg": 2
+        },
+        "image": "https://tojuxyrlqipsnxcwngzn.supabase.co/storage/v1/object/public/images/cartes/mwasaxs6-enzzt6.webp",
+        "arcane": "justice",
+        "legendaire": false
+      },
+      "ardha": {
+        "el": "pur",
+        "nom": "Ardha",
+        "cout": 7,
+        "kind": "persona",
+        "lien": {
+          "yen": 1
+        },
+        "rang": 5,
+        "combo": {
+          "deg": 4
+        },
+        "effet": {
+          "deg": 4,
+          "yen": 3
+        },
+        "image": "https://tojuxyrlqipsnxcwngzn.supabase.co/storage/v1/object/public/images/cartes/mwase01a-pr24rl.webp",
+        "arcane": "temperance",
+        "legendaire": true
+      },
+      "asura": {
+        "el": "nuc",
+        "nom": "Asura",
+        "cout": 6,
+        "kind": "persona",
+        "lien": {
+          "yen": 1
+        },
+        "rang": 4,
+        "combo": {
+          "deg": 2,
+          "parCombo": 1
+        },
+        "effet": {
+          "deg": 8
+        },
+        "image": "https://tojuxyrlqipsnxcwngzn.supabase.co/storage/v1/object/public/images/cartes/mwasl9ju-hrvois.webp",
+        "arcane": "soleil",
+        "legendaire": false
+      },
+      "attis": {
+        "el": "feu",
+        "nom": "Attis",
+        "cout": 7,
+        "kind": "persona",
+        "lien": {
+          "yen": 1
+        },
+        "rang": 5,
+        "combo": {
+          "deg": 4
+        },
+        "effet": {
+          "deg": 10
+        },
+        "image": "https://tojuxyrlqipsnxcwngzn.supabase.co/storage/v1/object/public/images/cartes/mwasp9jk-4aytbp.webp",
+        "arcane": "pendu",
+        "legendaire": true
+      },
+      "alilat": {
+        "el": "gla",
+        "nom": "Alilat",
+        "cout": 7,
+        "kind": "persona",
+        "lien": {
+          "yen": 1
+        },
+        "rang": 5,
+        "combo": {
+          "defausse": 1
+        },
+        "effet": {
+          "deg": 10
+        },
+        "image": "https://tojuxyrlqipsnxcwngzn.supabase.co/storage/v1/object/public/images/cartes/mwagp6dz-jucvt7.webp",
+        "arcane": "imperatrice",
+        "legendaire": true
+      },
+      "ananta": {
+        "el": "nuc",
+        "nom": "Ananta",
+        "cout": 5,
+        "kind": "persona",
+        "lien": {
+          "yen": 1
+        },
+        "rang": 3,
+        "combo": {
+          "deg": 2,
+          "parCombo": 1
+        },
+        "effet": {
+          "deg": 7
+        },
+        "image": "https://tojuxyrlqipsnxcwngzn.supabase.co/storage/v1/object/public/images/cartes/mwas9xd6-8cr1wd.webp",
+        "arcane": "conseiller",
+        "legendaire": false
+      },
+      "andras": {
+        "el": "gla",
+        "nom": "Andras",
+        "cout": 4,
+        "kind": "persona",
+        "lien": {
+          "yen": 1
+        },
+        "rang": 2,
+        "combo": {
+          "defausse": 1
+        },
+        "effet": {
+          "deg": 6
+        },
+        "image": "https://tojuxyrlqipsnxcwngzn.supabase.co/storage/v1/object/public/images/cartes/mwasa66y-7hnb9q.webp",
+        "arcane": "diable",
+        "legendaire": false
+      },
+      "anubis": {
+        "el": "pur",
+        "nom": "Anubis",
+        "cout": 4,
+        "kind": "persona",
+        "lien": {
+          "yen": 1
+        },
+        "rang": 2,
+        "combo": {
+          "deg": 3
+        },
+        "effet": {
+          "deg": 3,
+          "yen": 2
+        },
+        "image": "https://tojuxyrlqipsnxcwngzn.supabase.co/storage/v1/object/public/images/cartes/mwasb81o-sj868g.webp",
+        "arcane": "jugement",
+        "legendaire": false
+      },
+      "arsene": {
+        "el": "mau",
+        "nom": "Arsène",
+        "cout": 3,
+        "kind": "persona",
+        "lien": {
+          "yen": 1
+        },
+        "rang": 1,
+        "combo": {
+          "purge": 1
+        },
+        "effet": {
+          "pv": 1,
+          "deg": 4
+        },
+        "image": "https://tojuxyrlqipsnxcwngzn.supabase.co/storage/v1/object/public/images/cartes/mwasjchq-740r0a.webp",
+        "arcane": "fou",
+        "unique": true,
+        "reservee": true,
+        "legendaire": false
+      },
+      "athena": {
+        "el": "pur",
+        "nom": "Athena",
+        "cout": 5,
+        "kind": "persona",
+        "lien": {
+          "yen": 1
+        },
+        "rang": 3,
+        "combo": {
+          "deg": 3
+        },
+        "effet": {
+          "deg": 3,
+          "yen": 2
+        },
+        "image": "https://tojuxyrlqipsnxcwngzn.supabase.co/storage/v1/object/public/images/cartes/mwaso0a0-mbrwls.webp",
+        "arcane": "chariot",
+        "unique": true,
+        "legendaire": false
+      },
+      "abaddon": {
+        "el": "mau",
+        "nom": "Abaddon",
+        "cout": 6,
+        "kind": "persona",
+        "lien": {
+          "yen": 1
+        },
+        "rang": 4,
+        "combo": {
+          "purge": 2
+        },
+        "effet": {
+          "pv": 2,
+          "deg": 7
+        },
+        "image": "https://tojuxyrlqipsnxcwngzn.supabase.co/storage/v1/object/public/images/cartes/mwagnvr3-rfimbl.webp",
+        "arcane": "jugement",
+        "legendaire": false
+      },
+      "apsaras": {
+        "el": "gla",
+        "nom": "Apsaras",
+        "cout": 3,
+        "kind": "persona",
+        "lien": {
+          "yen": 1
+        },
+        "rang": 1,
+        "combo": {
+          "defausse": 1
+        },
+        "effet": {
+          "deg": 5
+        },
+        "image": "https://tojuxyrlqipsnxcwngzn.supabase.co/storage/v1/object/public/images/cartes/mwasc8oj-7fi1g9.webp",
+        "arcane": "pretresse",
+        "legendaire": false
+      },
+      "ariadne": {
+        "el": "pur",
+        "nom": "Ariadne",
+        "cout": 4,
+        "kind": "persona",
+        "lien": {
+          "yen": 1
+        },
+        "rang": 2,
+        "combo": {
+          "deg": 3
+        },
+        "effet": {
+          "deg": 3,
+          "yen": 2
+        },
+        "image": "https://tojuxyrlqipsnxcwngzn.supabase.co/storage/v1/object/public/images/cartes/mwasehr5-n3ckzq.webp",
+        "arcane": "fortune",
+        "unique": true,
+        "legendaire": false
+      },
+      "atavaka": {
+        "el": "phy",
+        "nom": "Atavaka",
+        "cout": 6,
+        "kind": "persona",
+        "lien": {
+          "yen": 1
+        },
+        "rang": 4,
+        "combo": {
+          "deg": 3
+        },
+        "effet": {
+          "deg": 8
+        },
+        "image": "https://tojuxyrlqipsnxcwngzn.supabase.co/storage/v1/object/public/images/cartes/mwasm2av-qaxll0.webp",
+        "arcane": "foi",
+        "legendaire": false,
+        "parPhysique": 1
+      },
+      "atropos": {
+        "el": "ele",
+        "nom": "Atropos",
+        "cout": 4,
+        "kind": "persona",
+        "lien": {
+          "yen": 1
+        },
+        "rang": 2,
+        "combo": {
+          "pioche": 1
+        },
+        "effet": {
+          "deg": 4
+        },
+        "image": "https://tojuxyrlqipsnxcwngzn.supabase.co/storage/v1/object/public/images/cartes/mwasoui4-78nzli.webp",
+        "arcane": "fortune",
+        "legendaire": false
+      },
+      "agathion": {
+        "el": "ele",
+        "nom": "Agathion",
+        "cout": 3,
+        "kind": "persona",
+        "lien": {
+          "yen": 1
+        },
+        "rang": 1,
+        "combo": {
+          "pioche": 1
+        },
+        "effet": {
+          "deg": 4
+        },
+        "image": "https://tojuxyrlqipsnxcwngzn.supabase.co/storage/v1/object/public/images/cartes/mwagoglm-bbq3s4.webp",
+        "arcane": "chariot",
+        "legendaire": false
+      },
+      "asterius": {
+        "el": "pur",
+        "nom": "Asterius",
+        "cout": 5,
+        "kind": "persona",
+        "lien": {
+          "yen": 1
+        },
+        "rang": 3,
+        "combo": {
+          "deg": 3
+        },
+        "effet": {
+          "deg": 3,
+          "yen": 2
+        },
+        "image": "https://tojuxyrlqipsnxcwngzn.supabase.co/storage/v1/object/public/images/cartes/mwaskr45-aam1n0.webp",
+        "arcane": "fortune",
+        "unique": true,
+        "legendaire": false
+      },
+      "baphomet": {
+        "el": "pur",
+        "nom": "Baphomet",
+        "cout": 5,
+        "kind": "persona",
+        "lien": {
+          "yen": 1
+        },
+        "rang": 3,
+        "combo": {
+          "deg": 3
+        },
+        "effet": {
+          "deg": 3,
+          "yen": 2
+        },
+        "image": "https://tojuxyrlqipsnxcwngzn.supabase.co/storage/v1/object/public/images/cartes/mwasqax5-nrn8w6.webp",
+        "arcane": "diable",
+        "legendaire": false
+      },
+      "arahabaki": {
+        "el": "psy",
+        "nom": "Arahabaki",
+        "cout": 4,
+        "kind": "persona",
+        "lien": {
+          "yen": 1
+        },
+        "rang": 2,
+        "combo": {
+          "deg": 2,
+          "vision": 1
+        },
+        "effet": {
+          "deg": 5,
+          "vision": 1
+        },
+        "image": "https://tojuxyrlqipsnxcwngzn.supabase.co/storage/v1/object/public/images/cartes/mwasd4be-iprmd1.webp",
+        "arcane": "ermite",
+        "legendaire": false
+      },
+      "archangel": {
+        "el": "sac",
+        "nom": "Archangel",
+        "cout": 3,
+        "kind": "persona",
+        "lien": {
+          "yen": 1
+        },
+        "rang": 1,
+        "combo": {
+          "pv": 3
+        },
+        "effet": {
+          "pv": 4,
+          "deg": 2
+        },
+        "image": "https://tojuxyrlqipsnxcwngzn.supabase.co/storage/v1/object/public/images/cartes/mwasddsr-s1qoij.webp",
+        "arcane": "justice",
+        "legendaire": false
+      },
+      "ara_mitama": {
+        "el": "nuc",
+        "nom": "Ara Mitama",
+        "cout": 4,
+        "kind": "persona",
+        "lien": {
+          "yen": 1
+        },
+        "rang": 2,
+        "combo": {
+          "deg": 1,
+          "parCombo": 1
+        },
+        "effet": {
+          "deg": 6
+        },
+        "image": "https://tojuxyrlqipsnxcwngzn.supabase.co/storage/v1/object/public/images/cartes/mwascotx-aczuxf.webp",
+        "arcane": "chariot",
+        "legendaire": false
+      },
+      "ame_no_uzume": {
+        "el": "pur",
+        "nom": "Ame-no-Uzume",
+        "cout": 3,
+        "kind": "persona",
+        "lien": {
+          "yen": 1
+        },
+        "rang": 1,
+        "combo": {
+          "deg": 2
+        },
+        "effet": {
+          "deg": 2,
+          "yen": 1
+        },
+        "image": "https://tojuxyrlqipsnxcwngzn.supabase.co/storage/v1/object/public/images/cartes/mwas9d5e-qu0t08.webp",
+        "arcane": "amants",
+        "legendaire": false
+      }
+    },
+    "supprimees": []
+  },
+  "leaders": {
+    "fox": {
+      "image": "https://tojuxyrlqipsnxcwngzn.supabase.co/storage/v1/object/public/images/leaders/mwagstai-ra9en5.webp"
+    },
+    "crow": {
+      "image": "https://tojuxyrlqipsnxcwngzn.supabase.co/storage/v1/object/public/images/leaders/mwagttop-elm71i.webp"
+    },
+    "mona": {
+      "image": "https://tojuxyrlqipsnxcwngzn.supabase.co/storage/v1/object/public/images/leaders/mwagsjds-dj4ay1.webp"
+    },
+    "noir": {
+      "image": "https://tojuxyrlqipsnxcwngzn.supabase.co/storage/v1/object/public/images/leaders/mwagtkm0-tla81d.webp"
+    },
+    "joker": {
+      "image": "https://tojuxyrlqipsnxcwngzn.supabase.co/storage/v1/object/public/images/leaders/mwagribb-x75wgi.webp"
+    },
+    "queen": {
+      "image": "https://tojuxyrlqipsnxcwngzn.supabase.co/storage/v1/object/public/images/leaders/mwagt1yp-t296rw.webp"
+    },
+    "skull": {
+      "image": "https://tojuxyrlqipsnxcwngzn.supabase.co/storage/v1/object/public/images/leaders/mwagrryz-kyjqi1.webp"
+    },
+    "oracle": {
+      "image": "https://tojuxyrlqipsnxcwngzn.supabase.co/storage/v1/object/public/images/leaders/mwagtbdl-7d9sh1.webp"
+    },
+    "violet": {
+      "image": "https://tojuxyrlqipsnxcwngzn.supabase.co/storage/v1/object/public/images/leaders/mwagu1f5-xjjlis.webp"
+    },
+    "panther": {
+      "image": "https://tojuxyrlqipsnxcwngzn.supabase.co/storage/v1/object/public/images/leaders/mwags7ls-9e0wmf.webp"
+    }
+  },
+  "regles": {},
+  "progression": {}
+}
