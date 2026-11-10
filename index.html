@@ -446,6 +446,79 @@ button.carte:not(:disabled):hover{transform:translateY(-3px)}
 .chargement{display:grid;place-items:center;min-height:60vh;font-family:var(--affiche);font-size:28px}
 @media (max-width: 800px){ .ecran-connexion{grid-template-columns:1fr} .ecran-connexion .mention{grid-column:1} }
 
+/* ---------- Images détourées sur les cartes et les portraits ---------- */
+.carte .art,.loupe-art{position:relative;overflow:hidden}
+.art-img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;object-position:center bottom;pointer-events:none}
+.carte .art .rang,.carte .art .cout,.loupe-art .rang{position:relative;z-index:1}
+.carte .art .cout{position:absolute}
+.carte .art:has(.art-img){height:72px}
+.loupe-art:has(.art-img){height:160px}
+.portrait-art{position:relative;overflow:hidden}
+.portrait-art img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;object-position:center bottom}
+.portrait-art.mini-portrait{width:30px;height:38px;font-size:16px}
+
+/* ============================================================
+   Administration
+   ============================================================ */
+.admin{max-width:1440px;margin:0 auto;padding:16px 18px 100px}
+.a-entete{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;margin:6px 0 10px}
+.a-entete h1{font-size:40px}
+.a-msg{background:var(--surface);border:3px solid var(--ok);padding:8px 12px;font-weight:600;margin-bottom:10px}
+.admin .erreur{margin-bottom:10px}
+.a-deux{display:grid;grid-template-columns:320px minmax(0,1fr);gap:14px;align-items:start}
+.a-liste{position:sticky;top:10px;max-height:calc(100vh - 140px);display:flex;flex-direction:column;padding:8px}
+.a-outils{display:flex;gap:6px;margin-bottom:6px}
+.a-outils input,.a-outils select{flex:1;min-width:0;font:inherit;font-size:14px;border:2px solid var(--ligne);background:var(--surface);color:var(--encre);padding:4px 6px}
+.a-items{list-style:none;margin:0;padding:0;overflow-y:auto}
+.a-items li button{display:grid;grid-template-columns:auto 1fr auto;gap:0 8px;align-items:center;width:100%;text-align:left;background:none;border:0;border-bottom:1px solid var(--fond-2);padding:5px 6px}
+.a-items li button small{grid-column:2/3;color:var(--encre-2);font-size:12px}
+.a-items li button .a-tag{grid-row:1/3;grid-column:3}
+.a-items li button .chip,.a-items li button .portrait-art{grid-row:1/3}
+.a-items li button.actif{background:var(--rouge);color:#fff}
+.a-items li button.actif small{color:#fff}
+.a-li-nom{font-weight:700}
+.a-tag{font-size:11px;font-weight:700;padding:1px 6px;border:1px solid currentColor}
+.a-tag.mod{color:#b07a00}
+.a-tag.nou{color:var(--ok)}
+.a-tag.sup{color:var(--rouge)}
+.a-vide{padding:10px;color:var(--encre-2)}
+.a-editeur{background:var(--surface);border:3px solid var(--ligne);padding:14px 16px}
+.a-tete-ed{display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between;margin-bottom:10px}
+.a-tete-ed h2{font-size:30px}
+.a-tete-ed h2 small{font-family:var(--texte);font-size:13px;color:var(--encre-2);margin-left:6px}
+.a-boutons{display:flex;gap:6px;flex-wrap:wrap}
+.a-grille{display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:16px;align-items:start}
+.a-apercu{position:sticky;top:10px;display:flex;flex-direction:column;gap:8px}
+.a-ligne{display:flex;flex-wrap:wrap;gap:10px 14px;margin-bottom:10px}
+.a-champ{display:flex;flex-direction:column;gap:3px;min-width:140px;flex:1}
+.a-lbl{font-weight:700;font-size:14px}
+.a-aide{font-size:12.5px;color:var(--encre-2);margin:0}
+.admin input[type=text],.admin input[type=number],.admin input[type=search],.admin select{font:inherit;font-size:15px;background:var(--surface);color:var(--encre);border:2px solid var(--ligne);padding:5px 7px;width:100%}
+.a-cases{display:flex;flex-wrap:wrap;gap:6px 18px;margin:4px 0 10px}
+.a-case{display:flex;align-items:center;gap:6px;font-weight:600;font-size:14px}
+.a-case input{width:18px;height:18px;accent-color:var(--rouge)}
+.a-bloc{border:2px solid var(--fond-2);margin:10px 0 0;padding:8px 12px 10px}
+.a-bloc legend{font-family:var(--affiche);font-size:19px;padding:0 6px}
+.a-effets{display:grid;grid-template-columns:repeat(auto-fill,minmax(110px,1fr));gap:6px 10px;margin:6px 0}
+.a-effets .a-champ{min-width:0}
+.a-regles{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:8px 16px;margin-top:6px}
+.a-image{display:flex;gap:12px;align-items:flex-start;margin-bottom:12px;padding:6px;border:2px dashed transparent}
+.a-image.survol{border-color:var(--rouge);background:var(--rouge-doux)}
+.a-image-apercu{width:140px;height:170px;flex:none;border:3px solid #000;position:relative;display:grid;place-items:center;font-size:13px;overflow:hidden}
+.a-image-apercu img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;object-position:center bottom}
+.a-image-actions{display:flex;flex-direction:column;gap:6px;align-items:flex-start}
+.btn.danger{background:var(--rouge);color:#fff;border-color:var(--rouge)}
+label.btn{display:inline-block;cursor:pointer}
+.a-table{border-collapse:collapse;margin-top:10px;min-width:min(640px,100%);background:var(--surface)}
+.a-table th,.a-table td{border:2px solid var(--fond-2);padding:6px 10px;text-align:left}
+.a-barre-pct{display:inline-block;width:120px;height:10px;border:2px solid var(--ligne);vertical-align:middle;margin-right:6px}
+.a-barre-pct i{display:block;height:100%;background:var(--rouge)}
+.a-barre{position:fixed;left:0;right:0;bottom:0;background:var(--encre);color:var(--fond);display:flex;gap:12px;justify-content:flex-end;align-items:center;flex-wrap:wrap;
+  padding:10px 20px calc(10px + env(safe-area-inset-bottom,0px));z-index:30;font-weight:700}
+.a-barre span{margin-right:auto}
+.a-barre .btn:not(.fort){background:transparent;color:var(--fond);border-color:var(--fond)}
+@media (max-width: 1100px){ .a-deux,.a-grille{grid-template-columns:1fr} .a-liste{position:static;max-height:360px} .a-apercu{position:static} }
+
 </style>
 </head>
 <body>
@@ -480,23 +553,30 @@ const LEADERS = {
   violet:{nom:"Violet", vrai:"Kasumi Yoshizawa", el:"sac", faiblesse:"mau", capa:{pv:2}, persona:"Cendrillon", evos:["Vanadis", "Ella"]}
 };
 
-// Carte de départ évoluée par les Confidents : la Persona du Leader remplace le skill de départ
-for(const [id, L] of Object.entries(LEADERS)){
-  const base = C["depart_" + (L.el || "aucun")];
-  [0, 1].forEach(n => {
-    const plus = n + 1;
-    C[`depart_${id}_evo${plus}`] = {nom: L.evos[n], kind:"persona", el:L.el, arcane:null, rang:0, cout:0, depart:true,
-      effet: L.el ? {deg: 2 + plus} : {deg: 1 + plus, yen:1},
-      combo: base.combo ? Object.fromEntries(Object.entries(base.combo).map(([k, v]) => [k, k === "parCombo" ? v : v + (["pioche","defausse","purge"].includes(k) ? 0 : plus)])) : null,
-      parPhysique: base.parPhysique, finition: base.finition};
-  });
+// Cartes dérivées des Leaders : carte de départ évoluée (Confidents) et carte de visite.
+// Régénérées quand l’Admin modifie un Leader.
+function genererDerivees(){
+  for(const id of Object.keys(C)) if(/^depart_.+_evo\d$|^visite_/.test(id)) delete C[id];
+  // Carte de départ évoluée par les Confidents : la Persona du Leader remplace le skill de départ
+  for(const [id, L] of Object.entries(LEADERS)){
+    const base = C["depart_" + (L.el || "aucun")];
+    [0, 1].forEach(n => {
+      const plus = n + 1;
+      C[`depart_${id}_evo${plus}`] = {nom: L.evos[n], kind:"persona", el:L.el, arcane:null, rang:0, cout:0, depart:true,
+        effet: L.el ? {deg: 2 + plus} : {deg: 1 + plus, yen:1},
+        combo: base.combo ? Object.fromEntries(Object.entries(base.combo).map(([k, v]) => [k, k === "parCombo" ? v : v + (["pioche","defausse","purge"].includes(k) ? 0 : plus)])) : null,
+        parPhysique: base.parPhysique, finition: base.finition};
+    });
+  }
+  // Carte de visite de chaque Leader : générée d’après son archétype
+  for(const [id, L] of Object.entries(LEADERS)){
+    const combo = L.el ? ({feu:{deg:4}, gla:{defausse:1, deg:2}, ele:{pioche:1, deg:2}, ven:{yen:2, deg:2}, psy:{vision:2, deg:3}, nuc:{parCombo:1, deg:2},
+      sac:{pv:5}, mau:{purge:1, deg:2}, pur:{deg:3, pv:2}})[L.el] : null;
+    C["visite_" + id] = {nom:`Carte de visite de ${L.nom}`, kind:"visite", el:L.el, rang:5, cout:0, effet: L.el ? {deg:8} : {deg:6, pioche:2}, combo, visite:true};
+  }
+
 }
-// Carte de visite de chaque Leader : générée d’après son archétype
-for(const [id, L] of Object.entries(LEADERS)){
-  const combo = L.el ? ({feu:{deg:4}, gla:{defausse:1, deg:2}, ele:{pioche:1, deg:2}, ven:{yen:2, deg:2}, psy:{vision:2, deg:3}, nuc:{parCombo:1, deg:2},
-    sac:{pv:5}, mau:{purge:1, deg:2}, pur:{deg:3, pv:2}})[L.el] : null;
-  C["visite_" + id] = {nom:`Carte de visite de ${L.nom}`, kind:"visite", el:L.el, rang:5, cout:0, effet: L.el ? {deg:8} : {deg:6, pioche:2}, combo, visite:true};
-}
+genererDerivees();
 
 /* ---------- Hasard reproductible ---------- */
 function alea(S){ let t = (S.rng = (S.rng + 0x6D2B79F5) | 0); t = Math.imul(t ^ (t >>> 15), t | 1); t ^= t + Math.imul(t ^ (t >>> 7), t | 61); return ((t ^ (t >>> 14)) >>> 0) / 4294967296; }
@@ -724,7 +804,7 @@ function finTour(S){
 }
 
 return {R, C, ELEMENTS, LEADERS, nouvellePartie, jouerCarte, acheter, sacrifier, finTour, choixEnCours, choisirDefausse, choisirPurge, choisirVision, cartesVision,
-  def, nomCarte, valeur, joueur, adversaire, deckMarche, alea, apercu, elementsJoues, compatibles};
+  def, nomCarte, valeur, joueur, adversaire, deckMarche, alea, apercu, elementsJoues, compatibles, genererDerivees};
 })();
 if(typeof module !== "undefined") module.exports = MOTEUR;
 
@@ -882,13 +962,43 @@ async function chargerConfiguration(cle){
   if(error) return null;
   return data ? data.valeur : null;
 }
+// Enregistre la configuration (réservé aux admins par les règles de la base)
+async function enregistrerConfiguration(cle, valeur){
+  if(etat.mode !== "supabase" || !etat.utilisateur) throw new Error("Connexion requise.");
+  const {error} = await sb.from("configuration").upsert({cle, valeur, maj: new Date().toISOString(), maj_par: etat.utilisateur.id});
+  if(error) throw error;
+}
+// Images : envoyées dans l’espace « images », lisibles par tous
+async function envoyerImage(blob, dossier){
+  if(etat.mode !== "supabase") throw new Error("Connexion requise.");
+  const ext = blob.type === "image/webp" ? "webp" : "png";
+  const chemin = `${dossier}/${Date.now().toString(36)}-${Math.random().toString(36).slice(2, 8)}.${ext}`;
+  const {error} = await sb.storage.from("images").upload(chemin, blob, {contentType: blob.type, upsert: false});
+  if(error) throw error;
+  return sb.storage.from("images").getPublicUrl(chemin).data.publicUrl;
+}
+async function supprimerImage(url){
+  if(!sb || !url) return;
+  const m = String(url).match(/\/object\/public\/images\/(.+)$/);
+  if(m) await sb.storage.from("images").remove([decodeURIComponent(m[1])]).catch(() => {});
+}
+// Statistiques des parties réelles (admins)
+async function statistiques(){
+  if(etat.mode !== "supabase") return null;
+  const [leaders, total] = await Promise.all([
+    sb.from("stats_leaders").select("*"),
+    sb.from("parties").select("id", {count:"exact", head:true})
+  ]);
+  if(leaders.error) throw leaders.error;
+  return {leaders: leaders.data || [], total: total.count || 0};
+}
 async function estAdmin(){
-  if(etat.mode !== "supabase") return false;
+  if(etat.mode !== "supabase" || !etat.utilisateur) return false;
   const {data, error} = await sb.rpc("est_admin");
   return !error && !!data;
 }
 
-return {init, etat, chargerProfil, enregistrerProfil, enregistrerPartie, profilLocal, connexion, deconnexion, surChangementCompte, connexionRequise, chargerConfiguration, estAdmin,
+return {init, etat, chargerProfil, enregistrerProfil, enregistrerPartie, profilLocal, connexion, deconnexion, surChangementCompte, connexionRequise, chargerConfiguration, enregistrerConfiguration, envoyerImage, supprimerImage, statistiques, estAdmin,
   get supabase(){ return sb; }};
 })();
 
@@ -900,21 +1010,24 @@ return {init, etat, chargerProfil, enregistrerProfil, enregistrerPartie, profilL
    ============================================================ */
 const PROFIL = (function(){
 const M = MOTEUR;
-const RANG_MAX = 20;
-const XP = {victoire:100, defaite:40}, FRAGMENTS = {victoire:60, defaite:25};
-const seuil = r => 150 + 30 * r;                       // XP pour passer du rang r au rang r + 1
+// Règles de progression (réglables dans l’Administration)
+const REGLES = {xpVictoire:100, xpDefaite:40, fragVictoire:60, fragDefaite:25, seuilBase:150, seuilPente:30, rangMax:20,
+  tailleDeck:30, plafondClasse:90, collectionInitiale:40};
+const XP = {get victoire(){ return REGLES.xpVictoire; }, get defaite(){ return REGLES.xpDefaite; }};
+const FRAGMENTS = {get victoire(){ return REGLES.fragVictoire; }, get defaite(){ return REGLES.fragDefaite; }};
+const seuil = r => REGLES.seuilBase + REGLES.seuilPente * r; // XP pour passer du rang r au rang r + 1
 const PALIERS = [[1, 1], [5, 2], [10, 3], [15, 4], [20, 5]]; // rang du joueur → rang de cartes accessible
 const rangCartesMax = r => PALIERS.filter(([rj]) => r >= rj).pop()[1];
 const prochainPalier = r => PALIERS.find(([rj]) => rj > r) || null;
 
-const etat = {mode:"local", pret:false, erreur:null};
+const etat = {mode:"local", pret:false, erreur:null, admin:false};
 let p = null, surChange = () => {};
 
 function collectionInitiale(){
   // 40 cartes de rang 1 différentes, tirées au hasard
   const ids = Object.keys(M.C).filter(id => { const c = M.C[id]; return !c.depart && !c.unique && !c.visite && c.kind !== "objet" && c.rang === 1; });
   for(let i = ids.length - 1; i > 0; i--){ const k = Math.floor(Math.random() * (i + 1)); [ids[i], ids[k]] = [ids[k], ids[i]]; }
-  const col = {}; for(const id of ids.slice(0, 40)) col[id] = 1;
+  const col = {}; for(const id of ids.slice(0, REGLES.collectionInitiale)) col[id] = 1;
   return col;
 }
 function nouveau(){
@@ -924,13 +1037,13 @@ function nouveau(){
 }
 
 /* ---------- Règles de deck ---------- */
-const TAILLE_DECK = 30, PLAFOND_CLASSE = 90;
+const tailleDeck = () => REGLES.tailleDeck;
 const cartesJouables = () => Object.keys(M.C).filter(id => { const c = M.C[id]; return !c.depart && !c.visite && c.kind !== "objet" && c.rang >= 1; });
 const maxCopies = id => M.C[id] && M.C[id].legendaire ? 1 : 2;
 const nbCartes = cartes => Object.values(cartes).reduce((n, v) => n + v, 0);
 function validerDeck(d){
   const erreurs = [], n = nbCartes(d.cartes);
-  if(n !== TAILLE_DECK) erreurs.push(n < TAILLE_DECK ? `Il manque ${TAILLE_DECK - n} carte${TAILLE_DECK - n > 1 ? "s" : ""} (${n}/${TAILLE_DECK}).` : `Il y a ${n - TAILLE_DECK} carte${n - TAILLE_DECK > 1 ? "s" : ""} de trop (${n}/${TAILLE_DECK}).`);
+  if(n !== tailleDeck()) erreurs.push(n < tailleDeck() ? `Il manque ${tailleDeck() - n} carte${tailleDeck() - n > 1 ? "s" : ""} (${n}/${tailleDeck()}).` : `Il y a ${n - tailleDeck()} carte${n - tailleDeck() > 1 ? "s" : ""} de trop (${n}/${tailleDeck()}).`);
   for(const [id, k] of Object.entries(d.cartes)){
     if(!M.C[id]){ erreurs.push(`Carte inconnue : ${id}.`); continue; }
     if(k > (p.collection[id] || 0)) erreurs.push(`${M.C[id].nom} : vous n’en possédez que ${p.collection[id] || 0}.`);
@@ -944,8 +1057,8 @@ function completerDeck(cartes, leader){
   const score = id => { const c = M.C[id]; return (c.el === el ? 10 : c.el === "pur" ? 3 : 0) + c.cout + c.rang * 0.5; };
   const dispo = Object.keys(p.collection).filter(id => M.C[id] && !M.C[id].depart).sort((a, b) => score(b) - score(a));
   for(const id of dispo){
-    while(nbCartes(res) < TAILLE_DECK && (res[id] || 0) < Math.min(p.collection[id], maxCopies(id))) res[id] = (res[id] || 0) + 1;
-    if(nbCartes(res) >= TAILLE_DECK) break;
+    while(nbCartes(res) < tailleDeck() && (res[id] || 0) < Math.min(p.collection[id], maxCopies(id))) res[id] = (res[id] || 0) + 1;
+    if(nbCartes(res) >= tailleDeck()) break;
   }
   return res;
 }
@@ -1020,12 +1133,15 @@ function premierDeck(){ if(p && !p.decks.length){ const d = {id:"d0", nom:"Deck 
 async function init(cb){
   surChange = cb || surChange;
   await STOCKAGE.init();
+  // Réglages de l’Administration, avant le profil (ils peuvent retirer des cartes)
+  if(typeof CONFIGJEU !== "undefined") await CONFIGJEU.charger();
   STOCKAGE.surChangementCompte(() => charger());
   await charger();
 }
 async function charger(){
   etat.mode = STOCKAGE.etat.mode;
   etat.erreur = STOCKAGE.etat.erreur;
+  etat.admin = false;
   p = null;
   if(STOCKAGE.connexionRequise()){ etat.pret = true; surChange(); return; }
   try {
@@ -1033,6 +1149,8 @@ async function charger(){
     p = completer(enregistre);
     premierDeck();
     if(!enregistre) enregistrer(); // premier passage sur ce compte : nouveau profil
+    // Droits d’administration : seulement les comptes inscrits dans la table admins
+    etat.admin = await STOCKAGE.estAdmin().catch(() => false);
   } catch(e){ etat.erreur = "Votre profil n’a pas pu être chargé. Vérifiez votre connexion, puis rechargez la page."; }
   etat.pret = true; surChange();
 }
@@ -1045,8 +1163,8 @@ function finPartie(r){
   const gagne = !!r.victoire, xp = gagne ? XP.victoire : XP.defaite, fragments = gagne ? FRAGMENTS.victoire : FRAGMENTS.defaite;
   const avant = {rang:p.rang, cartes:rangCartesMax(p.rang)};
   p.xp += xp;
-  while(p.rang < RANG_MAX && p.xp >= seuil(p.rang)){ p.xp -= seuil(p.rang); p.rang++; }
-  if(p.rang >= RANG_MAX) p.xp = 0;
+  while(p.rang < REGLES.rangMax && p.xp >= seuil(p.rang)){ p.xp -= seuil(p.rang); p.rang++; }
+  if(p.rang >= REGLES.rangMax) p.xp = 0;
   p.fragments += fragments;
   p.stats.parties++; p.stats[gagne ? "victoires" : "defaites"]++;
   p.leaderFavori = r.leader;
@@ -1066,9 +1184,418 @@ function finPartie(r){
 function renommer(nom){ p.nomCode = String(nom || "").trim().slice(0, 24); enregistrer(); }
 const tailleCollection = () => Object.values(p.collection).reduce((n, v) => n + v, 0);
 
-return {init, etat, get profil(){ return p; }, seuil, RANG_MAX, XP, FRAGMENTS, PALIERS, rangCartesMax, prochainPalier, finPartie, renommer, tailleCollection,
-  TAILLE_DECK, PLAFOND_CLASSE, maxCopies, nbCartes, validerDeck, completerDeck, creerDeck, majDeck, supprimerDeck, choisirDeckActif, deckActif,
+return {init, etat, get profil(){ return p; }, seuil, get RANG_MAX(){ return REGLES.rangMax; }, REGLES, XP, FRAGMENTS, PALIERS, rangCartesMax, prochainPalier, finPartie, renommer, tailleCollection,
+  get TAILLE_DECK(){ return REGLES.tailleDeck; }, get PLAFOND_CLASSE(){ return REGLES.plafondClasse; }, maxCopies, nbCartes, validerDeck, completerDeck, creerDeck, majDeck, supprimerDeck, choisirDeckActif, deckActif,
   quetes, confident, choisirRecompense, enregistrer};
+})();
+
+</script>
+<script>
+/* ============================================================
+   CONFIGURATION DU JEU — réglages de l’Administration
+   Une seule entrée « jeu » dans la table configuration de Supabase :
+   {cartes:{modifiees, supprimees}, leaders, regles, progression}.
+   Elle est appliquée au moteur au démarrage, pour tous les joueurs.
+   ============================================================ */
+const CONFIGJEU = (function(){
+const M = MOTEUR;
+const clone = o => JSON.parse(JSON.stringify(o));
+const derivee = id => /^depart_.+_evo\d$|^visite_/.test(id);
+const numeriques = o => Object.fromEntries(Object.entries(o).filter(([, v]) => typeof v === "number" || typeof v === "boolean"));
+// L’état d’origine, tel que généré à partir des données de P5R
+const ORIGINE = {
+  cartes: clone(Object.fromEntries(Object.entries(M.C).filter(([id]) => !derivee(id)))),
+  leaders: clone(M.LEADERS),
+  regles: clone(numeriques(M.R)),
+  progression: clone(PROFIL.REGLES)
+};
+const vide = () => ({cartes:{modifiees:{}, supprimees:[]}, leaders:{}, regles:{}, progression:{}});
+function normaliser(cfg){
+  const n = vide();
+  if(!cfg || typeof cfg !== "object") return n;
+  if(cfg.cartes){ n.cartes.modifiees = cfg.cartes.modifiees || {}; n.cartes.supprimees = cfg.cartes.supprimees || []; }
+  n.leaders = cfg.leaders || {}; n.regles = cfg.regles || {}; n.progression = cfg.progression || {};
+  return n;
+}
+let actuelle = vide(), majLe = null;
+function appliquer(cfg){
+  const c = normaliser(cfg);
+  for(const id of Object.keys(M.C)) delete M.C[id];
+  Object.assign(M.C, clone(ORIGINE.cartes));
+  for(const [id, carte] of Object.entries(c.cartes.modifiees)) M.C[id] = clone(carte);
+  for(const id of c.cartes.supprimees) delete M.C[id];
+  for(const id of Object.keys(M.LEADERS)) delete M.LEADERS[id];
+  Object.assign(M.LEADERS, clone(ORIGINE.leaders));
+  for(const [id, L] of Object.entries(c.leaders)) M.LEADERS[id] = Object.assign(M.LEADERS[id] || {}, clone(L));
+  M.genererDerivees();
+  Object.assign(M.R, clone(ORIGINE.regles), numeriques(c.regles));
+  Object.assign(PROFIL.REGLES, clone(ORIGINE.progression), numeriques(c.progression));
+  actuelle = c;
+}
+async function charger(){
+  try { const v = await STOCKAGE.chargerConfiguration("jeu"); if(v){ appliquer(v); majLe = v.maj || null; } }
+  catch(e){ /* on garde l’origine */ }
+}
+async function enregistrer(cfg){
+  const c = normaliser(cfg); c.maj = new Date().toISOString();
+  await STOCKAGE.enregistrerConfiguration("jeu", c);
+  appliquer(c); majLe = c.maj;
+}
+return {ORIGINE, appliquer, charger, enregistrer, normaliser, vide, derivee, get actuelle(){ return clone(actuelle); }, get majLe(){ return majLe; }};
+})();
+
+</script>
+<script>
+/* ============================================================
+   ADMINISTRATION — réservée aux comptes de la table admins
+   On travaille sur un brouillon ; « Publier » l’enregistre dans Supabase
+   et l’applique à tous les joueurs.
+   ============================================================ */
+const ADMIN = (function(){
+const M = MOTEUR, U = () => window.UI;
+const esc = s => U().esc(s);
+const clone = o => o == null ? o : JSON.parse(JSON.stringify(o));
+const ORI = CONFIGJEU.ORIGINE;
+const EFFETS = [["deg","Dégâts"],["yen","Yen"],["pv","PV"],["pioche","Pioche"],["defausse","Défausse adverse"],["purge","Purge"],["vision","Vision"]];
+const BLOCS = [["effet","Effet"],["combo","One More (combo d’élément)"],["lien","Lien d’Arcane (Personas)"],["sacrifice","Sacrifice"]];
+const TYPES = {persona:"Persona", skill:"Skill", objet:"Objet"};
+const REGLES_COMBAT = [
+  ["pv","PV de départ des joueurs"],["tailleMarche","Cartes visibles au marché"],["mainPremier","Cartes en main au départ (premier joueur)"],
+  ["mainDepart","Cartes en main au départ (second joueur)"],["pioche","Cartes piochées en fin de tour"],["prixTresor","Prix du Trésor (¥)"],
+  ["aoaCartes","All-Out Attack : cartes du même élément"],["aoaDegats","All-Out Attack : dégâts"],["faiblesse","Faiblesse du Leader : dégâts par carte"],
+  ["seuilVisite","Carte de visite : PV adverses en dessous desquels elle arrive"],["defausseMax","Défausse imposée : maximum par tour"]];
+const REGLES_PROG = [
+  ["xpVictoire","Expérience pour une victoire"],["xpDefaite","Expérience pour une défaite"],["fragVictoire","Fragments pour une victoire"],["fragDefaite","Fragments pour une défaite"],
+  ["seuilBase","Rang suivant : expérience de base"],["seuilPente","Rang suivant : expérience en plus par rang"],["rangMax","Rang maximum"],
+  ["tailleDeck","Cartes dans un deck de marché"],["plafondClasse","Mode Classé : somme des rangs maximum"],["collectionInitiale","Cartes de la collection de départ"]];
+
+const A = {onglet:"cartes", sel:null, selLeader:"joker", q:"", fType:"", fEl:"", fModif:"", b:null, sale:false, msg:null, erreur:null, enCours:false, stats:null, confirmer:null, envoiImage:false};
+
+function ouvrir(){ A.b = CONFIGJEU.actuelle; A.sale = false; A.msg = null; A.erreur = null; A.confirmer = null; }
+const peutQuitter = () => !A.sale;
+
+/* ---------- Lecture du brouillon ---------- */
+const supprimee = id => A.b.cartes.supprimees.includes(id);
+function carte(id){ if(supprimee(id)) return null; return A.b.cartes.modifiees[id] || ORI.cartes[id] || null; }
+const estModifiee = id => !!A.b.cartes.modifiees[id] && !!ORI.cartes[id];
+const estNouvelle = id => !!A.b.cartes.modifiees[id] && !ORI.cartes[id];
+function idsCartes(){
+  const ids = new Set([...Object.keys(ORI.cartes), ...Object.keys(A.b.cartes.modifiees)]);
+  return [...ids].filter(id => { const c = ORI.cartes[id] || A.b.cartes.modifiees[id]; return c && !c.depart; });
+}
+// Avant de modifier une carte d’origine, on en fait une copie dans le brouillon
+function carteEditable(id){ if(!A.b.cartes.modifiees[id]) A.b.cartes.modifiees[id] = clone(ORI.cartes[id]); A.sale = true; return A.b.cartes.modifiees[id]; }
+const leader = id => Object.assign(clone(ORI.leaders[id]), A.b.leaders[id] || {});
+function leaderEditable(id){ if(!A.b.leaders[id]) A.b.leaders[id] = {}; A.sale = true; return A.b.leaders[id]; }
+
+/* ---------- Petits champs ---------- */
+const opt = (v, l, cur) => `<option value="${esc(v)}" ${String(cur ?? "") === String(v) ? "selected" : ""}>${esc(l)}</option>`;
+const champ = (label, html, aide) => `<label class="a-champ"><span class="a-lbl">${esc(label)}</span>${html}${aide ? `<span class="a-aide">${esc(aide)}</span>` : ""}</label>`;
+const caseA = (chemin, label, val, aide) => `<label class="a-case"><input type="checkbox" data-a-f="${chemin}" data-t="b" ${val ? "checked" : ""}> <span>${esc(label)}</span>${aide ? ` <small class="a-aide">${esc(aide)}</small>` : ""}</label>`;
+const elementsOpts = (cur, aucun) => (aucun ? opt("", aucun, cur) : "") + U().ORDRE_EL.map(e => opt(e, M.ELEMENTS[e].nom, cur)).join("");
+function blocEffets(base, e, titre, aide){
+  e = e || {};
+  return `<fieldset class="a-bloc"><legend>${esc(titre)}</legend>${aide ? `<p class="a-aide">${esc(aide)}</p>` : ""}
+    <div class="a-effets">${EFFETS.map(([k, l]) => champ(l, `<input type="number" min="0" max="99" step="1" data-a-f="${base}.${k}" data-t="n" value="${e[k] || 0}">`)).join("")}</div>
+    ${caseA(`${base}.parCombo`, "+1 dégât par combo déclenché ce tour", e.parCombo)}</fieldset>`;
+}
+
+/* ---------- Onglet Cartes ---------- */
+function listeCartes(){
+  const q = A.q.trim().toLowerCase();
+  const ids = idsCartes().filter(id => {
+    const c = carte(id) || ORI.cartes[id];
+    if(A.fType && c.kind !== A.fType) return false;
+    if(A.fEl && (c.el || "") !== (A.fEl === "aucun" ? "" : A.fEl)) return false;
+    if(A.fModif === "modifiees" && !estModifiee(id)) return false;
+    if(A.fModif === "nouvelles" && !estNouvelle(id)) return false;
+    if(A.fModif === "supprimees" && !supprimee(id)) return false;
+    return !q || c.nom.toLowerCase().includes(q) || id.includes(q);
+  }).sort((a, b) => (carte(a) || ORI.cartes[a]).nom.localeCompare((carte(b) || ORI.cartes[b]).nom));
+  return ids.map(id => {
+    const c = carte(id) || ORI.cartes[id];
+    const tag = supprimee(id) ? `<span class="a-tag sup">supprimée</span>` : estNouvelle(id) ? `<span class="a-tag nou">nouvelle</span>` : estModifiee(id) ? `<span class="a-tag mod">modifiée</span>` : "";
+    return `<li><button type="button" class="${A.sel === id ? "actif" : ""}" data-act="a-sel" data-id="${esc(id)}">
+      <span class="chip ${c.el ? "el-" + c.el : c.kind === "objet" ? "el-objet" : "el-aucun"}">${c.el ? esc(M.ELEMENTS[c.el].court) : c.kind === "objet" ? "Obj" : "—"}</span>
+      <span class="a-li-nom">${esc(c.nom)}</span><small>${TYPES[c.kind] || c.kind} · ${c.rang ? "★".repeat(c.rang) : "départ"} · ${c.cout || 0} ¥</small>${tag}</button></li>`;
+  }).join("") || `<li class="a-vide">Aucune carte.</li>`;
+}
+function editeurCarte(id){
+  if(supprimee(id)) return `<div class="a-editeur"><h2>${esc((ORI.cartes[id] || {}).nom || id)}</h2><p>Cette carte est supprimée : elle n’apparaîtra plus dans le jeu après publication.</p>
+    <button type="button" class="btn" data-act="a-restaurer" data-id="${esc(id)}">Restaurer la carte</button></div>`;
+  const c = carte(id), base = `cartes.${id}`;
+  return `<div class="a-editeur">
+    <div class="a-tete-ed"><h2>${esc(c.nom)} <small>${esc(id)}</small></h2>
+      <div class="a-boutons">${estModifiee(id) ? `<button type="button" class="btn petit" data-act="a-origine" data-id="${esc(id)}">Revenir à l’origine</button>` : ""}
+        <button type="button" class="btn petit" data-act="a-dupliquer" data-id="${esc(id)}">Dupliquer</button>
+        ${A.confirmer === id ? `<button type="button" class="btn petit danger" data-act="a-supprimer" data-id="${esc(id)}">Confirmer la suppression</button><button type="button" class="btn petit" data-act="a-annuler-sup">Garder</button>`
+          : `<button type="button" class="btn petit" data-act="a-demander-sup" data-id="${esc(id)}">Supprimer</button>`}</div></div>
+    <div class="a-grille">
+      <div class="a-col">
+        ${zoneImage(`${base}.image`, c.image, c.el)}
+        <div class="a-ligne">
+          ${champ("Nom", `<input type="text" data-a-f="${base}.nom" value="${esc(c.nom)}">`)}
+          ${champ("Type", `<select data-a-f="${base}.kind">${Object.entries(TYPES).map(([k, l]) => opt(k, l, c.kind)).join("")}</select>`)}
+        </div>
+        <div class="a-ligne">
+          ${champ("Élément", `<select data-a-f="${base}.el" data-t="el">${elementsOpts(c.el || "", "Aucun")}</select>`)}
+          ${c.kind === "persona" ? champ("Arcane", `<select data-a-f="${base}.arcane">${Object.entries(U().ARCANES).map(([k, l]) => opt(k, l, c.arcane)).join("")}</select>`) : ""}
+          ${champ("Rang", `<select data-a-f="${base}.rang" data-t="n">${[1,2,3,4,5].map(r => opt(r, "★".repeat(r), c.rang)).join("")}</select>`)}
+          ${champ("Coût (¥)", `<input type="number" min="0" max="20" data-a-f="${base}.cout" data-t="n" value="${c.cout || 0}">`)}
+        </div>
+        <div class="a-cases">
+          ${caseA(`${base}.legendaire`, "Légendaire", c.legendaire, "1 exemplaire par deck")}
+          ${caseA(`${base}.unique`, "Unique", c.unique, "jamais en récompense ni au marché")}
+          ${caseA(`${base}.finition`, "Finition", c.finition, "dégâts doublés sous 20 PV adverses")}
+          ${caseA(`${base}.parPhysique`, "Bonus Physique", c.parPhysique, "+1 dégât par autre carte Physique")}
+        </div>
+        ${blocEffets(`${base}.effet`, c.effet, "Effet", "Ce que la carte donne quand on la joue.")}
+        ${blocEffets(`${base}.combo`, c.combo, "One More", "Se déclenche si une autre carte du même élément (ou Pur) est jouée dans le tour. Tout à 0 = pas de combo.")}
+        ${c.kind === "persona" ? blocEffets(`${base}.lien`, c.lien, "Lien d’Arcane", "Se déclenche si une autre Persona de la même Arcane est jouée dans le tour.") : ""}
+        ${blocEffets(`${base}.sacrifice`, c.sacrifice, "Sacrifice", "Effet obtenu en retirant la carte du deck après l’avoir jouée. Tout à 0 = pas de sacrifice.")}
+      </div>
+      <aside class="a-apercu"><p class="a-aide">Aperçu</p><div class="a-apercu-carte">${U().carteJeu({id, uid:"apercu"}, {def:c})}</div>
+        <div class="panneau a-apercu-loupe">${U().loupeHTML(id, c)}</div></aside>
+    </div></div>`;
+}
+function ongletCartes(){
+  return `<div class="a-deux">
+    <div class="a-liste panneau">
+      <div class="a-outils"><input type="search" id="a-q" placeholder="Rechercher" value="${esc(A.q)}" data-a-filtre="q" aria-label="Rechercher une carte">
+        <button type="button" class="btn petit" data-act="a-nouvelle">Nouvelle carte</button></div>
+      <div class="a-outils">
+        <select data-a-filtre="fType" aria-label="Type">${opt("", "Tous les types", A.fType)}${Object.entries(TYPES).map(([k, l]) => opt(k, l + "s", A.fType)).join("")}</select>
+        <select data-a-filtre="fEl" aria-label="Élément">${opt("", "Tous les éléments", A.fEl)}${opt("aucun", "Sans élément", A.fEl)}${U().ORDRE_EL.map(e => opt(e, M.ELEMENTS[e].nom, A.fEl)).join("")}</select>
+        <select data-a-filtre="fModif" aria-label="État">${[["","Toutes"],["modifiees","Modifiées"],["nouvelles","Nouvelles"],["supprimees","Supprimées"]].map(([k, l]) => opt(k, l, A.fModif)).join("")}</select>
+      </div>
+      <ul class="a-items">${listeCartes()}</ul>
+    </div>
+    <div class="a-zone">${A.sel && (carte(A.sel) || supprimee(A.sel)) ? editeurCarte(A.sel) : `<div class="a-editeur"><p>Choisissez une carte dans la liste, ou créez-en une nouvelle.</p></div>`}</div>
+  </div>`;
+}
+
+/* ---------- Image (détourée, transparence conservée) ---------- */
+function zoneImage(chemin, url, el){
+  return `<div class="a-image" data-depot="${chemin}">
+    <div class="a-image-apercu ${el ? "el-" + el : "el-aucun"}">${url ? `<img src="${esc(url)}" alt="">` : `<span>Aucune image</span>`}</div>
+    <div class="a-image-actions">
+      <label class="btn petit">${A.envoiImage === chemin ? "Envoi…" : url ? "Changer l’image" : "Ajouter une image"}<input type="file" accept="image/png,image/webp,image/*" data-a-image="${chemin}" hidden></label>
+      ${url ? `<button type="button" class="btn petit" data-act="a-retirer-image" data-id="${chemin}">Retirer</button>` : ""}
+      <span class="a-aide">PNG ou WebP détouré, fond transparent. Vous pouvez aussi glisser l’image ici, ou la coller avec Ctrl+V.</span>
+    </div></div>`;
+}
+const imageDe = dt => { if(!dt) return null; for(const it of Array.from(dt.items || [])) if(it.kind === "file" && it.type.startsWith("image/")) return it.getAsFile(); for(const f of Array.from(dt.files || [])) if(f.type.startsWith("image/")) return f; return null; };
+// Redimensionne (600 px au plus) en gardant la transparence, puis envoie dans Supabase
+async function traiterImage(fichier, chemin){
+  if(!fichier || !fichier.type.startsWith("image/")){ A.erreur = "Ce fichier n’est pas une image."; U().render(); return; }
+  A.envoiImage = chemin; A.erreur = null; U().render();
+  try {
+    const url = URL.createObjectURL(fichier);
+    const img = await new Promise((ok, ko) => { const i = new Image(); i.onload = () => ok(i); i.onerror = ko; i.src = url; });
+    const k = Math.min(1, 600 / Math.max(img.naturalWidth, img.naturalHeight));
+    const cv = document.createElement("canvas"); cv.width = Math.round(img.naturalWidth * k); cv.height = Math.round(img.naturalHeight * k);
+    cv.getContext("2d").drawImage(img, 0, 0, cv.width, cv.height);
+    URL.revokeObjectURL(url);
+    let blob = await new Promise(r => cv.toBlob(r, "image/webp", 0.9));
+    if(!blob || blob.type !== "image/webp") blob = await new Promise(r => cv.toBlob(r, "image/png"));
+    const [table] = chemin.split(".");
+    const lien = await STOCKAGE.envoyerImage(blob, table === "leaders" ? "leaders" : "cartes");
+    ecrire(chemin, lien);
+    A.msg = "Image envoyée. Pensez à publier.";
+  } catch(e){ A.erreur = "L’envoi de l’image a échoué. Vérifiez votre connexion, puis réessayez."; }
+  A.envoiImage = false; U().render();
+}
+
+/* ---------- Onglet Leaders ---------- */
+function ongletLeaders(){
+  const id = A.selLeader, L = leader(id), base = `leaders.${id}`;
+  return `<div class="a-deux">
+    <div class="a-liste panneau"><ul class="a-items">${Object.keys(ORI.leaders).map(k => { const l = leader(k);
+      return `<li><button type="button" class="${k === id ? "actif" : ""}" data-act="a-sel-leader" data-id="${k}">${U().portrait(l, "mini-portrait")}<span class="a-li-nom">${esc(l.nom)}</span><small>${esc(l.el ? M.ELEMENTS[l.el].nom : "Soutien")}</small>${A.b.leaders[k] ? `<span class="a-tag mod">modifié</span>` : ""}</button></li>`; }).join("")}</ul></div>
+    <div class="a-zone"><div class="a-editeur">
+      <div class="a-tete-ed"><h2>${esc(L.nom)} <small>${esc(id)}</small></h2>${A.b.leaders[id] ? `<button type="button" class="btn petit" data-act="a-leader-origine" data-id="${id}">Revenir à l’origine</button>` : ""}</div>
+      ${zoneImage(`${base}.image`, L.image, L.el)}
+      <div class="a-ligne">
+        ${champ("Nom de code", `<input type="text" data-a-f="${base}.nom" value="${esc(L.nom)}">`)}
+        ${champ("Vrai nom", `<input type="text" data-a-f="${base}.vrai" value="${esc(L.vrai)}">`)}
+      </div>
+      <div class="a-ligne">
+        ${champ("Élément", `<select data-a-f="${base}.el" data-t="el">${elementsOpts(L.el || "", "Aucun (soutien)")}</select>`, "Son skill de départ et sa capacité dépendent de cet élément.")}
+        ${champ("Faiblesse", `<select data-a-f="${base}.faiblesse" data-t="el">${elementsOpts(L.faiblesse || "", "Aucune")}</select>`)}
+      </div>
+      <div class="a-cases">${caseA(`${base}.toutCombo`, "Capacité déclenchée par n’importe quel One More", L.toutCombo, "comme Oracle")}</div>
+      ${blocEffets(`${base}.capa`, L.capa, "Capacité", "Bonus obtenu au premier One More de son élément dans le tour.")}
+      <div class="a-ligne">
+        ${champ("Persona de départ", `<input type="text" data-a-f="${base}.persona" value="${esc(L.persona)}">`)}
+        ${champ("Évolution (Confident rang 10)", `<input type="text" data-a-f="${base}.evos.0" value="${esc((L.evos || [])[0])}">`)}
+        ${champ("Évolution (Confident rang 11)", `<input type="text" data-a-f="${base}.evos.1" value="${esc((L.evos || [])[1])}">`)}
+      </div>
+    </div></div></div>`;
+}
+
+/* ---------- Onglet Règles ---------- */
+function ongletRegles(){
+  const r = Object.assign({}, ORI.regles, A.b.regles), p = Object.assign({}, ORI.progression, A.b.progression);
+  const ligne = (table, k, l, v, o) => champ(l, `<input type="number" step="1" min="0" data-a-f="${table}.${k}" data-t="n" value="${v}">`, v !== o ? `Origine : ${o}` : "");
+  return `<fieldset class="a-bloc"><legend>Combat</legend><div class="a-regles">${REGLES_COMBAT.map(([k, l]) => ligne("regles", k, l, r[k], ORI.regles[k])).join("")}</div></fieldset>
+    <fieldset class="a-bloc"><legend>Progression</legend><div class="a-regles">${REGLES_PROG.map(([k, l]) => ligne("progression", k, l, p[k], ORI.progression[k])).join("")}</div>
+    <p class="a-aide">La collection de départ ne concerne que les nouveaux comptes.</p></fieldset>`;
+}
+
+/* ---------- Onglet Statistiques ---------- */
+function ongletStats(){
+  const s = A.stats;
+  return `<p>Le taux de victoire réel de chaque Leader, calculé sur les duels joués par tous les joueurs connectés.</p>
+    <button type="button" class="btn" data-act="a-stats" ${A.enCours ? "disabled" : ""}>${s ? "Actualiser" : "Charger les statistiques"}</button>
+    ${s ? `<p>${s.total} partie${s.total > 1 ? "s" : ""} enregistrée${s.total > 1 ? "s" : ""}.</p>
+      ${s.leaders.length ? `<table class="a-table"><thead><tr><th scope="col">Leader</th><th scope="col">Parties</th><th scope="col">Victoires</th><th scope="col">Tours en moyenne</th></tr></thead>
+        <tbody>${s.leaders.sort((a, b) => b.parties - a.parties).map(l => `<tr><td>${esc((M.LEADERS[l.leader] || {}).nom || l.leader)}</td><td>${l.parties}</td>
+          <td><span class="a-barre-pct"><i style="width:${l.pourcentage_victoires}%"></i></span> ${String(l.pourcentage_victoires).replace(".", ",")} %</td><td>${String(l.tours_moyens).replace(".", ",")}</td></tr>`).join("")}</tbody></table>`
+        : `<p class="discret">Aucune partie pour l’instant.</p>`}` : ""}`;
+}
+
+/* ---------- Onglet Sauvegarde ---------- */
+function ongletSauvegarde(){
+  const nb = Object.keys(A.b.cartes.modifiees).length, sup = A.b.cartes.supprimees.length;
+  return `<fieldset class="a-bloc"><legend>Ce qui est publié</legend>
+      <p>${nb} carte${nb > 1 ? "s" : ""} modifiée${nb > 1 ? "s" : ""} ou ajoutée${nb > 1 ? "s" : ""}, ${sup} supprimée${sup > 1 ? "s" : ""}, ${Object.keys(A.b.leaders).length} Leader(s) modifié(s), ${Object.keys(A.b.regles).length + Object.keys(A.b.progression).length} règle(s) modifiée(s).
+      ${CONFIGJEU.majLe ? `Dernière publication : ${new Date(CONFIGJEU.majLe).toLocaleString("fr-FR", {dateStyle:"long", timeStyle:"short"})}.` : "Rien n’a encore été publié."}</p></fieldset>
+    <fieldset class="a-bloc"><legend>Exporter</legend><p>Télécharge toute la configuration (le brouillon en cours) dans un fichier JSON, pour la garder ou la transférer.</p>
+      <button type="button" class="btn" data-act="a-exporter">Exporter la configuration</button></fieldset>
+    <fieldset class="a-bloc"><legend>Importer</legend><p>Remplace le brouillon par le contenu d’un fichier exporté. Rien n’est appliqué avant « Publier ».</p>
+      <label class="btn">Choisir un fichier JSON<input type="file" accept="application/json,.json" data-a-import hidden></label></fieldset>
+    <fieldset class="a-bloc"><legend>Revenir aux réglages d’origine</legend><p>Annule toutes les modifications : cartes, Leaders et règles reviennent à leur version générée à partir de P5R. Les images envoyées ne sont pas supprimées du stockage.</p>
+      ${A.confirmer === "tout" ? `<button type="button" class="btn danger" data-act="a-reinit-ok">Oui, tout remettre à l’origine</button> <button type="button" class="btn" data-act="a-annuler-sup">Annuler</button>`
+        : `<button type="button" class="btn" data-act="a-reinit">Revenir à l’origine</button>`}</fieldset>`;
+}
+
+/* ---------- Page ---------- */
+const ONGLETS = [["cartes","Cartes"],["leaders","Leaders"],["regles","Règles"],["stats","Statistiques"],["sauvegarde","Sauvegarde"]];
+function html(){
+  if(!A.b) ouvrir();
+  const corps = A.onglet === "leaders" ? ongletLeaders() : A.onglet === "regles" ? ongletRegles() : A.onglet === "stats" ? ongletStats() : A.onglet === "sauvegarde" ? ongletSauvegarde() : ongletCartes();
+  return `<div class="admin">
+    <div class="barre-nav"><button type="button" class="lien-btn" data-act="a-accueil">← Accueil</button></div>
+    <div class="a-entete"><h1>Administration</h1><span class="discret">Vos modifications s’appliquent à tous les joueurs une fois publiées.</span></div>
+    <nav class="onglets" aria-label="Sections de l’Administration">${ONGLETS.map(([k, l]) => `<button type="button" data-act="a-onglet" data-id="${k}" aria-current="${A.onglet === k ? "page" : "false"}">${l}</button>`).join("")}</nav>
+    ${A.erreur ? `<div class="erreur" role="alert">${esc(A.erreur)}</div>` : A.msg ? `<div class="a-msg" role="status">${esc(A.msg)}</div>` : ""}
+    ${corps}
+    <div class="a-barre" ${A.sale ? "" : "hidden"}><span>Modifications non publiées.</span>
+      <button type="button" class="btn" data-act="a-annuler" ${A.enCours ? "disabled" : ""}>Annuler</button>
+      <button type="button" class="btn fort" data-act="a-publier" ${A.enCours ? "disabled" : ""}>${A.enCours ? "Publication…" : "Publier"}</button></div>
+  </div>`;
+}
+
+/* ---------- Écriture dans le brouillon ---------- */
+function ecrire(chemin, v){
+  const ks = chemin.split("."), table = ks.shift();
+  let o;
+  if(table === "cartes") o = carteEditable(ks.shift());
+  else if(table === "leaders"){ const id = ks.shift(); o = leaderEditable(id); if(ks[0] === "capa" && !o.capa) o.capa = clone(leader(id).capa || {}); if(ks[0] === "evos" && !o.evos) o.evos = clone(leader(id).evos || ["", ""]); }
+  else { o = A.b[table]; A.sale = true; }
+  const dernier = ks.pop();
+  for(const k of ks){ if(o[k] == null || typeof o[k] !== "object") o[k] = {}; o = o[k]; }
+  if(v === undefined || v === "" || v === 0 && ["deg","yen","pv","pioche","defausse","purge","vision"].includes(dernier) || v === false) delete o[dernier]; else o[dernier] = v;
+  // Un bloc d’effets vide disparaît (pas de combo, pas de sacrifice…)
+  if(table === "cartes" && ks.length === 1 && ["combo","lien","sacrifice"].includes(ks[0])){
+    const c = A.b.cartes.modifiees[chemin.split(".")[1]];
+    if(c[ks[0]] && !Object.keys(c[ks[0]]).length) c[ks[0]] = ks[0] === "combo" ? null : undefined;
+  }
+  A.sale = true;
+}
+// Mise à jour de l’aperçu sans redessiner la page (on garde le focus)
+function majApercu(){
+  if(A.onglet !== "cartes" || !A.sel) return;
+  const c = carte(A.sel); if(!c) return;
+  const ap = document.querySelector(".a-apercu-carte"), lo = document.querySelector(".a-apercu-loupe");
+  if(ap) ap.innerHTML = U().carteJeu({id:A.sel, uid:"apercu"}, {def:c});
+  if(lo) lo.innerHTML = U().loupeHTML(A.sel, c);
+  const barre = document.querySelector(".a-barre"); if(barre) barre.hidden = false;
+}
+function saisie(t, evt){
+  if(t.dataset.aFiltre){ A[t.dataset.aFiltre] = t.value; if(evt === "input" || t.tagName === "SELECT") rafraichirListe(); return; }
+  if(t.dataset.aImage && evt === "change"){ traiterImage(t.files[0], t.dataset.aImage); return; }
+  if(t.hasAttribute("data-a-import") && evt === "change"){ importer(t.files[0]); return; }
+  const chemin = t.dataset.aF; if(!chemin) return;
+  const type = t.dataset.t;
+  if(evt === "input" && (t.tagName === "SELECT" || type === "b")) return;
+  let v = type === "n" ? (t.value === "" ? 0 : Math.max(0, Math.round(+t.value))) : type === "b" ? t.checked : t.value;
+  if(type === "el") v = t.value || null;
+  ecrire(chemin, v);
+  if(evt === "input") majApercu();
+  else if(t.tagName === "SELECT" || type === "b") U().render();
+}
+function rafraichirListe(){ const ul = document.querySelector(".a-items"); if(ul && A.onglet === "cartes") ul.innerHTML = listeCartes(); }
+
+function nouvelId(base){ let id = base, n = 2; while(ORI.cartes[id] || A.b.cartes.modifiees[id]) id = `${base}_${n++}`; return id; }
+function exporter(){
+  const blob = new Blob([JSON.stringify(A.b, null, 2)], {type:"application/json"});
+  const a = document.createElement("a"); a.href = URL.createObjectURL(blob); a.download = "persona5-configuration.json"; document.body.appendChild(a); a.click(); a.remove();
+  setTimeout(() => URL.revokeObjectURL(a.href), 2000);
+}
+async function importer(f){
+  if(!f) return;
+  try { const v = JSON.parse(await f.text()); if(!v || typeof v !== "object" || !v.cartes) throw 0; A.b = CONFIGJEU.normaliser(v); A.sale = true; A.msg = "Configuration importée. Vérifiez-la, puis publiez."; A.erreur = null; }
+  catch(e){ A.erreur = "Ce fichier n’est pas une configuration valide."; }
+  U().render();
+}
+
+async function clic(act, id){
+  A.msg = null; A.erreur = null;
+  switch(act){
+    case "a-accueil":
+      if(A.sale && !confirm("Vos modifications ne sont pas publiées. Quitter quand même ?")) return;
+      A.b = null; U().aller("accueil"); return;
+    case "a-onglet": A.onglet = id; A.confirmer = null; break;
+    case "a-sel": A.sel = id; A.confirmer = null; break;
+    case "a-sel-leader": A.selLeader = id; break;
+    case "a-nouvelle": { const nid = nouvelId("carte_perso"); A.b.cartes.modifiees[nid] = {nom:"Nouvelle carte", kind:"skill", el:"feu", rang:1, cout:2, effet:{deg:3}, combo:{deg:2}}; A.sel = nid; A.sale = true; A.fModif = ""; A.q = ""; break; }
+    case "a-dupliquer": { const c = clone(carte(id)); c.nom += " (copie)"; const nid = nouvelId(id + "_copie"); A.b.cartes.modifiees[nid] = c; A.sel = nid; A.sale = true; break; }
+    case "a-origine": delete A.b.cartes.modifiees[id]; A.sale = true; break;
+    case "a-demander-sup": A.confirmer = id; break;
+    case "a-annuler-sup": A.confirmer = null; break;
+    case "a-supprimer":
+      if(ORI.cartes[id]){ if(!A.b.cartes.supprimees.includes(id)) A.b.cartes.supprimees.push(id); delete A.b.cartes.modifiees[id]; }
+      else { delete A.b.cartes.modifiees[id]; A.sel = null; }
+      A.confirmer = null; A.sale = true; break;
+    case "a-restaurer": A.b.cartes.supprimees = A.b.cartes.supprimees.filter(x => x !== id); A.sale = true; break;
+    case "a-retirer-image": ecrire(id, undefined); break;
+    case "a-leader-origine": delete A.b.leaders[id]; A.sale = true; break;
+    case "a-stats":
+      A.enCours = true; U().render();
+      try { A.stats = await STOCKAGE.statistiques(); } catch(e){ A.erreur = "Les statistiques n’ont pas pu être chargées."; }
+      A.enCours = false; break;
+    case "a-exporter": exporter(); return;
+    case "a-reinit": A.confirmer = "tout"; break;
+    case "a-reinit-ok": A.b = CONFIGJEU.vide(); A.confirmer = null; A.sale = true; A.msg = "Réglages d’origine chargés. Publiez pour les appliquer."; break;
+    case "a-annuler": ouvrir(); A.msg = "Modifications annulées."; break;
+    case "a-publier":
+      A.enCours = true; U().render();
+      try { await CONFIGJEU.enregistrer(A.b); A.b = CONFIGJEU.actuelle; A.sale = false; A.msg = "Publié : tous les joueurs reçoivent ces réglages à leur prochaine visite."; }
+      catch(e){ A.erreur = "La publication a échoué. Vérifiez que votre compte est bien administrateur, et votre connexion."; }
+      A.enCours = false; break;
+    default: return;
+  }
+  U().render();
+}
+
+// Images : coller (Ctrl+V) ou glisser-déposer sur une zone d’image
+document.addEventListener("paste", e => {
+  if(!window.UI || U().ecran !== "admin") return;
+  const zone = document.querySelector("[data-depot]"), f = imageDe(e.clipboardData);
+  if(zone && f){ e.preventDefault(); traiterImage(f, zone.dataset.depot); }
+});
+["dragover","dragleave","drop"].forEach(t => document.addEventListener(t, e => {
+  if(!window.UI || U().ecran !== "admin") return;
+  const z = e.target.closest && e.target.closest("[data-depot]");
+  if(t === "dragover"){ e.preventDefault(); if(z) z.classList.add("survol"); return; }
+  if(t === "dragleave"){ if(z) z.classList.remove("survol"); return; }
+  e.preventDefault(); if(!z) return;
+  const f = imageDe(e.dataTransfer); if(f) traiterImage(f, z.dataset.depot);
+}));
+window.addEventListener("beforeunload", e => { if(window.UI && U().ecran === "admin" && A.sale){ e.preventDefault(); e.returnValue = ""; } });
+
+return {ouvrir, html, clic, saisie, peutQuitter};
 })();
 
 </script>
@@ -1093,6 +1620,8 @@ const ui = {ecran:"accueil", section:null, compte:{email:"", envoye:false, enCou
 
 /* ---------- Textes des cartes ---------- */
 const nomEl = el => el && ELEMENTS[el] ? ELEMENTS[el].nom : "";
+// Portrait d’un Leader : son image détourée sur le décor de son élément, sinon son initiale
+const portrait = (L, classe) => `<span class="portrait-art ${classe || ""} ${L.el ? "el-" + L.el : "el-aucun"}">${L.image ? `<img src="${esc(L.image)}" alt="">` : esc(L.nom.charAt(0))}</span>`;
 function txtEffet(e, d){
   if(!e) return "";
   const l = [];
@@ -1133,7 +1662,7 @@ const SECTIONS = {
   palais:{nom:"Palais", sous:"La campagne", texte:"Chaque maître de Palais est un boss avec ses propres règles. Le battre débloque un Leader, un palier de cartes ou une récompense unique."},
   leblanc:{nom:"Café Leblanc", sous:"Collection, decks, Confidents", dispo:true, texte:"Votre collection de cartes, la construction de votre deck de marché de 30 cartes, les récompenses de fin de partie et les quêtes de Confidents."},
   velvet:{nom:"Velvet Room", sous:"Fusion, compendium, chaise électrique", texte:"Fusionnez deux Personas pour en obtenir une plus puissante, rachetez au compendium celles que vous avez fusionnées, ou sacrifiez une Persona pour obtenir la carte d’un de ses skills."},
-  admin:{nom:"Administration", sous:"Cartes, règles, images", texte:"Le réglage de toutes les cartes, des Leaders et des règles, et l’ajout des images détourées de vos Personas et personnages."}
+  admin:{nom:"Administration", sous:"Cartes, règles, images", dispo:true, texte:"Le réglage de toutes les cartes, des Leaders et des règles, et l’ajout des images détourées de vos Personas et personnages."}
 };
 const dateCourte = t => new Date(t).toLocaleDateString("fr-FR", {day:"numeric", month:"short"});
 function accueilHTML(){
@@ -1141,7 +1670,7 @@ function accueilHTML(){
   if(!P) return `<div class="accueil"><p>Chargement de votre profil…</p></div>`;
   const L = LEADERS[P.leaderFavori] || LEADERS.joker, max = P.rang >= PROFIL.RANG_MAX, s = PROFIL.seuil(P.rang);
   const pal = PROFIL.prochainPalier(P.rang), cartesMax = PROFIL.rangCartesMax(P.rang);
-  const menu = Object.entries(SECTIONS).map(([id, x], i) => `<li style="--i:${i}"><button type="button" class="item-menu ${x.dispo ? "" : "bientot"}" data-act="aller" data-id="${id}">
+  const menu = Object.entries(SECTIONS).filter(([id]) => id !== "admin" || PROFIL.etat.admin).map(([id, x], i) => `<li style="--i:${i}"><button type="button" class="item-menu ${x.dispo ? "" : "bientot"}" data-act="aller" data-id="${id}">
       <span class="item-nom">${esc(x.nom)}</span><span class="item-sous">${esc(x.sous)}${x.dispo ? "" : " · bientôt"}</span></button></li>`).join("");
   const histo = P.historique.slice(0, 5).map(h => `<li class="${h.victoire ? "v" : "d"}"><b>${h.victoire ? "Victoire" : "Défaite"}</b>
       <span>${esc((LEADERS[h.leader] || {}).nom || "")} contre ${esc((LEADERS[h.adversaire] || {}).nom || "")} · ${pl(h.tours, "tour", "tours")}</span>
@@ -1150,10 +1679,10 @@ function accueilHTML(){
     <section class="accueil-gauche">
       <div class="logo"><span class="logo-1">Persona 5</span><span class="logo-2">Royal</span><span class="logo-3">le jeu de cartes</span></div>
       <nav aria-label="Menu principal"><ol class="menu-p5">${menu}
-        <li style="--i:6"><button type="button" class="item-menu aide" data-act="regles"><span class="item-nom">Comment jouer</span><span class="item-sous">Les règles en une minute</span></button></li></ol></nav>
+        <li style="--i:${PROFIL.etat.admin ? 6 : 5}"><button type="button" class="item-menu aide" data-act="regles"><span class="item-nom">Comment jouer</span><span class="item-sous">Les règles en une minute</span></button></li></ol></nav>
     </section>
     <aside class="carte-voleur" aria-label="Votre profil">
-      <div class="cv-tete"><span class="portrait-art grand ${L.el ? "el-" + L.el : "el-aucun"}">${esc(L.nom.charAt(0))}</span>
+      <div class="cv-tete">${portrait(L, "grand")}
         <div><label class="cv-lbl" for="nom-code">Nom de code</label>
           <input id="nom-code" class="cv-nom" type="text" maxlength="24" placeholder="Choisissez un nom de code" value="${esc(P.nomCode)}" data-profil="nom">
           <span class="cv-fav">Leader favori : ${esc(L.nom)}</span></div></div>
@@ -1245,7 +1774,7 @@ function ongletDecks(){
   if(ui.cafe.edit) return editeurDeck();
   const lignes = P.decks.map(d => {
     const v = PROFIL.validerDeck(d), st = statsDeck(d.cartes, d.leader), L = LEADERS[d.leader], actif = P.deckActif === d.id;
-    return `<div class="deck-ligne ${actif ? "actif" : ""}"><span class="portrait-art ${L.el ? "el-" + L.el : "el-aucun"}">${esc(L.nom.charAt(0))}</span>
+    return `<div class="deck-ligne ${actif ? "actif" : ""}">${portrait(L, "")}
       <div class="deck-infos"><b>${esc(d.nom)}</b>${actif ? `<span class="son-tour">Utilisé en duel</span>` : ""}<br>
         <span>${esc(L.nom)} · ${v.total}/${PROFIL.TAILLE_DECK} cartes · ${st.mien} de son élément · somme des rangs ${v.rangs}${v.rangs > PROFIL.PLAFOND_CLASSE ? " (au-dessus du plafond Classé)" : ""}</span>
         ${v.ok ? "" : `<br><span class="alerte-txt">${esc(v.erreurs[0])}</span>`}</div>
@@ -1287,7 +1816,7 @@ function ongletConfidents(){
   return `<p>Chaque Leader a son <b>Confident</b>. Ses quêtes s’accomplissent en jouant des duels avec lui, une par rang. Au rang 10, sa carte de départ devient sa Persona éveillée ; au rang 11, sa forme ultime.</p>
     <div class="grille-conf">${Object.entries(LEADERS).map(([id, L]) => {
       const c = PROFIL.confident(id), q = c.quetes.find(x => x.active);
-      return `<article class="conf"><header><span class="portrait-art ${L.el ? "el-" + L.el : "el-aucun"}">${esc(L.nom.charAt(0))}</span>
+      return `<article class="conf"><header>${portrait(L, "")}
         <div><b>${esc(L.nom)}</b><br><span class="discret">${esc(L.vrai)}</span></div><span class="conf-rang">${c.rang}<small>/11</small></span></header>
         <div class="jauge"><i style="width:${Math.round(100 * c.rang / 11)}%"></i></div>
         <p class="conf-carte">Carte de départ : <b>${esc(c.evo ? L.evos[c.evo - 1] : `Skill de départ (${L.el ? ELEMENTS[L.el].nom : "Navigation"})`)}</b></p>
@@ -1327,7 +1856,7 @@ function prepHTML(){
       <span class="aide">${c.deckId ? "Votre deck du Café Leblanc. Son Leader est utilisé." : "Un deck aléatoire, pour tester n’importe quel Leader."} Les decks se construisent au Café Leblanc.</span></div>` : "";
     return `<section class="bloc"><h2>${titre}</h2>${choixDeck}
       <div class="leaders">${Object.entries(LEADERS).map(([id, l]) => `<button type="button" class="leader-btn" data-act="leader" data-id="${k}:${id}" aria-pressed="${c.leader === id}">
-        <span class="portrait-art ${l.el ? "el-" + l.el : "el-aucun"}">${esc(l.nom.charAt(0))}</span><b>${esc(l.nom)}</b><small>${esc(nomEl(l.el) || "Soutien")}</small></button>`).join("")}</div>
+        ${portrait(l, "")}<b>${esc(l.nom)}</b><small>${esc(nomEl(l.el) || "Soutien")}</small></button>`).join("")}</div>
       <p class="fiche-leader"><b>${esc(L.vrai)}</b> · ${chipEl(L.el)} · faiblesse ${chipEl(L.faiblesse)}<br>${txtCapa(L)}</p>
       ${k === 0 && c.deckId ? "" : `<div class="champ"><label for="rang${k}">Rang maximum des cartes apportées</label><output>${c.rangMax}</output>
         <input type="range" id="rang${k}" min="1" max="5" value="${c.rangMax}" data-champ="rangMax" data-j="${k}"></div>
@@ -1399,7 +1928,7 @@ function pillsHTML(e, d){
 }
 // Carte compacte (main, marché, jouées) : effets en pastilles, texte complet dans la loupe
 function carteJeu(c, o = {}){
-  const d = M.def(c);
+  const d = o.def || M.def(c);
   const type = d.kind === "persona" ? `Persona · ${nomEl(d.el)}` : d.kind === "skill" ? `Skill · ${nomEl(d.el) || "neutre"}` : d.kind === "visite" ? "Carte de visite" : "Objet";
   const etatOM = o.etat ? (o.etat.combo ? "fait" : o.etat.attente ? "attente" : "") : "";
   const lignes = [`<span class="pills">${pillsHTML(d.effet, d)}${d.parPhysique ? `<span class="pill deg">+1 ⚔ / Phy</span>` : ""}</span>`];
@@ -1417,14 +1946,14 @@ function carteJeu(c, o = {}){
   const attrs = o.act ? `type="button" data-act="${o.act}" data-id="${o.id ?? c.uid}" ${o.off ? "disabled" : ""}` : `tabindex="0"`;
   const titre = o.titre ? ` title="${esc(o.titre)}"` : "";
   return `<${tag} class="carte k-${d.kind} ${d.rang === 5 ? "r5" : ""} ${o.classe || ""}" ${attrs} data-cid="${esc(c.id)}"${titre} aria-label="${esc(d.nom)}">
-    <span class="art ${classeEl(d)}"><span class="initiale">${esc(d.nom.charAt(0))}</span>${d.rang ? `<span class="rang">${"★".repeat(d.rang)}</span>` : ""}${o.prix != null ? `<span class="cout">${o.prix} ¥</span>` : ""}</span>
+    <span class="art ${classeEl(d)}">${d.image ? `<img class="art-img" src="${esc(d.image)}" alt="" loading="lazy">` : `<span class="initiale">${esc(d.nom.charAt(0))}</span>`}${d.rang ? `<span class="rang">${"★".repeat(d.rang)}</span>` : ""}${o.prix != null ? `<span class="cout">${o.prix} ¥</span>` : ""}</span>
     ${ind.length ? `<span class="indices">${ind.join("")}</span>` : ""}
     <span class="corps"><span class="type">${esc(type)}</span><span class="nom">${esc(d.nom)}</span>${lignes.join("")}</span></${tag}>`;
 }
 // Loupe : la carte en grand, avec des phrases complètes et le sens des mots-clés
-function loupeHTML(cid){
-  if(!cid || !M.C[cid]) return `<p class="loupe-vide">Survolez ou sélectionnez une carte pour la lire en détail.</p>`;
-  const d = M.C[cid];
+function loupeHTML(cid, dDirect){
+  if(!dDirect && (!cid || !M.C[cid])) return `<p class="loupe-vide">Survolez ou sélectionnez une carte pour la lire en détail.</p>`;
+  const d = dDirect || M.C[cid];
   const mots = [];
   if(d.combo) mots.push(["One More", `se déclenche si une autre carte ${nomEl(d.el) === "Pur" ? "élémentaire" : "de " + nomEl(d.el) + " (ou Pur)"} est jouée dans le même tour, avant ou après.`]);
   if(d.lien) mots.push(["Lien d’Arcane", `se déclenche si une autre Persona ${ARCANES[d.arcane] || ""} (ou du Fou) est jouée dans le même tour.`]);
@@ -1436,7 +1965,7 @@ function loupeHTML(cid){
   if(d.finition) mots.push(["Finition", "les dégâts sont doublés si l’adversaire a moins de 20 PV."]);
   if(d.parPhysique) mots.push(["Physique", "+1 dégât pour chaque autre carte Physique déjà jouée ce tour."]);
   return `<div class="loupe-carte">
-    <div class="loupe-art ${classeEl(d)}"><span>${esc(d.nom.charAt(0))}</span>${d.rang ? `<span class="rang">${"★".repeat(d.rang)}</span>` : ""}</div>
+    <div class="loupe-art ${classeEl(d)}">${d.image ? `<img class="art-img" src="${esc(d.image)}" alt="">` : `<span>${esc(d.nom.charAt(0))}</span>`}${d.rang ? `<span class="rang">${"★".repeat(d.rang)}</span>` : ""}</div>
     <div class="loupe-txt"><span class="type">${esc(d.kind === "persona" ? `Persona · ${nomEl(d.el)} · ${ARCANES[d.arcane] || ""}` : d.kind === "skill" ? `Skill · ${nomEl(d.el) || "neutre"}` : d.kind === "visite" ? "Carte de visite" : "Objet")}${d.cout ? ` · ${d.cout} ¥` : ""}</span>
       <h3>${esc(d.nom)}</h3>
       <p>${txtEffet(d.effet, d)}${d.parPhysique ? " +1 dégât par autre carte Physique jouée ce tour." : ""}</p>
@@ -1451,7 +1980,7 @@ function loupeHTML(cid){
 function bandeauHTML(i){
   const j = S.joueurs[i], L = j.L, moi = i === 0, actif = S.courant === i && S.vainqueur === null;
   return `<div class="bandeau ${moi ? "moi" : "adv"} ${actif ? "actif" : ""}" data-bandeau="${i}">
-    <div class="portrait"><span class="portrait-art ${L.el ? "el-" + L.el : "el-aucun"}">${esc(L.nom.charAt(0))}</span>
+    <div class="portrait">${portrait(L, "")}
       <span><span class="qui">${esc(L.nom)}</span>${actif ? `<span class="son-tour">${moi ? "À vous" : "Joue"}</span>` : ""}<br><span class="sous">${esc(j.nom)}</span></span></div>
     <div class="pv-joueur"><div class="chiffre">${Math.max(0, j.pv)}<small>/ ${R.pv} PV</small></div><div class="jauge"><i style="width:${Math.max(0, Math.round(100*j.pv/R.pv))}%"></i></div></div>
     <div class="infos-leader"><span>Élément ${chipEl(L.el)} · Faiblesse ${chipEl(L.faiblesse)}</span><span class="capa">${txtCapa(L)}</span></div>
@@ -1625,7 +2154,8 @@ function render(){
   const actif = document.activeElement, idActif = actif && actif.id, pos = actif && actif.selectionStart;
   if(!PROFIL.etat.pret){ app.innerHTML = `<div class="chargement"><p>Chargement…</p></div>`; return; }
   if(STOCKAGE.connexionRequise()){ S = null; ui.ecran = "accueil"; app.innerHTML = connexionHTML(); return; }
-  app.innerHTML = ui.ecran === "jeu" && S ? jeuHTML() : ui.ecran === "accueil" ? accueilHTML() : ui.ecran === "bientot" ? bientotHTML() : ui.ecran === "leblanc" ? leblancHTML() : prepHTML();
+  if(ui.ecran === "admin" && !PROFIL.etat.admin) ui.ecran = "accueil";
+  app.innerHTML = ui.ecran === "admin" ? ADMIN.html() : ui.ecran === "jeu" && S ? jeuHTML() : ui.ecran === "accueil" ? accueilHTML() : ui.ecran === "bientot" ? bientotHTML() : ui.ecran === "leblanc" ? leblancHTML() : prepHTML();
   if(idActif){ const el = document.getElementById(idActif); if(el){ el.focus(); try { if(pos != null) el.setSelectionRange(pos, pos); } catch(e){} } }
   if(ui.ecran === "jeu" && S){ effets(); const m = document.querySelector(".main-cartes"); if(m) m.scrollLeft = sx; window.scrollTo(x, y); }
 }
@@ -1754,6 +2284,7 @@ app.addEventListener("click", e => {
     if(id === "accueil"){ S = null; ui.ecran = "accueil"; }
     else if(id === "duel"){ const d = PROFIL.profil && PROFIL.deckActif(); cfg.joueurs[0].deckId = d && PROFIL.validerDeck(d).ok ? d.id : null; cfg.joueurs[0].leader = d && cfg.joueurs[0].deckId ? d.leader : (PROFIL.profil ? PROFIL.profil.leaderFavori : cfg.joueurs[0].leader); ui.ecran = "prep"; }
     else if(id === "leblanc"){ ui.ecran = "leblanc"; ui.cafe.edit = null; }
+    else if(id === "admin"){ if(PROFIL.etat.admin){ ui.ecran = "admin"; ADMIN.ouvrir(); } else ui.ecran = "accueil"; }
     else { ui.ecran = "bientot"; ui.section = id; }
     ui.regles = false; render(); window.scrollTo(0, 0); return;
   }
@@ -1761,6 +2292,7 @@ app.addEventListener("click", e => {
   if(act === "autre-email"){ ui.compte.envoye = false; render(); return; }
   if(STOCKAGE.connexionRequise()) return;
   if(ui.ecran === "leblanc"){ actionCafe(act, id); return; }
+  if(ui.ecran === "admin"){ ADMIN.clic(act, id, b); return; }
   if(act === "prendre"){ const [i, cid] = id.split(":"); PROFIL.choisirRecompense(+i, cid); if(S && S.recompense) S.recompense.prise = cid; render(); return; }
   if(ui.ecran === "accueil" || ui.ecran === "bientot") return;
   if(ui.ecran === "prep"){
@@ -1803,6 +2335,7 @@ app.addEventListener("submit", async e => {
 });
 app.addEventListener("change", e => {
   const t = e.target;
+  if(ui.ecran === "admin"){ ADMIN.saisie(t, "change"); return; }
   if(t.dataset.profil === "nom"){ PROFIL.renommer(t.value); return; }
   if(t.dataset.filtre === "type" || t.dataset.filtre === "rang"){ ui.cafe[t.dataset.filtre] = t.value; render(); return; }
   if(t.dataset.cafe === "nouveauLeader"){ ui.cafe.nouveauLeader = t.value; return; }
@@ -1811,6 +2344,7 @@ app.addEventListener("change", e => {
 });
 app.addEventListener("input", e => {
   const t = e.target, v = +t.value;
+  if(ui.ecran === "admin"){ ADMIN.saisie(t, "input"); return; }
   if(t.dataset.filtre === "q"){ ui.cafe.q = t.value; render(); return; }
   if(t.dataset.cafe === "brouillonNom"){ ui.cafe.brouillon.nom = t.value; return; }
   if(t.dataset.champ){ cfg.joueurs[+t.dataset.j][t.dataset.champ] = t.dataset.champ === "part" ? v / 100 : v; }
@@ -1823,6 +2357,8 @@ document.addEventListener("keydown", e => {
   if(e.key !== "Escape") return;
   if(ui.regles || ui.voirDeck || ui.confirmFin){ ui.regles = false; ui.voirDeck = false; ui.confirmFin = false; render(); }
 });
+window.UI = {esc, carteJeu, loupeHTML, txtEffet, chipEl, nomEl, portrait, ARCANES, ORDRE_EL, ELEMENTS, LEADERS, render, pl, get ecran(){ return ui.ecran; },
+  aller(e){ ui.ecran = e; render(); window.scrollTo(0, 0); }};
 render();
 PROFIL.init(() => { if(ui.ecran !== "jeu" || STOCKAGE.connexionRequise()) render(); });
 })();
