@@ -684,6 +684,16 @@ body:has(.plateau-jeu) .dock .btn{background:var(--surface)}
 .pile .nb{top:-8px;right:-8px;bottom:auto;border-radius:12px;border:2px solid #fff;font-size:15px;padding:0 8px;z-index:4}
 .grille-cartes{gap:14px 12px;padding-top:8px}
 
+/* Icônes d’éléments déposées dans l’Administration */
+img.ico-el{object-fit:contain}
+.c-filigrane img.ico-el,.lc-filigrane img.ico-el{opacity:1}
+.a-elements{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:12px;margin:10px 0}
+.a-element h3{font-size:20px;margin-bottom:6px}
+.a-image.petite .a-image-apercu{width:90px;height:90px}
+.a-image.petite .a-image-apercu img{object-position:center;padding:10px}
+.a-ico-defaut .ico-el{width:52px;height:52px;opacity:.85}
+.a-image.cible{border-color:var(--halo)}
+
 </style>
 </head>
 <body>
@@ -722,10 +732,20 @@ const LEADERS = {
 // Régénérées quand l’Admin modifie un Leader.
 function genererDerivees(){
   for(const id of Object.keys(C)) if(/^depart_.+_evo\d$|^visite_/.test(id)) delete C[id];
-  // Persona du Leader dans son deck de départ : forme de base (evo0), puis évolutions des Confidents (evo1, evo2)
+  // Persona du Leader dans son deck de départ : forme de base (evo0), puis évolutions des Confidents (evo1, evo2).
+  // Si la carte existe (Arsène, Raoul, Loki…), c’est elle qui est utilisée, avec son image et ses effets ; sinon une version générée.
+  const normal = t => String(t || "").toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").trim();
+  const parNom = {};
+  for(const [cid, c] of Object.entries(C)) if(!c.depart && !c.visite && c.kind === "persona") parNom[normal(c.nom)] = cid;
   for(const [id, L] of Object.entries(LEADERS)){
     const base = C["depart_" + (L.el || "aucun")];
     [L.persona, ...(L.evos || [])].slice(0, 3).forEach((nom, n) => {
+      const existante = parNom[normal(nom)];
+      if(existante){
+        C[`depart_${id}_evo${n}`] = Object.assign(JSON.parse(JSON.stringify(C[existante])), {cout:0, depart:true, leader:id, carteSource:existante});
+        delete C[`depart_${id}_evo${n}`].reservee;
+        return;
+      }
       C[`depart_${id}_evo${n}`] = {nom: nom || L.nom, kind:"persona", el:L.el, arcane:L.arcane || null, rang:0, cout:0, depart:true, leader:id,
         effet: n === 0 ? Object.assign({}, base.effet) : (L.el ? {deg: 2 + n} : {deg: 1 + n, yen:1}),
         combo: base.combo ? Object.fromEntries(Object.entries(base.combo).map(([k, v]) => [k, k === "parCombo" ? v : v + (["pioche","defausse","purge"].includes(k) ? 0 : n)])) : null,
@@ -733,7 +753,6 @@ function genererDerivees(){
     });
   }
   // Les Personas des Leaders et leurs évolutions leur sont réservées : ni marché, ni récompense, ni deck
-  const normal = t => String(t || "").toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").trim();
   const reservees = new Set(Object.values(LEADERS).flatMap(L => [L.persona, ...(L.evos || [])]).map(normal).filter(Boolean));
   for(const [id, c] of Object.entries(C)) if(!c.depart){ if(reservees.has(normal(c.nom))) c.reservee = true; else delete c.reservee; }
   // Carte de visite de chaque Leader : générée d’après son archétype
@@ -1396,15 +1415,15 @@ const ORIGINE = {
   regles: clone(numeriques(M.R)),
   progression: clone(PROFIL.REGLES)
 };
-const vide = () => ({cartes:{modifiees:{}, supprimees:[]}, leaders:{}, regles:{}, progression:{}, fusion:{}});
+const vide = () => ({cartes:{modifiees:{}, supprimees:[]}, leaders:{}, regles:{}, progression:{}, fusion:{}, elements:{}});
 function normaliser(cfg){
   const n = vide();
   if(!cfg || typeof cfg !== "object") return n;
   if(cfg.cartes){ n.cartes.modifiees = cfg.cartes.modifiees || {}; n.cartes.supprimees = cfg.cartes.supprimees || []; }
-  n.leaders = cfg.leaders || {}; n.regles = cfg.regles || {}; n.progression = cfg.progression || {}; n.fusion = cfg.fusion || {};
+  n.leaders = cfg.leaders || {}; n.regles = cfg.regles || {}; n.progression = cfg.progression || {}; n.fusion = cfg.fusion || {}; n.elements = cfg.elements || {};
   return n;
 }
-let actuelle = vide(), majLe = null, fusion = {};
+let actuelle = vide(), majLe = null, fusion = {}, elements = {};
 function appliquer(cfg){
   const c = normaliser(cfg);
   for(const id of Object.keys(M.C)) delete M.C[id];
@@ -1418,6 +1437,7 @@ function appliquer(cfg){
   Object.assign(M.R, clone(ORIGINE.regles), numeriques(c.regles));
   Object.assign(PROFIL.REGLES, clone(ORIGINE.progression), numeriques(c.progression));
   fusion = clone(c.fusion);
+  elements = clone(c.elements);
   actuelle = c;
 }
 async function charger(){
@@ -1429,7 +1449,7 @@ async function enregistrer(cfg){
   await STOCKAGE.enregistrerConfiguration("jeu", c);
   appliquer(c); majLe = c.maj;
 }
-return {get fusion(){ return fusion; }, ORIGINE, appliquer, charger, enregistrer, normaliser, vide, derivee, get actuelle(){ return clone(actuelle); }, get majLe(){ return majLe; }};
+return {get fusion(){ return fusion; }, get elements(){ return elements; }, ORIGINE, appliquer, charger, enregistrer, normaliser, vide, derivee, get actuelle(){ return clone(actuelle); }, get majLe(){ return majLe; }};
 })();
 
 </script>
@@ -1634,7 +1654,7 @@ function editeurCarte(id){
         <button type="button" class="btn petit" data-act="a-dupliquer" data-id="${esc(id)}">Dupliquer</button>
         ${A.confirmer === id ? `<button type="button" class="btn petit danger" data-act="a-supprimer" data-id="${esc(id)}">Confirmer la suppression</button><button type="button" class="btn petit" data-act="a-annuler-sup">Garder</button>`
           : `<button type="button" class="btn petit" data-act="a-demander-sup" data-id="${esc(id)}">Supprimer</button>`}</div></div>
-    ${(M.C[id] || {}).reservee ? `<p class="a-aide">Persona d’un Leader : elle n’apparaît que dans le deck de départ de son Leader (ni marché, ni récompense, ni deck). Ses effets dans le deck de départ se règlent dans l’onglet Leaders.</p>` : ""}
+    ${(M.C[id] || {}).reservee ? `<p class="a-aide">Persona d’un Leader : elle n’apparaît que dans le deck de départ de son Leader (ni marché, ni récompense, ni deck). C’est cette carte, avec son image et ses effets, qui est utilisée dans le deck de départ (sans coût).</p>` : ""}
     <div class="a-grille">
       <div class="a-col">
         ${zoneImage(`${base}.image`, c.image, c.el)}
@@ -1697,14 +1717,14 @@ async function traiterImage(fichier, chemin){
   try {
     const url = URL.createObjectURL(fichier);
     const img = await new Promise((ok, ko) => { const i = new Image(); i.onload = () => ok(i); i.onerror = ko; i.src = url; });
-    const k = Math.min(1, 600 / Math.max(img.naturalWidth, img.naturalHeight));
+    const [table] = chemin.split(".");
+    const k = Math.min(1, (table === "elements" ? 256 : 600) / Math.max(img.naturalWidth, img.naturalHeight));
     const cv = document.createElement("canvas"); cv.width = Math.round(img.naturalWidth * k); cv.height = Math.round(img.naturalHeight * k);
     cv.getContext("2d").drawImage(img, 0, 0, cv.width, cv.height);
     URL.revokeObjectURL(url);
     let blob = await new Promise(r => cv.toBlob(r, "image/webp", 0.9));
     if(!blob || blob.type !== "image/webp") blob = await new Promise(r => cv.toBlob(r, "image/png"));
-    const [table] = chemin.split(".");
-    const lien = await STOCKAGE.envoyerImage(blob, table === "leaders" ? "leaders" : "cartes");
+    const lien = await STOCKAGE.envoyerImage(blob, table === "leaders" ? "leaders" : table === "elements" ? "elements" : "cartes");
     ecrire(chemin, lien);
     A.envoyees.push(lien);
     A.msg = "Image envoyée. Pensez à publier.";
@@ -1762,6 +1782,21 @@ function ongletFusion(){
     </tbody></table>`;
 }
 
+/* ---------- Onglet Éléments ---------- */
+function ongletElements(){
+  const E = A.b.elements || {};
+  return `<p>Déposez ici vos icônes d’éléments (PNG ou WebP détourés, fond transparent). Elles remplacent les icônes dessinées partout dans le jeu : cartes, étiquettes et filigranes. Sans icône, l’icône dessinée reste utilisée.</p>
+    <div class="a-elements">${U().ORDRE_EL.map(el => { const url = (E[el] || {}).icone;
+      return `<div class="a-element panneau"><h3>${esc(M.ELEMENTS[el].nom)}</h3>
+        <div class="a-image petite" data-depot="elements.${el}.icone">
+          <div class="a-image-apercu el-${el}">${url ? `<img src="${esc(url)}" alt="">` : `<span class="a-ico-defaut">${U().iconeEl(el)}</span>`}</div>
+          <div class="a-image-actions">
+            <label class="btn petit">${A.envoiImage === `elements.${el}.icone` ? "Envoi…" : url ? "Changer" : "Déposer l’icône"}<input type="file" accept="image/png,image/webp,image/*" data-a-image="elements.${el}.icone" hidden></label>
+            ${url ? `<button type="button" class="btn petit" data-act="a-retirer-image" data-id="elements.${el}.icone">Retirer</button>` : `<span class="a-aide">Icône dessinée</span>`}
+          </div></div></div>`; }).join("")}</div>
+    <p class="a-aide">Astuce : cliquez d’abord sur la zone d’un élément, puis collez l’image avec Ctrl+V.</p>`;
+}
+
 /* ---------- Onglet Statistiques ---------- */
 function ongletStats(){
   const s = A.stats;
@@ -1778,7 +1813,7 @@ function ongletStats(){
 function ongletSauvegarde(){
   const nb = Object.keys(A.b.cartes.modifiees).length, sup = A.b.cartes.supprimees.length;
   return `<fieldset class="a-bloc"><legend>Ce qui est publié</legend>
-      <p>${nb} carte${nb > 1 ? "s" : ""} modifiée${nb > 1 ? "s" : ""} ou ajoutée${nb > 1 ? "s" : ""}, ${sup} supprimée${sup > 1 ? "s" : ""}, ${Object.keys(A.b.leaders).length} Leader(s) modifié(s), ${Object.keys(A.b.regles).length + Object.keys(A.b.progression).length} règle(s) modifiée(s), ${Object.keys(A.b.fusion || {}).length} paire(s) de fusion corrigée(s).
+      <p>${nb} carte${nb > 1 ? "s" : ""} modifiée${nb > 1 ? "s" : ""} ou ajoutée${nb > 1 ? "s" : ""}, ${sup} supprimée${sup > 1 ? "s" : ""}, ${Object.keys(A.b.leaders).length} Leader(s) modifié(s), ${Object.keys(A.b.regles).length + Object.keys(A.b.progression).length} règle(s) modifiée(s), ${Object.keys(A.b.fusion || {}).length} paire(s) de fusion corrigée(s), ${Object.values(A.b.elements || {}).filter(x => x && x.icone).length} icône(s) d’élément.
       ${CONFIGJEU.majLe ? `Dernière publication : ${new Date(CONFIGJEU.majLe).toLocaleString("fr-FR", {dateStyle:"long", timeStyle:"short"})}.` : "Rien n’a encore été publié."}</p></fieldset>
     <fieldset class="a-bloc"><legend>Exporter</legend><p>Télécharge toute la configuration (le brouillon en cours) dans un fichier JSON, pour la garder ou la transférer.</p>
       <button type="button" class="btn" data-act="a-exporter">Exporter la configuration</button></fieldset>
@@ -1790,10 +1825,10 @@ function ongletSauvegarde(){
 }
 
 /* ---------- Page ---------- */
-const ONGLETS = [["cartes","Cartes"],["leaders","Leaders"],["regles","Règles"],["fusion","Table de fusion"],["stats","Statistiques"],["sauvegarde","Sauvegarde"]];
+const ONGLETS = [["cartes","Cartes"],["leaders","Leaders"],["elements","Éléments"],["regles","Règles"],["fusion","Table de fusion"],["stats","Statistiques"],["sauvegarde","Sauvegarde"]];
 function html(){
   if(!A.b) ouvrir();
-  const corps = A.onglet === "leaders" ? ongletLeaders() : A.onglet === "regles" ? ongletRegles() : A.onglet === "fusion" ? ongletFusion() : A.onglet === "stats" ? ongletStats() : A.onglet === "sauvegarde" ? ongletSauvegarde() : ongletCartes();
+  const corps = A.onglet === "leaders" ? ongletLeaders() : A.onglet === "regles" ? ongletRegles() : A.onglet === "fusion" ? ongletFusion() : A.onglet === "elements" ? ongletElements() : A.onglet === "stats" ? ongletStats() : A.onglet === "sauvegarde" ? ongletSauvegarde() : ongletCartes();
   return `<div class="admin">
     <div class="barre-nav"><button type="button" class="lien-btn" data-act="a-accueil">← Accueil</button></div>
     <div class="a-entete"><h1>Administration</h1><span class="discret">Vos modifications s’appliquent à tous les joueurs une fois publiées.</span></div>
@@ -1926,7 +1961,7 @@ async function clic(act, id){
 // Images : coller (Ctrl+V) ou glisser-déposer sur une zone d’image
 document.addEventListener("paste", e => {
   if(!window.UI || U().ecran !== "admin") return;
-  const zone = document.querySelector("[data-depot]"), f = imageDe(e.clipboardData);
+  const zone = document.querySelector("[data-depot].cible") || document.querySelector("[data-depot]"), f = imageDe(e.clipboardData);
   if(zone && f){ e.preventDefault(); traiterImage(f, zone.dataset.depot); }
 });
 ["dragover","dragleave","drop"].forEach(t => document.addEventListener(t, e => {
@@ -1937,6 +1972,12 @@ document.addEventListener("paste", e => {
   e.preventDefault(); if(!z) return;
   const f = imageDe(e.dataTransfer); if(f) traiterImage(f, z.dataset.depot);
 }));
+// La zone d’image cliquée devient la cible du collage (utile quand il y en a plusieurs, comme pour les éléments)
+document.addEventListener("click", e => {
+  if(!window.UI || U().ecran !== "admin") return;
+  const z = e.target.closest && e.target.closest("[data-depot]"); if(!z) return;
+  document.querySelectorAll("[data-depot].cible").forEach(x => x.classList.remove("cible")); z.classList.add("cible");
+});
 window.addEventListener("beforeunload", e => { if(window.UI && U().ecran === "admin" && A.sale){ e.preventDefault(); e.returnValue = ""; } });
 
 return {ouvrir, html, clic, saisie, peutQuitter};
@@ -1978,7 +2019,13 @@ const ICONES = {
   gun:'<g stroke="currentColor" stroke-width="2.1" fill="none"><circle cx="12" cy="12" r="7.5"/><path d="M12 1.5v6M12 16.5v6M1.5 12h6M16.5 12h6"/></g><circle cx="12" cy="12" r="1.7"/>',
   pur:'<path d="M12 1.5l2.6 7.9 7.9 2.6-7.9 2.6L12 22.5l-2.6-7.9L1.5 12l7.9-2.6z"/>'
 };
-const iconeEl = (el, classe) => el && ICONES[el] ? `<svg class="ico-el ${classe || ""}" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">${ICONES[el]}</svg>` : "";
+// L’icône déposée dans l’Administration remplace l’icône dessinée
+const iconeEl = (el, classe) => {
+  if(!el) return "";
+  const perso = typeof CONFIGJEU !== "undefined" && CONFIGJEU.elements[el] && CONFIGJEU.elements[el].icone;
+  if(perso) return `<img class="ico-el img ${classe || ""}" src="${esc(perso)}" alt="">`;
+  return ICONES[el] ? `<svg class="ico-el ${classe || ""}" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">${ICONES[el]}</svg>` : "";
+};
 // Portrait d’un Leader : son image détourée sur le décor de son élément, sinon son initiale
 const portrait = (L, classe) => `<span class="portrait-art ${classe || ""} ${L.el ? "el-" + L.el : "el-aucun"}">${L.image ? `<img src="${esc(L.image)}" alt="">` : esc(L.nom.charAt(0))}</span>`;
 // Carte de Leader illustrée : grande image détourée sur le décor de son élément
@@ -2838,7 +2885,7 @@ document.addEventListener("keydown", e => {
   if(e.key !== "Escape") return;
   if(ui.regles || ui.voirDeck || ui.confirmFin){ ui.regles = false; ui.voirDeck = false; ui.confirmFin = false; render(); }
 });
-window.UI = {esc, carteJeu, loupeHTML, txtEffet, chipEl, nomEl, portrait, ARCANES, ORDRE_EL, ELEMENTS, LEADERS, render, pl, get ecran(){ return ui.ecran; },
+window.UI = {iconeEl, esc, carteJeu, loupeHTML, txtEffet, chipEl, nomEl, portrait, ARCANES, ORDRE_EL, ELEMENTS, LEADERS, render, pl, get ecran(){ return ui.ecran; },
   aller(e){ ui.ecran = e; render(); window.scrollTo(0, 0); }};
 render();
 PROFIL.init(() => { if(ui.ecran !== "jeu" || STOCKAGE.connexionRequise()) render(); });
