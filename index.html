@@ -544,6 +544,146 @@ label.btn{display:inline-block;cursor:pointer}
 .a-fusion tr.corrige td{background:rgba(255,212,0,.15)}
 .a-fusion select{width:auto}
 
+/* ============================================================
+   DESIGN DES CARTES ET DU PLATEAU (illustrations mises en avant)
+   ============================================================ */
+.ico-el{width:1em;height:1em;flex:none;vertical-align:-.15em}
+.chip{display:inline-flex;align-items:center;gap:3px}
+.chip .ico-el{width:12px;height:12px}
+.chip.neutre{background:var(--fond-2);color:var(--encre)}
+
+/* ---------- La carte ---------- */
+.carte{--w:138px;width:var(--w);height:calc(var(--w) * 1.42);min-height:0;flex:none;display:flex;flex-direction:column;padding:0;
+  background:#fbfaf6;color:#111;border:3px solid #111;border-radius:9px;overflow:hidden;text-align:left;position:relative;
+  box-shadow:0 3px 0 rgba(0,0,0,.35);transition:transform .15s ease,box-shadow .15s ease}
+.carte.k-persona{border-color:#c4121a}
+.carte.k-objet{border-color:#9a7612}
+.carte.k-visite{border-color:#000;box-shadow:0 0 0 3px var(--halo),0 3px 0 rgba(0,0,0,.35)}
+button.carte:not(:disabled):hover{transform:translateY(-4px);box-shadow:0 8px 14px rgba(0,0,0,.35)}
+.c-art{position:relative;flex:0 0 56%;overflow:hidden;display:block}
+.c-img{position:absolute;left:0;right:0;bottom:0;top:6%;width:100%;height:94%;object-fit:contain;object-position:center bottom;filter:drop-shadow(0 3px 3px rgba(0,0,0,.45));pointer-events:none}
+.c-filigrane{position:absolute;inset:0 0 18% 0;display:grid;place-items:center;opacity:.5;font-family:var(--affiche);font-size:calc(var(--w) * .35)}
+.c-filigrane .ico-el{width:48%;height:48%}
+.c-prix{position:absolute;top:5px;left:5px;z-index:2;background:var(--halo);color:#000;border:2px solid #000;font-family:var(--affiche);font-size:calc(var(--w) * .13);line-height:1.1;padding:0 6px;transform:skew(-10deg)}
+.c-prix small{font-size:.6em;margin-left:1px}
+.c-prix.discret{background:rgba(255,255,255,.88);font-size:calc(var(--w) * .1)}
+.c-rang{position:absolute;top:6px;right:6px;z-index:2;color:var(--halo);font-size:calc(var(--w) * .08);letter-spacing:1px;text-shadow:0 1px 2px #000,0 0 3px #000}
+.c-nom{position:absolute;left:0;right:0;bottom:0;z-index:2;background:#0c0c0c;color:#fff;font-family:var(--affiche);font-size:calc(var(--w) * .118);line-height:1.15;
+  padding:calc(var(--w) * .045) 8px 3px;clip-path:polygon(0 30%,100% 0,100% 100%,0 100%);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.c-nom.long{font-size:calc(var(--w) * .095)}
+.c-corps{flex:1;min-height:0;display:flex;flex-direction:column;gap:2px;padding:4px 6px 5px;overflow:hidden}
+.c-type{display:flex;align-items:center;gap:3px;font-size:calc(var(--w) * .074);font-weight:700;text-transform:uppercase;color:#5a5a60;white-space:nowrap;overflow:hidden}
+.c-ligne{display:flex;flex-wrap:wrap;gap:3px;align-items:center}
+.c-lbl{display:inline-flex;align-items:center;gap:2px;font-size:calc(var(--w) * .074);font-weight:700;margin-right:1px}
+.c-om,.c-lien,.c-sac{border-top:1px dashed #bdbdbd;padding-top:2px}
+.c-ligne.fait{background:#fff0a0;margin:0 -6px;padding:2px 6px;border-top-color:#e0b400}
+.c-ligne.attente{opacity:.55}
+.carte .pill{font-size:calc(var(--w) * .082);padding:0 5px}
+.carte.r5 .c-art::after{content:"";position:absolute;inset:0;background:linear-gradient(115deg,transparent 30%,rgba(255,255,255,.5) 45%,transparent 60%);mix-blend-mode:overlay;pointer-events:none}
+.carte .indices{position:absolute;top:calc(var(--w) * .22);left:4px;right:auto;display:flex;flex-direction:column;align-items:flex-start;gap:2px;z-index:3}
+.carte.combo{box-shadow:0 0 0 3px var(--halo)}
+.carte.abordable{box-shadow:0 0 0 3px var(--halo),0 0 14px rgba(255,212,0,.6)}
+.carte.choisie{outline:4px solid var(--rouge);outline-offset:-2px}
+.carte.nouvelle{animation:pop .6s ease-out}
+
+/* Tailles */
+.main-cartes .carte{--w:150px;min-height:0}
+.zone .carte{--w:134px}
+.carte.mini{--w:92px;min-height:0}
+.carte.mini .c-art{flex:1}
+.carte.mini .c-corps,.carte.mini .c-prix,.carte.mini .indices{display:none}
+.carte.grande{--w:250px;box-shadow:0 6px 18px rgba(0,0,0,.35)}
+.loupe-grande{display:flex;justify-content:center;margin-bottom:6px}
+.loupe-flottante .carte.grande,.loupe .carte.grande{--w:min(250px,100%)}
+.vr-vide{width:138px;min-height:196px}
+
+/* ---------- La carte de Leader ---------- */
+.leader-carte{--lw:104px;position:relative;display:block;width:var(--lw);height:calc(var(--lw) * 1.36);flex:none;border:3px solid #000;border-radius:9px;overflow:hidden;box-shadow:0 3px 0 rgba(0,0,0,.35)}
+.lc-img{position:absolute;left:0;right:0;bottom:0;top:4%;width:100%;height:96%;object-fit:contain;object-position:center bottom;filter:drop-shadow(0 3px 3px rgba(0,0,0,.45))}
+.lc-filigrane{position:absolute;inset:0 0 22% 0;display:grid;place-items:center;opacity:.55;font-family:var(--affiche);font-size:calc(var(--lw) * .4)}
+.lc-filigrane .ico-el{width:50%;height:50%}
+.lc-bas{position:absolute;left:0;right:0;bottom:0;background:#0c0c0c;color:#fff;padding:calc(var(--lw) * .07) 7px 4px;clip-path:polygon(0 28%,100% 0,100% 100%,0 100%);display:flex;flex-direction:column;line-height:1.05}
+.lc-nom{font-family:var(--affiche);font-size:calc(var(--lw) * .17)}
+.lc-arc{font-size:calc(var(--lw) * .095);font-weight:700;color:var(--halo);text-transform:uppercase}
+.lc-badge{position:absolute;top:5px;left:5px;background:var(--rouge);color:#fff;font-family:var(--affiche);font-size:13px;padding:0 6px;transform:skew(-10deg);z-index:2}
+.leader-carte.plateau{--lw:96px}
+.leader-carte.profil{--lw:86px}
+.leaders{grid-template-columns:repeat(5,minmax(0,1fr));gap:8px}
+.leader-btn{border:0;background:none;padding:0}
+.leader-btn .leader-carte{width:100%;height:auto;aspect-ratio:3/4;--lw:110px}
+.leader-btn[aria-pressed="true"] .leader-carte{outline:4px solid var(--rouge);outline-offset:2px}
+.leader-btn:hover .leader-carte{transform:translateY(-3px)}
+
+/* ---------- Bandeaux des joueurs ---------- */
+.bandeau{display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:8px 14px;align-items:center;padding:8px 12px}
+.b-infos{display:flex;flex-direction:column;gap:4px;min-width:0}
+.b-ligne{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
+.b-joueur{font-weight:700;color:var(--encre-2)}
+.b-pv{margin-left:auto}
+.b-pv b{font-family:var(--affiche);font-weight:400;font-size:36px;line-height:1}
+.b-pv small{font-size:14px;color:var(--encre-2);margin-left:4px}
+.bandeau .jauge{height:14px}
+.bandeau .jauge.basse i{background:#ff2a2a}
+.b-tags{align-items:center;gap:6px}
+.b-faib{display:inline-flex;align-items:center;gap:4px;font-size:13px;font-weight:600}
+.bandeau .capa{font-size:13px}
+.b-piles{display:flex;gap:6px;align-items:center;flex-wrap:wrap;justify-content:flex-end;max-width:300px}
+.pile-dos{width:46px;height:64px;border:2px solid #000;border-radius:6px;display:flex;flex-direction:column;align-items:center;justify-content:center;color:#fff;line-height:1;
+  background:repeating-linear-gradient(45deg,#c4121a 0 6px,#8e0b11 6px 12px);box-shadow:2px 2px 0 #000}
+.pile-dos b{font-family:var(--affiche);font-weight:400;font-size:20px}
+.pile-dos small{font-size:10px;font-weight:700;background:#000;padding:0 3px;margin-top:3px}
+.pile-dos.defausse{background:repeating-linear-gradient(45deg,#55555b 0 6px,#3b3b40 6px 12px)}
+.pile-dos.main{background:#111}
+.dock .leader-carte.plateau{--lw:76px}
+.dock .bandeau{padding:5px 10px}
+.dock .bandeau .capa{display:none}
+.dock .pile-dos{width:38px;height:52px}
+.dock .b-pv b{font-size:30px}
+
+/* ---------- Plateau sombre ---------- */
+body:has(.plateau-jeu){background:radial-gradient(circle at 15% -10%,#6b0b10 0,transparent 45%),radial-gradient(circle at 100% 110%,#3a0609 0,transparent 45%),
+  repeating-linear-gradient(-35deg,rgba(255,255,255,.035) 0 2px,transparent 2px 20px),#130607;background-attachment:fixed}
+body:has(.plateau-jeu) .entete{color:#fff}
+body:has(.plateau-jeu) .entete .tour{color:rgba(255,255,255,.75)}
+body:has(.plateau-jeu) .entete .lien-btn{border-color:#fff;color:#fff}
+body:has(.plateau-jeu) .entete .statut:not(.moi){border-color:#fff;color:#fff}
+.plateau-jeu .zone{background:rgba(0,0,0,.42);border:2px solid rgba(255,255,255,.12);color:#fff}
+.plateau-jeu .zone h2{color:#fff}
+.plateau-jeu .zone h2 small,.plateau-jeu .zone .discret{color:rgba(255,255,255,.7)}
+.plateau-jeu .zone.jouees.moi{box-shadow:inset 0 0 0 3px var(--rouge)}
+.plateau-jeu .zone.jouees.adv{box-shadow:inset 0 0 0 3px rgba(255,255,255,.35)}
+body:has(.plateau-jeu) .dock{background:rgba(12,4,5,.94);border-top-color:var(--rouge)}
+body:has(.plateau-jeu) .dock .main-cartes .discret{color:rgba(255,255,255,.7)}
+body:has(.plateau-jeu) .dock .btn{background:var(--surface)}
+.emplacement .btn.petit{background:var(--surface)}
+
+@media (max-width: 1000px){
+  .bandeau{grid-template-columns:auto minmax(0,1fr)}
+  .b-piles{grid-column:1/3;justify-content:flex-start;max-width:none}
+  .leaders{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .main-cartes .carte{--w:132px}
+}
+@media (prefers-reduced-motion: reduce){ .carte,.leader-btn .leader-carte{transition:none} }
+/* Ajustements : loupe et zone du joueur plus compacte */
+.loupe-flottante .carte.grande,.loupe .carte.grande{--w:230px}
+.dock{gap:4px;padding-top:6px}
+.dock .leader-carte.plateau{--lw:56px;border-width:2px}
+.dock .leader-carte.plateau .lc-arc{display:none}
+.dock .leader-carte.plateau .lc-nom{font-size:13px}
+.dock .leader-carte.plateau .lc-badge{font-size:10px;top:2px;left:2px}
+.dock .bandeau{gap:4px 12px;padding:4px 10px}
+.dock .b-infos{gap:2px}
+.dock .bandeau .jauge{height:10px}
+.dock .b-pv b{font-size:26px}
+.dock .pile-dos{width:34px;height:46px}
+.dock .pile-dos b{font-size:16px}
+.dock .consigne-ligne{padding:3px 10px;font-size:14px}
+.dock .main-cartes{padding-top:4px}
+.main-cartes .carte{--w:132px}
+.leader-btn[aria-pressed="true"] .leader-carte{outline:none;box-shadow:0 0 0 4px var(--rouge),0 6px 14px rgba(0,0,0,.35)}
+.pile .nb{top:-8px;right:-8px;bottom:auto;border-radius:12px;border:2px solid #fff;font-size:15px;padding:0 8px;z-index:4}
+.grille-cartes{gap:14px 12px;padding-top:8px}
+
 </style>
 </head>
 <body>
@@ -1824,8 +1964,30 @@ const ui = {ecran:"accueil", section:null, velvet:{onglet:"fusion", a:null, b:nu
 
 /* ---------- Textes des cartes ---------- */
 const nomEl = el => el && ELEMENTS[el] ? ELEMENTS[el].nom : "";
+// Icônes des éléments (SVG, couleur du texte)
+const ICONES = {
+  feu:'<path d="M12 2c1 4 5.5 6 5.5 11.2A5.5 5.5 0 0 1 6.5 13.2c0-3 1.8-4.6 2.3-7 1 2 2.2 3 3.2 3.2C12.6 7 11.6 4.6 12 2z"/>',
+  gla:'<g stroke="currentColor" stroke-width="2.2" stroke-linecap="round" fill="none"><path d="M12 2v20M3.3 7l17.4 10M20.7 7L3.3 17"/><path d="M9 4l3 2 3-2M9 20l3-2 3 2"/></g>',
+  ele:'<path d="M13.5 2L4 13.5h6.5L9.5 22 20 9.5h-6.6z"/>',
+  ven:'<g stroke="currentColor" stroke-width="2.2" stroke-linecap="round" fill="none"><path d="M3 8.5h11a3 3 0 1 0-3-3"/><path d="M3 12.5h15a3 3 0 1 1-3 3"/><path d="M3 16.5h7"/></g>',
+  psy:'<g stroke="currentColor" stroke-width="2.2" stroke-linecap="round" fill="none"><path d="M12 12a1.5 1.5 0 1 1 1.5 1.5A3.5 3.5 0 1 1 15.5 10 6 6 0 1 1 9 6.6 8.4 8.4 0 1 1 3.8 13"/></g>',
+  nuc:'<g stroke="currentColor" stroke-width="1.9" fill="none"><ellipse cx="12" cy="12" rx="10" ry="4"/><ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(60 12 12)"/><ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(120 12 12)"/></g><circle cx="12" cy="12" r="2.3"/>',
+  sac:'<circle cx="12" cy="12" r="4.2"/><g stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9l2.1 2.1M17 17l2.1 2.1M4.9 19.1L7 17M17 7l2.1-2.1"/></g>',
+  mau:'<path fill-rule="evenodd" d="M12 2.5a8 8 0 0 0-8 8v3.8l2 1.9V20h3v-2h2v2h2v-2h2v2h3v-3.8l2-1.9v-3.8a8 8 0 0 0-8-8zM8.6 9.2a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm6.8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4z"/>',
+  phy:'<path d="M20.5 2.5l-1 4.6L9.9 16.7l1.6 1.6-1.4 1.4-2.1-2.1-2.7 2.7-1.6-1.6 2.7-2.7-2.1-2.1 1.4-1.4 1.6 1.6 9.6-9.6z"/>',
+  gun:'<g stroke="currentColor" stroke-width="2.1" fill="none"><circle cx="12" cy="12" r="7.5"/><path d="M12 1.5v6M12 16.5v6M1.5 12h6M16.5 12h6"/></g><circle cx="12" cy="12" r="1.7"/>',
+  pur:'<path d="M12 1.5l2.6 7.9 7.9 2.6-7.9 2.6L12 22.5l-2.6-7.9L1.5 12l7.9-2.6z"/>'
+};
+const iconeEl = (el, classe) => el && ICONES[el] ? `<svg class="ico-el ${classe || ""}" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">${ICONES[el]}</svg>` : "";
 // Portrait d’un Leader : son image détourée sur le décor de son élément, sinon son initiale
 const portrait = (L, classe) => `<span class="portrait-art ${classe || ""} ${L.el ? "el-" + L.el : "el-aucun"}">${L.image ? `<img src="${esc(L.image)}" alt="">` : esc(L.nom.charAt(0))}</span>`;
+// Carte de Leader illustrée : grande image détourée sur le décor de son élément
+function leaderHTML(L, o = {}){
+  return `<span class="leader-carte ${L.el ? "el-" + L.el : "el-aucun"} ${o.classe || ""}">
+    ${L.image ? `<img class="lc-img" src="${esc(L.image)}" alt="">` : `<span class="lc-filigrane">${iconeEl(L.el) || esc(L.nom.charAt(0))}</span>`}
+    ${o.badge ? `<span class="lc-badge">${o.badge}</span>` : ""}
+    <span class="lc-bas"><span class="lc-nom">${esc(L.nom)}</span><span class="lc-arc">${esc(ARCANES[L.arcane] || "")}</span></span></span>`;
+}
 function txtEffet(e, d){
   if(!e) return "";
   const l = [];
@@ -1856,7 +2018,7 @@ function carteHTML(c, o = {}){
     ${o.combo ? `<span class="badge">One More !</span>` : ""}${o.lien ? `<span class="badge lien">Lien</span>` : ""}
     <span class="corps"><span class="type">${esc(type)}</span><span class="nom">${esc(d.nom)}</span>${lignes.join("")}</span></${tag}>`;
 }
-const chipEl = el => el ? `<span class="chip ${"el-" + el}">${esc(ELEMENTS[el].court)}</span>` : `<span class="chip el-aucun">Soutien</span>`;
+const chipEl = el => el ? `<span class="chip ${"el-" + el}">${iconeEl(el)}${esc(ELEMENTS[el].court)}</span>` : `<span class="chip el-aucun">Soutien</span>`;
 function txtCapa(L){ return `${L.toutCombo ? "Premier One More du tour, quel que soit l’élément" : `Premier One More ${nomEl(L.el) ? "(" + nomEl(L.el) + ")" : ""} du tour`} : ${txtEffet(L.capa)}`; }
 
 /* ---------- Accueil ---------- */
@@ -1886,7 +2048,7 @@ function accueilHTML(){
         <li style="--i:${PROFIL.etat.admin ? 6 : 5}"><button type="button" class="item-menu aide" data-act="regles"><span class="item-nom">Comment jouer</span><span class="item-sous">Les règles en une minute</span></button></li></ol></nav>
     </section>
     <aside class="carte-voleur" aria-label="Votre profil">
-      <div class="cv-tete">${portrait(L, "grand")}
+      <div class="cv-tete">${leaderHTML(L, {classe:"profil"})}
         <div><label class="cv-lbl" for="nom-code">Nom de code</label>
           <input id="nom-code" class="cv-nom" type="text" maxlength="24" placeholder="Choisissez un nom de code" value="${esc(P.nomCode)}" data-profil="nom">
           <span class="cv-fav">Leader favori : ${esc(L.nom)}</span></div></div>
@@ -2156,8 +2318,8 @@ function prepHTML(){
       <select id="deck-choix" data-deck="choix"><option value="">Deck tiré au hasard (test)</option>${decks.map(d => `<option value="${d.id}" ${c.deckId === d.id ? "selected" : ""}>${esc(d.nom)} (${esc(LEADERS[d.leader].nom)})</option>`).join("")}</select>
       <span class="aide">${c.deckId ? "Votre deck du Café Leblanc. Son Leader est utilisé." : "Un deck aléatoire, pour tester n’importe quel Leader."} Les decks se construisent au Café Leblanc.</span></div>` : "";
     return `<section class="bloc"><h2>${titre}</h2>${choixDeck}
-      <div class="leaders">${Object.entries(LEADERS).map(([id, l]) => `<button type="button" class="leader-btn" data-act="leader" data-id="${k}:${id}" aria-pressed="${c.leader === id}">
-        ${portrait(l, "")}<b>${esc(l.nom)}</b><small>${esc(nomEl(l.el) || "Soutien")} · ${esc(ARCANES[l.arcane] || "")}</small></button>`).join("")}</div>
+      <div class="leaders">${Object.entries(LEADERS).map(([id, l]) => `<button type="button" class="leader-btn" data-act="leader" data-id="${k}:${id}" aria-pressed="${c.leader === id}" aria-label="${esc(l.nom)}">
+        ${leaderHTML(l, {classe:"choix"})}</button>`).join("")}</div>
       <p class="fiche-leader"><b>${esc(L.vrai)}</b> · ${chipEl(L.el)} · Arcane ${esc(ARCANES[L.arcane] || "—")} · faiblesse ${chipEl(L.faiblesse)}<br>${txtCapa(L)}</p>
       ${k === 0 && c.deckId ? "" : `<div class="champ"><label for="rang${k}">Rang maximum des cartes apportées</label><output>${c.rangMax}</output>
         <input type="range" id="rang${k}" min="1" max="5" value="${c.rangMax}" data-champ="rangMax" data-j="${k}"></div>
@@ -2228,29 +2390,35 @@ function pillsHTML(e, d){
   if(d && d.finition && e.deg) l.push(`<span class="pill autre">×2 sous 20 PV</span>`);
   return l.join("");
 }
-// Carte compacte (main, marché, jouées) : effets en pastilles, texte complet dans la loupe
+// Carte : grande illustration en haut, nom dans un bandeau, effets en pastilles en bas
 function carteJeu(c, o = {}){
   const d = o.def || M.def(c);
-  const type = d.kind === "persona" ? `Persona · ${nomEl(d.el)}` : d.kind === "skill" ? `Skill · ${nomEl(d.el) || "neutre"}` : d.kind === "visite" ? "Carte de visite" : "Objet";
+  const type = d.kind === "persona" ? `Persona${ARCANES[d.arcane] ? " · " + ARCANES[d.arcane] : ""}` : d.kind === "skill" ? "Skill" : d.kind === "visite" ? "Carte de visite" : "Objet";
   const etatOM = o.etat ? (o.etat.combo ? "fait" : o.etat.attente ? "attente" : "") : "";
-  const lignes = [`<span class="pills">${pillsHTML(d.effet, d)}${d.parPhysique ? `<span class="pill deg">+1 ⚔ / Phy</span>` : ""}</span>`];
-  if(d.combo) lignes.push(`<span class="om ${etatOM}"><b>One More ${esc(nomEl(d.el))}</b>${etatOM === "attente" ? " · en attente" : etatOM === "fait" ? " · déclenché" : ""}<span class="pills">${pillsHTML(d.combo, d)}</span></span>`);
-  if(d.lien) lignes.push(`<span class="om ${o.etat && o.etat.lien ? "fait" : ""}"><b>Lien ${esc(ARCANES[d.arcane] || "")}</b><span class="pills">${pillsHTML(d.lien)}</span></span>`);
-  if(d.sacrifice) lignes.push(`<span class="om"><b>Sacrifice</b><span class="pills">${pillsHTML(d.sacrifice)}</span></span>`);
+  const lignes = [`<span class="c-ligne">${pillsHTML(d.effet, d)}${d.parPhysique ? `<span class="pill deg">+1 ⚔/Phy</span>` : ""}</span>`];
+  if(d.combo) lignes.push(`<span class="c-ligne c-om ${etatOM}"><span class="c-lbl">${iconeEl(d.el)}One More${etatOM === "fait" ? " ✓" : ""}</span>${pillsHTML(d.combo, d)}</span>`);
+  if(d.lien) lignes.push(`<span class="c-ligne c-lien ${o.etat && o.etat.lien ? "fait" : ""}"><span class="c-lbl">Lien${o.etat && o.etat.lien ? " ✓" : ""}</span>${pillsHTML(d.lien)}</span>`);
+  if(d.sacrifice) lignes.push(`<span class="c-ligne c-sac"><span class="c-lbl">Sacrifice</span>${pillsHTML(d.sacrifice)}</span>`);
   const ind = [];
   if(o.apercu){ const a = o.apercu;
     if(a.propre || a.declenche.length) ind.push(`<span class="indice om">One More !</span>`);
     if(a.lien) ind.push(`<span class="indice lien">Lien !</span>`);
     if(a.faiblesse) ind.push(`<span class="indice faib">Faiblesse</span>`);
-    if(a.aoa) ind.push(`<span class="indice aoa">All-Out Attack</span>`);
+    if(a.aoa) ind.push(`<span class="indice aoa">All-Out</span>`);
   }
   const tag = o.act ? "button" : "div";
   const attrs = o.act ? `type="button" data-act="${o.act}" data-id="${o.id ?? c.uid}" ${o.off ? "disabled" : ""}` : `tabindex="0"`;
   const titre = o.titre ? ` title="${esc(o.titre)}"` : "";
+  const prix = o.prix != null ? o.prix : (d.cout || null);
   return `<${tag} class="carte k-${d.kind} ${d.rang === 5 ? "r5" : ""} ${o.classe || ""}" ${attrs} data-cid="${esc(c.id)}"${titre} aria-label="${esc(d.nom)}">
-    <span class="art ${classeEl(d)}">${d.image ? `<img class="art-img" src="${esc(d.image)}" alt="" loading="lazy">` : `<span class="initiale">${esc(d.nom.charAt(0))}</span>`}${d.rang ? `<span class="rang">${"★".repeat(d.rang)}</span>` : ""}${o.prix != null ? `<span class="cout">${o.prix} ¥</span>` : ""}</span>
-    ${ind.length ? `<span class="indices">${ind.join("")}</span>` : ""}
-    <span class="corps"><span class="type">${esc(type)}</span><span class="nom">${esc(d.nom)}</span>${lignes.join("")}</span></${tag}>`;
+    <span class="c-art ${classeEl(d)}">
+      ${d.image ? `<img class="c-img" src="${esc(d.image)}" alt="" loading="lazy">` : `<span class="c-filigrane">${iconeEl(d.el) || (d.kind === "objet" ? (d.effet && d.effet.yen ? "¥" : "⚔") : esc(d.nom.charAt(0)))}</span>`}
+      ${prix != null ? `<span class="c-prix ${o.prix != null ? "" : "discret"}">${prix}<small>¥</small></span>` : ""}
+      ${d.rang ? `<span class="c-rang" aria-label="Rang ${d.rang}">${"★".repeat(d.rang)}</span>` : ""}
+      ${ind.length ? `<span class="indices">${ind.join("")}</span>` : ""}
+      <span class="c-nom ${d.nom.length > 15 ? "long" : ""}">${esc(d.nom)}</span>
+    </span>
+    <span class="c-corps"><span class="c-type">${iconeEl(d.el)}${esc(type)}</span>${lignes.join("")}</span></${tag}>`;
 }
 // Loupe : la carte en grand, avec des phrases complètes et le sens des mots-clés
 function loupeHTML(cid, dDirect){
@@ -2267,9 +2435,8 @@ function loupeHTML(cid, dDirect){
   if(d.finition) mots.push(["Finition", "les dégâts sont doublés si l’adversaire a moins de 20 PV."]);
   if(d.parPhysique) mots.push(["Physique", "+1 dégât pour chaque autre carte Physique déjà jouée ce tour."]);
   return `<div class="loupe-carte">
-    <div class="loupe-art ${classeEl(d)}">${d.image ? `<img class="art-img" src="${esc(d.image)}" alt="">` : `<span>${esc(d.nom.charAt(0))}</span>`}${d.rang ? `<span class="rang">${"★".repeat(d.rang)}</span>` : ""}</div>
+    <div class="loupe-grande">${carteJeu({id:cid || "x", uid:"loupe"}, {def:d, classe:"grande"})}</div>
     <div class="loupe-txt"><span class="type">${esc(d.kind === "persona" ? `Persona · ${nomEl(d.el)} · ${ARCANES[d.arcane] || ""}` : d.kind === "skill" ? `Skill · ${nomEl(d.el) || "neutre"}` : d.kind === "visite" ? "Carte de visite" : "Objet")}${d.cout ? ` · ${d.cout} ¥` : ""}</span>
-      <h3>${esc(d.nom)}</h3>
       <p>${txtEffet(d.effet, d)}${d.parPhysique ? " +1 dégât par autre carte Physique jouée ce tour." : ""}</p>
       ${d.combo ? `<p><b>One More (${esc(nomEl(d.el))})</b> : ${txtEffet(d.combo, d)}</p>` : ""}
       ${d.lien ? `<p><b>Lien d’Arcane</b> : ${txtEffet(d.lien)}</p>` : ""}
@@ -2281,15 +2448,23 @@ function loupeHTML(cid, dDirect){
 /* ---------- Duel ---------- */
 function bandeauHTML(i){
   const j = S.joueurs[i], L = j.L, moi = i === 0, actif = S.courant === i && S.vainqueur === null;
+  const pct = Math.max(0, Math.round(100 * j.pv / R.pv));
   return `<div class="bandeau ${moi ? "moi" : "adv"} ${actif ? "actif" : ""}" data-bandeau="${i}">
-    <div class="portrait">${portrait(L, "")}
-      <span><span class="qui">${esc(L.nom)}</span>${actif ? `<span class="son-tour">${moi ? "À vous" : "Joue"}</span>` : ""}<br><span class="sous">${esc(j.nom)}</span></span></div>
-    <div class="pv-joueur"><div class="chiffre">${Math.max(0, j.pv)}<small>/ ${R.pv} PV</small></div><div class="jauge"><i style="width:${Math.max(0, Math.round(100*j.pv/R.pv))}%"></i></div></div>
-    <div class="infos-leader"><span>Élément ${chipEl(L.el)} · Arcane ${esc(ARCANES[L.arcane] || "—")} · Faiblesse ${chipEl(L.faiblesse)}</span><span class="capa">${txtCapa(L)}</span></div>
-    <div class="compteurs">
-      ${moi ? `<button type="button" class="res bouton" data-act="voir-deck">Mon deck</button>` : `<span class="res"><b>${j.main.length}</b>en main</span>`}
-      <span class="res"><b>${j.deck.length}</b>pioche</span><span class="res"><b>${j.defausse.length}</b>défausse</span>
-      ${j.aDefausser ? `<span class="res alerte">défaussera ${j.aDefausser}</span>` : ""}${j.visite ? `<span class="res" title="Elle a été placée sur la pioche quand l’adversaire est passé sous 20 PV.">visite utilisée</span>` : `<span class="res discret" title="Placée sur votre pioche quand l’adversaire passe sous 20 PV.">visite prête</span>`}</div>
+    ${leaderHTML(L, {classe:"plateau", badge: actif ? (moi ? "À vous" : "Joue") : ""})}
+    <div class="b-infos">
+      <div class="b-ligne"><span class="b-joueur">${esc(j.nom)}</span>
+        <span class="b-pv"><b>${Math.max(0, j.pv)}</b><small>/ ${R.pv} PV</small></span></div>
+      <div class="jauge ${pct <= 40 ? "basse" : ""}"><i style="width:${pct}%"></i></div>
+      <div class="b-ligne b-tags">${chipEl(L.el)}<span class="chip neutre">${esc(ARCANES[L.arcane] || "—")}</span><span class="b-faib">Faible : ${chipEl(L.faiblesse)}</span></div>
+      <span class="capa">${txtCapa(L)}</span>
+    </div>
+    <div class="b-piles">
+      <span class="pile-dos" title="Pioche"><b>${j.deck.length}</b><small>pioche</small></span>
+      <span class="pile-dos defausse" title="Défausse"><b>${j.defausse.length}</b><small>défausse</small></span>
+      ${moi ? `<button type="button" class="res bouton" data-act="voir-deck">Mon deck</button>` : `<span class="pile-dos main"><b>${j.main.length}</b><small>en main</small></span>`}
+      ${j.aDefausser ? `<span class="res alerte">défaussera ${j.aDefausser}</span>` : ""}
+      <span class="res ${j.visite ? "" : "discret"}" title="${j.visite ? "Elle a été placée sur la pioche quand l’adversaire est passé sous 20 PV." : "Placée sur la pioche quand l’adversaire passe sous 20 PV."}">${j.visite ? "visite utilisée" : "visite prête"}</span>
+    </div>
   </div>`;
 }
 const LIB_K = {deg:"dégât", yen:"¥", pv:"PV", pioche:"carte piochée", defausse:"défausse adverse", purge:"purge", vision:"vision"};
@@ -2397,7 +2572,7 @@ function jeuHTML(){
       <span class="statut ${S.courant === 0 ? "moi" : "adv"}">Tour ${S.tour} · ${S.courant === 0 ? "à vous" : "à l’ordinateur"}</span>
       ${ui.iaEnCours ? `<span class="action-ia">${derniereAction ? esc(derniereAction.t) : "L’ordinateur réfléchit…"}</span><button type="button" class="lien-btn" data-act="passer">Passer l’animation</button>` : ""}
       <span class="droite"><button type="button" class="lien-btn" data-act="regles">Comment jouer</button><button type="button" class="lien-btn" data-act="quitter">Quitter</button></span></header>
-    <main class="jeu">
+    <main class="jeu plateau-jeu">
       <section class="centre">
         ${bandeauHTML(1)}
         ${recuHTML()}
