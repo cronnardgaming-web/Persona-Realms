@@ -43,6 +43,33 @@
         "arcane": "empereur",
         "legendaire": true
       },
+      "bugs": {
+        "el": "psy",
+        "nom": "Bugs",
+        "cout": 5,
+        "kind": "persona",
+        "lien": {
+          "yen": 1
+        },
+        "rang": 3,
+        "combo": {
+          "deg": 3
+        },
+        "effet": {
+          "deg": 3,
+          "yen": 2
+        },
+        "image": "https://tojuxyrlqipsnxcwngzn.supabase.co/storage/v1/object/public/images/cartes/mwb9h0t6-s0020s.webp",
+        "arcane": "fou",
+        "niveau": 49,
+        "skills": [
+          "miracle_punch",
+          "psiodyne",
+          "masukunda",
+          "triple_down"
+        ],
+        "legendaire": false
+      },
       "alice": {
         "el": "mau",
         "nom": "Alice",
@@ -240,10 +267,10 @@
         "arcane": "fou",
         "unique": true,
         "reservee": true,
-        "legendaire": false
+        "legendaire": true
       },
       "athena": {
-        "el": "pur",
+        "el": "phy",
         "nom": "Athena",
         "cout": 5,
         "kind": "persona",
@@ -261,6 +288,115 @@
         "image": "https://tojuxyrlqipsnxcwngzn.supabase.co/storage/v1/object/public/images/cartes/mwaso0a0-mbrwls.webp",
         "arcane": "chariot",
         "unique": true,
+        "legendaire": false
+      },
+      "barong": {
+        "el": "ele",
+        "nom": "Barong",
+        "cout": 5,
+        "kind": "persona",
+        "lien": {
+          "yen": 1
+        },
+        "rang": 3,
+        "combo": {
+          "pioche": 1
+        },
+        "effet": {
+          "deg": 5
+        },
+        "image": "https://tojuxyrlqipsnxcwngzn.supabase.co/storage/v1/object/public/images/cartes/mwb96m2g-a9t6xa.webp",
+        "arcane": "empereur",
+        "niveau": 52,
+        "skills": [
+          "ziodyne",
+          "wage_war",
+          "elec_break",
+          "maziodyne"
+        ],
+        "legendaire": false
+      },
+      "belial": {
+        "el": "mau",
+        "nom": "Belial",
+        "cout": 7,
+        "kind": "persona",
+        "lien": {
+          "yen": 1
+        },
+        "rang": 5,
+        "combo": {
+          "purge": 2
+        },
+        "effet": {
+          "pv": 3,
+          "deg": 8
+        },
+        "image": "https://tojuxyrlqipsnxcwngzn.supabase.co/storage/v1/object/public/images/cartes/mwb98b9j-7tjo0c.webp",
+        "arcane": "diable",
+        "niveau": 82,
+        "skills": [
+          "bloodbath",
+          "eigaon",
+          "maeigaon",
+          "mamudoon",
+          "demonic_decree"
+        ],
+        "legendaire": true
+      },
+      "berith": {
+        "el": "phy",
+        "nom": "Berith",
+        "cout": 3,
+        "kind": "persona",
+        "lien": {
+          "yen": 1
+        },
+        "rang": 1,
+        "combo": {
+          "deg": 2
+        },
+        "effet": {
+          "deg": 5
+        },
+        "image": "https://tojuxyrlqipsnxcwngzn.supabase.co/storage/v1/object/public/images/cartes/mwb996kx-1euyu2.webp",
+        "arcane": "hierophante",
+        "niveau": 9,
+        "skills": [
+          "cleave",
+          "rakukaja",
+          "tarukaja",
+          "power_slash"
+        ],
+        "legendaire": false,
+        "parPhysique": 1
+      },
+      "bicorn": {
+        "el": "ven",
+        "nom": "Bicorn",
+        "cout": 3,
+        "kind": "persona",
+        "lien": {
+          "yen": 1
+        },
+        "rang": 1,
+        "combo": {
+          "deg": 1,
+          "yen": 1
+        },
+        "effet": {
+          "deg": 3,
+          "yen": 1
+        },
+        "image": "https://tojuxyrlqipsnxcwngzn.supabase.co/storage/v1/object/public/images/cartes/mwb99hyi-ha0inx.webp",
+        "arcane": "ermite",
+        "niveau": 4,
+        "skills": [
+          "lunge",
+          "tarunda",
+          "garu",
+          "ice_wall"
+        ],
         "legendaire": false
       },
       "abaddon": {
@@ -303,7 +439,7 @@
         "legendaire": false
       },
       "ariadne": {
-        "el": "pur",
+        "el": "phy",
         "nom": "Ariadne",
         "cout": 4,
         "kind": "persona",
@@ -362,6 +498,34 @@
         "arcane": "fortune",
         "legendaire": false
       },
+      "byakhee": {
+        "el": "feu",
+        "nom": "Byakhee",
+        "cout": 6,
+        "kind": "persona",
+        "lien": {
+          "yen": 1
+        },
+        "rang": 4,
+        "combo": {
+          "deg": 3
+        },
+        "effet": {
+          "deg": 8
+        },
+        "image": "https://tojuxyrlqipsnxcwngzn.supabase.co/storage/v1/object/public/images/cartes/mwb9hjxe-yi4qgy.webp",
+        "arcane": "lune",
+        "niveau": 70,
+        "skills": [
+          "death_scythe",
+          "agidyne",
+          "foul_breath",
+          "maragidyne",
+          "fire_break",
+          "heat_riser"
+        ],
+        "legendaire": false
+      },
       "agathion": {
         "el": "ele",
         "nom": "Agathion",
@@ -382,7 +546,7 @@
         "legendaire": false
       },
       "asterius": {
-        "el": "pur",
+        "el": "feu",
         "nom": "Asterius",
         "cout": 5,
         "kind": "persona",
@@ -403,7 +567,7 @@
         "legendaire": false
       },
       "baphomet": {
-        "el": "pur",
+        "el": "feu",
         "nom": "Baphomet",
         "cout": 5,
         "kind": "persona",
@@ -463,6 +627,61 @@
         "arcane": "justice",
         "legendaire": false
       },
+      "beelzebub": {
+        "el": "mau",
+        "nom": "Beelzebub",
+        "cout": 7,
+        "kind": "persona",
+        "lien": {
+          "yen": 1
+        },
+        "rang": 5,
+        "combo": {
+          "purge": 2
+        },
+        "effet": {
+          "pv": 3,
+          "deg": 8
+        },
+        "image": "https://tojuxyrlqipsnxcwngzn.supabase.co/storage/v1/object/public/images/cartes/mwb97aej-atnbsz.webp",
+        "arcane": "diable",
+        "niveau": 87,
+        "skills": [
+          "mamudoon",
+          "maeigaon",
+          "evil_smile",
+          "concentrate",
+          "demonic_decree",
+          "megidolaon"
+        ],
+        "legendaire": true
+      },
+      "belphegor": {
+        "el": "gla",
+        "nom": "Belphegor",
+        "cout": 4,
+        "kind": "persona",
+        "lien": {
+          "yen": 1
+        },
+        "rang": 2,
+        "combo": {
+          "defausse": 1
+        },
+        "effet": {
+          "deg": 6
+        },
+        "image": "https://tojuxyrlqipsnxcwngzn.supabase.co/storage/v1/object/public/images/cartes/mwb98rcu-6epy61.webp",
+        "arcane": "tour",
+        "niveau": 37,
+        "skills": [
+          "mabufula",
+          "ice_break",
+          "bufudyne",
+          "concentrate"
+        ],
+        "legendaire": false
+      },
       "ara_mitama": {
         "el": "nuc",
         "nom": "Ara Mitama",
@@ -483,8 +702,122 @@
         "arcane": "chariot",
         "legendaire": false
       },
+      "black_ooze": {
+        "el": "mau",
+        "nom": "Black Ooze",
+        "cout": 3,
+        "kind": "persona",
+        "lien": {
+          "yen": 1
+        },
+        "rang": 1,
+        "combo": {
+          "purge": 1
+        },
+        "effet": {
+          "pv": 1,
+          "deg": 4
+        },
+        "image": "https://tojuxyrlqipsnxcwngzn.supabase.co/storage/v1/object/public/images/cartes/mwb9epbm-hvvv73.webp",
+        "arcane": "lune",
+        "niveau": 18,
+        "skills": [
+          "sledgehammer",
+          "foul_breath",
+          "evil_touch",
+          "headbutt",
+          "brain_jack",
+          "flash_bomb"
+        ],
+        "legendaire": false
+      },
+      "bishamonten": {
+        "el": "nuc",
+        "nom": "Bishamonten",
+        "cout": 6,
+        "kind": "persona",
+        "lien": {
+          "yen": 1
+        },
+        "rang": 4,
+        "combo": {
+          "deg": 2,
+          "parCombo": 1
+        },
+        "effet": {
+          "deg": 8
+        },
+        "image": "https://tojuxyrlqipsnxcwngzn.supabase.co/storage/v1/object/public/images/cartes/mwb9bc6z-xicglq.webp",
+        "arcane": "hierophante",
+        "niveau": 67,
+        "skills": [
+          "deadly_fury",
+          "freidyne",
+          "diarahan",
+          "mafreidyne",
+          "tetrakarn",
+          "gods_hand"
+        ],
+        "legendaire": false
+      },
+      "black_frost": {
+        "el": "gla",
+        "nom": "Black Frost",
+        "cout": 6,
+        "kind": "persona",
+        "lien": {
+          "yen": 1
+        },
+        "rang": 4,
+        "combo": {
+          "deg": 3
+        },
+        "effet": {
+          "deg": 4,
+          "yen": 3
+        },
+        "image": "https://tojuxyrlqipsnxcwngzn.supabase.co/storage/v1/object/public/images/cartes/mwb9bwtv-oxbtzs.webp",
+        "arcane": "fou",
+        "niveau": 67,
+        "skills": [
+          "miracle_punch",
+          "one_shot_kill",
+          "mabufudyne",
+          "diamond_dust"
+        ],
+        "legendaire": false
+      },
+      "black_rider": {
+        "el": "mau",
+        "nom": "Black Rider",
+        "cout": 5,
+        "kind": "persona",
+        "lien": {
+          "yen": 1
+        },
+        "rang": 3,
+        "combo": {
+          "purge": 1
+        },
+        "effet": {
+          "pv": 2,
+          "deg": 6
+        },
+        "image": "https://tojuxyrlqipsnxcwngzn.supabase.co/storage/v1/object/public/images/cartes/mwb9ghjg-331xkr.webp",
+        "arcane": "tour",
+        "niveau": 59,
+        "skills": [
+          "flash_bomb",
+          "mamudoon",
+          "maeigaon",
+          "bloodbath",
+          "ghastly_wail",
+          "megidola"
+        ],
+        "legendaire": false
+      },
       "ame_no_uzume": {
-        "el": "pur",
+        "el": "ele",
         "nom": "Ame-no-Uzume",
         "cout": 3,
         "kind": "persona",
@@ -503,15 +836,15 @@
         "arcane": "amants",
         "legendaire": false
       },
-      "barong": {
-        "nom": "Barong",
+      "captain_kidd": {
+        "nom": "Captain Kidd",
         "kind": "persona",
         "el": "ele",
-        "arcane": "empereur",
-        "rang": 3,
-        "cout": 5,
+        "arcane": "chariot",
+        "rang": 1,
+        "cout": 3,
         "effet": {
-          "deg": 5
+          "deg": 4
         },
         "combo": {
           "pioche": 1
@@ -519,82 +852,115 @@
         "lien": {
           "yen": 1
         },
-        "legendaire": false,
-        "niveau": 52,
+        "legendaire": true,
+        "niveau": 4,
         "skills": [
-          "ziodyne",
-          "wage_war",
+          "zio",
+          "lunge",
+          "tarukaja",
+          "headbutt",
+          "rampage",
+          "mazio",
+          "memory_blow",
+          "assault_dive",
+          "zionga",
           "elec_break",
-          "maziodyne"
+          "swift_strike",
+          "mazionga",
+          "deathbound",
+          "megaton_raid",
+          "ziodyne",
+          "matarukaja",
+          "charge",
+          "maziodyne",
+          "agneyastra",
+          "gods_hand"
         ],
-        "image": "https://tojuxyrlqipsnxcwngzn.supabase.co/storage/v1/object/public/images/cartes/mwb96m2g-a9t6xa.webp"
+        "reservee": true,
+        "unique": true,
+        "image": "https://tojuxyrlqipsnxcwngzn.supabase.co/storage/v1/object/public/images/cartes/mwbugasz-uxsijs.webp"
       },
-      "beelzebub": {
-        "nom": "Beelzebub",
+      "carmen": {
+        "nom": "Carmen",
         "kind": "persona",
-        "el": "mau",
-        "arcane": "diable",
-        "rang": 5,
-        "cout": 7,
+        "el": "feu",
+        "arcane": "amants",
+        "rang": 1,
+        "cout": 3,
         "effet": {
-          "deg": 8,
-          "pv": 3
+          "deg": 5
         },
         "combo": {
-          "purge": 2
+          "deg": 2
         },
         "lien": {
           "yen": 1
         },
         "legendaire": true,
-        "niveau": 87,
+        "niveau": 5,
         "skills": [
-          "mamudoon",
-          "maeigaon",
-          "evil_smile",
+          "agi",
+          "dia",
+          "dormina",
+          "tarunda",
+          "maragi",
+          "dekaja",
+          "agilao",
+          "fire_break",
+          "diarama",
+          "lullaby",
+          "maragion",
+          "matarunda",
+          "agidyne",
+          "maragidyne",
+          "diarahan",
           "concentrate",
-          "demonic_decree",
-          "megidolaon"
+          "blazing_hell"
         ],
-        "image": "https://tojuxyrlqipsnxcwngzn.supabase.co/storage/v1/object/public/images/cartes/mwb97aej-atnbsz.webp"
+        "reservee": true,
+        "unique": true,
+        "image": "https://tojuxyrlqipsnxcwngzn.supabase.co/storage/v1/object/public/images/cartes/mwbugm0p-7kb7hk.webp"
       },
-      "belial": {
-        "nom": "Belial",
+      "cendrillon": {
+        "nom": "Cendrillon",
         "kind": "persona",
-        "el": "mau",
-        "arcane": "diable",
-        "rang": 5,
-        "cout": 7,
+        "el": "sac",
+        "arcane": "foi",
+        "rang": 4,
+        "cout": 6,
         "effet": {
-          "deg": 8,
-          "pv": 3
+          "pv": 7,
+          "deg": 3
         },
         "combo": {
-          "purge": 2
+          "pv": 5
         },
         "lien": {
           "yen": 1
         },
         "legendaire": true,
-        "niveau": 82,
+        "niveau": 75,
         "skills": [
-          "bloodbath",
-          "eigaon",
-          "maeigaon",
-          "mamudoon",
-          "demonic_decree"
+          "sword_dance",
+          "vorpal_blade",
+          "kougaon",
+          "makougaon",
+          "diarahan",
+          "brave_step"
         ],
-        "image": "https://tojuxyrlqipsnxcwngzn.supabase.co/storage/v1/object/public/images/cartes/mwb98b9j-7tjo0c.webp"
+        "reservee": true,
+        "unique": true,
+        "image": "https://tojuxyrlqipsnxcwngzn.supabase.co/storage/v1/object/public/images/cartes/mwbuh0ih-sv2lf9.webp"
       },
-      "belphegor": {
-        "nom": "Belphegor",
+      "byakko": {
+        "nom": "Byakko",
         "kind": "persona",
         "el": "gla",
-        "arcane": "tour",
-        "rang": 2,
-        "cout": 4,
+        "arcane": "temperance",
+        "rang": 3,
+        "cout": 5,
         "effet": {
-          "deg": 6
+          "deg": 7
         },
         "combo": {
           "defausse": 1
@@ -603,20 +969,1104 @@
           "yen": 1
         },
         "legendaire": false,
-        "niveau": 37,
+        "niveau": 45,
         "skills": [
+          "swift_strike",
           "mabufula",
           "ice_break",
-          "bufudyne",
-          "concentrate"
+          "bufudyne"
         ],
-        "image": "https://tojuxyrlqipsnxcwngzn.supabase.co/storage/v1/object/public/images/cartes/mwb98rcu-6epy61.webp"
+        "image": "https://tojuxyrlqipsnxcwngzn.supabase.co/storage/v1/object/public/images/cartes/mwbtnxgy-ayxwvm.webp"
       },
-      "berith": {
-        "nom": "Berith",
+      "cait_sith": {
+        "nom": "Cait Sith",
+        "kind": "persona",
+        "el": "psy",
+        "arcane": "magicien",
+        "rang": 1,
+        "cout": 3,
+        "effet": {
+          "deg": 4,
+          "vision": 1
+        },
+        "combo": {
+          "vision": 1,
+          "deg": 2
+        },
+        "lien": {
+          "yen": 1
+        },
+        "legendaire": false,
+        "niveau": 5,
+        "skills": [
+          "cleave",
+          "agi",
+          "tarukaja",
+          "sukukaja",
+          "media"
+        ],
+        "image": "https://tojuxyrlqipsnxcwngzn.supabase.co/storage/v1/object/public/images/cartes/mwbtof19-4wr22l.webp"
+      },
+      "cerberus": {
+        "nom": "Cerberus",
+        "kind": "persona",
+        "el": "feu",
+        "arcane": "chariot",
+        "rang": 3,
+        "cout": 5,
+        "effet": {
+          "deg": 7
+        },
+        "combo": {
+          "deg": 3
+        },
+        "lien": {
+          "yen": 1
+        },
+        "legendaire": true,
+        "niveau": 55,
+        "skills": [
+          "megaton_raid",
+          "agidyne",
+          "rebellion",
+          "maragidyne"
+        ],
+        "image": "https://tojuxyrlqipsnxcwngzn.supabase.co/storage/v1/object/public/images/cartes/mwbtp25f-wnlufa.webp",
+        "unique": true
+      },
+      "chernobog": {
+        "nom": "Chernobog",
         "kind": "persona",
         "el": "phy",
+        "arcane": "mort",
+        "rang": 4,
+        "cout": 6,
+        "effet": {
+          "deg": 8,
+          "vision": 1
+        },
+        "combo": {
+          "vision": 1,
+          "deg": 2
+        },
+        "lien": {
+          "yen": 1
+        },
+        "legendaire": false,
+        "niveau": 62,
+        "skills": [
+          "bloodbath",
+          "myriad_slashes",
+          "mudoon",
+          "foul_breath",
+          "deathbound",
+          "brave_blade"
+        ],
+        "image": "https://tojuxyrlqipsnxcwngzn.supabase.co/storage/v1/object/public/images/cartes/mwbtpk89-gz3a4y.webp"
+      },
+      "chi_you": {
+        "nom": "Chi You",
+        "kind": "persona",
+        "el": "psy",
+        "arcane": "chariot",
+        "rang": 5,
+        "cout": 7,
+        "effet": {
+          "deg": 9,
+          "vision": 1
+        },
+        "combo": {
+          "vision": 1,
+          "deg": 3
+        },
+        "lien": {
+          "yen": 1
+        },
+        "legendaire": true,
+        "niveau": 88,
+        "skills": [
+          "gigantomachia",
+          "psycho_force",
+          "psycho_blast",
+          "concentrate"
+        ],
+        "image": "https://tojuxyrlqipsnxcwngzn.supabase.co/storage/v1/object/public/images/cartes/mwbtpw2c-ncf4c4.webp"
+      },
+      "chimera": {
+        "nom": "Chimera",
+        "kind": "persona",
+        "el": "pur",
+        "arcane": "force",
+        "rang": 4,
+        "cout": 6,
+        "effet": {
+          "deg": 8
+        },
+        "combo": {
+          "deg": 3
+        },
+        "lien": {
+          "yen": 1
+        },
+        "parPhysique": 1,
+        "legendaire": false,
+        "niveau": 74,
+        "skills": [
+          "heat_wave",
+          "maragidyne",
+          "bufudyne",
+          "marakunda",
+          "mabufudyne"
+        ],
+        "image": "https://tojuxyrlqipsnxcwngzn.supabase.co/storage/v1/object/public/images/cartes/mwbtq9zw-orwmjf.webp"
+      },
+      "choronzon": {
+        "nom": "Choronzon",
+        "kind": "persona",
+        "el": "mau",
+        "arcane": "magicien",
+        "rang": 2,
+        "cout": 4,
+        "effet": {
+          "deg": 5,
+          "pv": 2
+        },
+        "combo": {
+          "purge": 1
+        },
+        "lien": {
+          "yen": 1
+        },
+        "legendaire": false,
+        "niveau": 28,
+        "skills": [
+          "rampage",
+          "life_drain",
+          "pulinpa",
+          "maeiha",
+          "eiga"
+        ],
+        "image": "https://tojuxyrlqipsnxcwngzn.supabase.co/storage/v1/object/public/images/cartes/mwbtr2wd-opubte.webp"
+      },
+      "clotho": {
+        "nom": "Clotho",
+        "kind": "persona",
+        "el": "sac",
+        "arcane": "fortune",
+        "rang": 2,
+        "cout": 4,
+        "effet": {
+          "pv": 5,
+          "deg": 2
+        },
+        "combo": {
+          "pv": 4
+        },
+        "lien": {
+          "yen": 1
+        },
+        "legendaire": false,
+        "niveau": 27,
+        "skills": [
+          "mahama",
+          "makajam",
+          "me_patra",
+          "tetraja",
+          "makajamaon",
+          "energy_shower"
+        ],
+        "image": "https://tojuxyrlqipsnxcwngzn.supabase.co/storage/v1/object/public/images/cartes/mwbtrcqj-at1y8b.webp"
+      },
+      "cu_chulainn": {
+        "nom": "Cu Chulainn",
+        "kind": "persona",
+        "el": "gun",
+        "arcane": "foi",
+        "rang": 4,
+        "cout": 6,
+        "effet": {
+          "deg": 4,
+          "yen": 3
+        },
+        "combo": {
+          "deg": 3
+        },
+        "lien": {
+          "yen": 1
+        },
+        "legendaire": false,
+        "niveau": 76,
+        "skills": [
+          "one_shot_kill",
+          "rebellion",
+          "matarukaja",
+          "brave_blade",
+          "charge"
+        ],
+        "image": "https://tojuxyrlqipsnxcwngzn.supabase.co/storage/v1/object/public/images/cartes/mwbtv21t-lgl1x4.webp"
+      },
+      "cybele": {
+        "nom": "Cybele",
+        "kind": "persona",
+        "el": "sac",
+        "arcane": "pretresse",
+        "rang": 5,
+        "cout": 7,
+        "effet": {
+          "pv": 8,
+          "deg": 4
+        },
+        "combo": {
+          "pv": 5
+        },
+        "lien": {
+          "yen": 1
+        },
+        "legendaire": true,
+        "niveau": 83,
+        "skills": [
+          "makougaon",
+          "samarecarm",
+          "mediarahan",
+          "amrita_shower",
+          "salvation"
+        ],
+        "image": "https://tojuxyrlqipsnxcwngzn.supabase.co/storage/v1/object/public/images/cartes/mwbtwxo7-89gj2f.webp"
+      },
+      "daisoujou": {
+        "nom": "Daisoujou",
+        "kind": "persona",
+        "el": "sac",
         "arcane": "hierophante",
+        "rang": 2,
+        "cout": 4,
+        "effet": {
+          "pv": 5,
+          "deg": 2
+        },
+        "combo": {
+          "pv": 4
+        },
+        "lien": {
+          "yen": 1
+        },
+        "legendaire": false,
+        "niveau": 40,
+        "skills": [
+          "makouga",
+          "spirit_drain",
+          "samsara",
+          "diarahan",
+          "me_patra"
+        ],
+        "image": "https://tojuxyrlqipsnxcwngzn.supabase.co/storage/v1/object/public/images/cartes/mwbty0dz-jrdess.webp"
+      },
+      "dakini": {
+        "nom": "Dakini",
+        "kind": "persona",
+        "el": "phy",
+        "arcane": "imperatrice",
+        "rang": 3,
+        "cout": 5,
+        "effet": {
+          "deg": 7
+        },
+        "combo": {
+          "deg": 3
+        },
+        "lien": {
+          "yen": 1
+        },
+        "parPhysique": 1,
+        "legendaire": false,
+        "niveau": 50,
+        "skills": [
+          "rising_slash",
+          "bad_beat",
+          "myriad_slashes",
+          "deathbound",
+          "rebellion",
+          "charge"
+        ],
+        "image": "https://tojuxyrlqipsnxcwngzn.supabase.co/storage/v1/object/public/images/cartes/mwbtyfck-4tt9vr.webp"
+      },
+      "decarabia": {
+        "nom": "Decarabia",
+        "kind": "persona",
+        "el": "feu",
+        "arcane": "conseiller",
+        "rang": 2,
+        "cout": 4,
+        "effet": {
+          "deg": 6
+        },
+        "combo": {
+          "deg": 3
+        },
+        "lien": {
+          "yen": 1
+        },
+        "legendaire": false,
+        "niveau": 32,
+        "skills": [
+          "agilao",
+          "ominous_words",
+          "tetrakarn",
+          "agidyne",
+          "megidola"
+        ],
+        "image": "https://tojuxyrlqipsnxcwngzn.supabase.co/storage/v1/object/public/images/cartes/mwbtyw5y-s4k53a.webp"
+      },
+      "dionysus": {
+        "nom": "Dionysus",
+        "kind": "persona",
+        "el": "psy",
+        "arcane": "conseiller",
+        "rang": 4,
+        "cout": 6,
+        "effet": {
+          "deg": 8,
+          "vision": 1
+        },
+        "combo": {
+          "vision": 1,
+          "deg": 2
+        },
+        "lien": {
+          "yen": 1
+        },
+        "legendaire": false,
+        "niveau": 71,
+        "skills": [
+          "ziodyne",
+          "maziodyne",
+          "brain_jack",
+          "thermopylae",
+          "amrita_shower",
+          "debilitate"
+        ],
+        "image": "https://tojuxyrlqipsnxcwngzn.supabase.co/storage/v1/object/public/images/cartes/mwbtzhxz-kn2zz6.webp"
+      },
+      "dominion": {
+        "nom": "Dominion",
+        "kind": "persona",
+        "el": "sac",
+        "arcane": "justice",
+        "rang": 4,
+        "cout": 6,
+        "effet": {
+          "pv": 7,
+          "deg": 3
+        },
+        "combo": {
+          "pv": 5
+        },
+        "lien": {
+          "yen": 1
+        },
+        "legendaire": false,
+        "niveau": 68,
+        "skills": [
+          "hamaon",
+          "kougaon",
+          "makajamaon",
+          "makougaon",
+          "mahamaon"
+        ],
+        "image": "https://tojuxyrlqipsnxcwngzn.supabase.co/storage/v1/object/public/images/cartes/mwbtzrb1-v18t8q.webp"
+      },
+      "eligor": {
+        "nom": "Eligor",
+        "kind": "persona",
+        "el": "feu",
+        "arcane": "empereur",
+        "rang": 1,
+        "cout": 3,
+        "effet": {
+          "deg": 5
+        },
+        "combo": {
+          "deg": 2
+        },
+        "lien": {
+          "yen": 1
+        },
+        "legendaire": false,
+        "niveau": 16,
+        "skills": [
+          "maragi",
+          "tarukaja",
+          "double_fangs",
+          "sukunda",
+          "memory_blow"
+        ],
+        "image": "https://tojuxyrlqipsnxcwngzn.supabase.co/storage/v1/object/public/images/cartes/mwbu0ar7-c6ydm2.webp"
+      },
+      "fafnir": {
+        "nom": "Fafnir",
+        "kind": "persona",
+        "el": "nuc",
+        "arcane": "ermite",
+        "rang": 5,
+        "cout": 7,
+        "effet": {
+          "deg": 10
+        },
+        "combo": {
+          "deg": 2,
+          "parCombo": 1
+        },
+        "lien": {
+          "yen": 1
+        },
+        "legendaire": true,
+        "niveau": 86,
+        "skills": [
+          "gigantomachia",
+          "cosmic_flare",
+          "evil_smile",
+          "atomic_flare",
+          "debilitate"
+        ],
+        "image": "https://tojuxyrlqipsnxcwngzn.supabase.co/storage/v1/object/public/images/cartes/mwbu1xmj-qhtvv5.webp"
+      },
+      "flauros": {
+        "nom": "Flauros",
+        "kind": "persona",
+        "el": "phy",
+        "arcane": "diable",
+        "rang": 1,
+        "cout": 3,
+        "effet": {
+          "deg": 4,
+          "vision": 1
+        },
+        "combo": {
+          "vision": 1,
+          "deg": 2
+        },
+        "lien": {
+          "yen": 1
+        },
+        "legendaire": false,
+        "niveau": 19,
+        "skills": [
+          "giant_slice",
+          "dormin_rush",
+          "dekaja",
+          "rebellion",
+          "cornered_fang"
+        ],
+        "image": "https://tojuxyrlqipsnxcwngzn.supabase.co/storage/v1/object/public/images/cartes/mwbu2806-ylz1gi.webp"
+      },
+      "forneus": {
+        "nom": "Forneus",
+        "kind": "persona",
+        "el": "psy",
+        "arcane": "magicien",
+        "rang": 4,
+        "cout": 6,
+        "effet": {
+          "deg": 8,
+          "vision": 1
+        },
+        "combo": {
+          "vision": 1,
+          "deg": 2
+        },
+        "lien": {
+          "yen": 1
+        },
+        "legendaire": false,
+        "niveau": 63,
+        "skills": [
+          "psiodyne",
+          "brain_jack",
+          "masukunda",
+          "stagnant_air",
+          "mapsiodyne"
+        ],
+        "image": "https://tojuxyrlqipsnxcwngzn.supabase.co/storage/v1/object/public/images/cartes/mwbu2ipr-3nbbj8.webp"
+      },
+      "fortuna": {
+        "nom": "Fortuna",
+        "kind": "persona",
+        "el": "ven",
+        "arcane": "fortune",
+        "rang": 3,
+        "cout": 5,
+        "effet": {
+          "yen": 2,
+          "deg": 5
+        },
+        "combo": {
+          "yen": 1,
+          "deg": 2
+        },
+        "lien": {
+          "yen": 1
+        },
+        "legendaire": false,
+        "niveau": 46,
+        "skills": [
+          "magarula",
+          "masukukaja",
+          "tetraja",
+          "garudyne",
+          "amrita_drop"
+        ],
+        "image": "https://tojuxyrlqipsnxcwngzn.supabase.co/storage/v1/object/public/images/cartes/mwbu38gd-008cve.webp"
+      },
+      "futsunushi": {
+        "nom": "Futsunushi",
+        "kind": "persona",
+        "el": "phy",
+        "arcane": "magicien",
+        "rang": 5,
+        "cout": 7,
+        "effet": {
+          "deg": 10
+        },
+        "combo": {
+          "deg": 4
+        },
+        "lien": {
+          "yen": 1
+        },
+        "parPhysique": 1,
+        "legendaire": true,
+        "niveau": 86,
+        "skills": [
+          "myriad_slashes",
+          "matarukaja",
+          "charge",
+          "brave_blade"
+        ],
+        "image": "https://tojuxyrlqipsnxcwngzn.supabase.co/storage/v1/object/public/images/cartes/mwbu3jkz-yhm04j.webp"
+      },
+      "fuu_ki": {
+        "nom": "Fuu-Ki",
+        "kind": "persona",
+        "el": "ven",
+        "arcane": "etoile",
+        "rang": 2,
+        "cout": 4,
+        "effet": {
+          "yen": 2,
+          "deg": 4
+        },
+        "combo": {
+          "yen": 1,
+          "deg": 1
+        },
+        "lien": {
+          "yen": 1
+        },
+        "legendaire": false,
+        "niveau": 23,
+        "skills": [
+          "garula",
+          "tarukaja",
+          "tetra_break",
+          "magarula"
+        ],
+        "image": "https://tojuxyrlqipsnxcwngzn.supabase.co/storage/v1/object/public/images/cartes/mwbu3uh5-anwhec.webp"
+      },
+      "gabriel": {
+        "nom": "Gabriel",
+        "kind": "persona",
+        "el": "sac",
+        "arcane": "temperance",
+        "rang": 4,
+        "cout": 6,
+        "effet": {
+          "deg": 4,
+          "yen": 3
+        },
+        "combo": {
+          "deg": 3
+        },
+        "lien": {
+          "yen": 1
+        },
+        "legendaire": false,
+        "niveau": 77,
+        "skills": [
+          "mabufudyne",
+          "maziodyne",
+          "divine_judgement",
+          "salvation"
+        ],
+        "image": "https://tojuxyrlqipsnxcwngzn.supabase.co/storage/v1/object/public/images/cartes/mwbu4880-h3v9e5.webp"
+      },
+      "ganesha": {
+        "nom": "Ganesha",
+        "kind": "persona",
+        "el": "phy",
+        "arcane": "soleil",
+        "rang": 3,
+        "cout": 5,
+        "effet": {
+          "deg": 6,
+          "vision": 1
+        },
+        "combo": {
+          "vision": 1,
+          "deg": 2
+        },
+        "lien": {
+          "yen": 1
+        },
+        "legendaire": false,
+        "niveau": 53,
+        "skills": [
+          "miracle_punch",
+          "tempest_slash",
+          "rebellion",
+          "tetraja",
+          "masukunda",
+          "charge"
+        ],
+        "image": "https://tojuxyrlqipsnxcwngzn.supabase.co/storage/v1/object/public/images/cartes/mwbu4jb8-zovbol.webp"
+      },
+      "garuda": {
+        "nom": "Garuda",
+        "kind": "persona",
+        "el": "ven",
+        "arcane": "etoile",
+        "rang": 3,
+        "cout": 5,
+        "effet": {
+          "yen": 2,
+          "deg": 5
+        },
+        "combo": {
+          "yen": 1,
+          "deg": 2
+        },
+        "lien": {
+          "yen": 1
+        },
+        "legendaire": false,
+        "niveau": 52,
+        "skills": [
+          "mind_slice",
+          "garudyne",
+          "amrita_shower",
+          "masukukaja",
+          "magarudyne"
+        ],
+        "image": "https://tojuxyrlqipsnxcwngzn.supabase.co/storage/v1/object/public/images/cartes/mwbu4shk-p1nuwh.webp"
+      },
+      "genbu": {
+        "nom": "Genbu",
+        "kind": "persona",
+        "el": "gla",
+        "arcane": "temperance",
+        "rang": 1,
+        "cout": 3,
+        "effet": {
+          "deg": 5
+        },
+        "combo": {
+          "defausse": 1
+        },
+        "lien": {
+          "yen": 1
+        },
+        "legendaire": false,
+        "niveau": 7,
+        "skills": [
+          "bufu",
+          "rakunda",
+          "patra",
+          "mabufu"
+        ],
+        "image": "https://tojuxyrlqipsnxcwngzn.supabase.co/storage/v1/object/public/images/cartes/mwbu58u4-hc5ylv.webp"
+      },
+      "girimehkala": {
+        "nom": "Girimehkala",
+        "kind": "persona",
+        "el": "mau",
+        "arcane": "lune",
+        "rang": 3,
+        "cout": 5,
+        "effet": {
+          "deg": 6,
+          "vision": 1
+        },
+        "combo": {
+          "vision": 1,
+          "deg": 2
+        },
+        "lien": {
+          "yen": 1
+        },
+        "legendaire": false,
+        "niveau": 43,
+        "skills": [
+          "deathbound",
+          "mudoon",
+          "marakunda",
+          "agidyne",
+          "wage_war"
+        ],
+        "image": "https://tojuxyrlqipsnxcwngzn.supabase.co/storage/v1/object/public/images/cartes/mwbu5pqa-64x3av.webp"
+      },
+      "goemon": {
+        "nom": "Goemon",
+        "kind": "persona",
+        "el": "gla",
+        "arcane": "empereur",
+        "rang": 1,
+        "cout": 3,
+        "effet": {
+          "deg": 5
+        },
+        "combo": {
+          "defausse": 1
+        },
+        "lien": {
+          "yen": 1
+        },
+        "legendaire": true,
+        "niveau": 15,
+        "skills": [
+          "giant_slice",
+          "bufu",
+          "sukukaja",
+          "vicious_strike",
+          "mabufu",
+          "rising_slash",
+          "dormin_rush",
+          "bufula",
+          "tempest_slash",
+          "mabufula",
+          "heat_wave",
+          "deadly_fury",
+          "masukukaja",
+          "bufudyne",
+          "myriad_slashes",
+          "mabufudyne",
+          "vorpal_blade",
+          "brave_blade"
+        ],
+        "reservee": true,
+        "image": "https://tojuxyrlqipsnxcwngzn.supabase.co/storage/v1/object/public/images/cartes/mwbu642k-f4yfv3.webp",
+        "unique": true
+      },
+      "hanuman": {
+        "nom": "Hanuman",
+        "kind": "persona",
+        "el": "phy",
+        "arcane": "force",
+        "rang": 4,
+        "cout": 6,
+        "effet": {
+          "deg": 8
+        },
+        "combo": {
+          "deg": 3
+        },
+        "lien": {
+          "yen": 1
+        },
+        "parPhysique": 1,
+        "legendaire": false,
+        "niveau": 64,
+        "skills": [
+          "tempest_slash",
+          "matarunda",
+          "revolution",
+          "deathbound",
+          "tetra_break"
+        ],
+        "image": "https://tojuxyrlqipsnxcwngzn.supabase.co/storage/v1/object/public/images/cartes/mwbu6j2r-2pyo2m.webp"
+      },
+      "hariti": {
+        "nom": "Hariti",
+        "kind": "persona",
+        "el": "ele",
+        "arcane": "imperatrice",
+        "rang": 2,
+        "cout": 4,
+        "effet": {
+          "deg": 4
+        },
+        "combo": {
+          "pioche": 1
+        },
+        "lien": {
+          "yen": 1
+        },
+        "legendaire": false,
+        "niveau": 40,
+        "skills": [
+          "zionga",
+          "mabaisudi",
+          "energy_shower",
+          "samarecarm",
+          "nocturnal_flash",
+          "mediarama",
+          "spirit_drain"
+        ],
+        "image": "https://tojuxyrlqipsnxcwngzn.supabase.co/storage/v1/object/public/images/cartes/mwbu7jk0-736a27.webp"
+      },
+      "hastur": {
+        "nom": "Hastur",
+        "kind": "persona",
+        "el": "ven",
+        "arcane": "etoile",
+        "rang": 5,
+        "cout": 7,
+        "effet": {
+          "yen": 3,
+          "deg": 6
+        },
+        "combo": {
+          "yen": 1,
+          "deg": 2
+        },
+        "lien": {
+          "yen": 1
+        },
+        "legendaire": true,
+        "niveau": 84,
+        "skills": [
+          "vacuum_wave",
+          "nocturnal_flash",
+          "debilitate",
+          "abyssal_eye",
+          "spirit_drain"
+        ],
+        "image": "https://tojuxyrlqipsnxcwngzn.supabase.co/storage/v1/object/public/images/cartes/mwbu8a89-nc4ams.webp"
+      },
+      "hecatoncheires": {
+        "nom": "Hecatoncheires",
+        "kind": "persona",
+        "el": "psy",
+        "arcane": "pendu",
+        "rang": 3,
+        "cout": 5,
+        "effet": {
+          "deg": 6,
+          "vision": 1
+        },
+        "combo": {
+          "vision": 1,
+          "deg": 2
+        },
+        "lien": {
+          "yen": 1
+        },
+        "legendaire": false,
+        "niveau": 42,
+        "skills": [
+          "swift_strike",
+          "tarukaja",
+          "rebellion",
+          "gattling_blows"
+        ],
+        "image": "https://tojuxyrlqipsnxcwngzn.supabase.co/storage/v1/object/public/images/cartes/mwbu91xz-s0ra7q.webp"
+      },
+      "hell_biker": {
+        "nom": "Hell Biker",
+        "kind": "persona",
+        "el": "feu",
+        "arcane": "mort",
+        "rang": 2,
+        "cout": 4,
+        "effet": {
+          "deg": 6
+        },
+        "combo": {
+          "deg": 3
+        },
+        "lien": {
+          "yen": 1
+        },
+        "legendaire": false,
+        "niveau": 37,
+        "skills": [
+          "agilao",
+          "mudoon",
+          "tentarafoo",
+          "maragion",
+          "mamudoon"
+        ],
+        "image": "https://tojuxyrlqipsnxcwngzn.supabase.co/storage/v1/object/public/images/cartes/mwbu9cyi-5x6edw.webp"
+      },
+      "high_pixie": {
+        "nom": "High Pixie",
+        "kind": "persona",
+        "el": "sac",
+        "arcane": "fou",
+        "rang": 1,
+        "cout": 3,
+        "effet": {
+          "pv": 4,
+          "deg": 2
+        },
+        "combo": {
+          "pv": 3
+        },
+        "lien": {
+          "yen": 1
+        },
+        "legendaire": false,
+        "niveau": 16,
+        "skills": [
+          "garu",
+          "dormina",
+          "media",
+          "diarama",
+          "pulinpa",
+          "magaru"
+        ],
+        "image": "https://tojuxyrlqipsnxcwngzn.supabase.co/storage/v1/object/public/images/cartes/mwbu9nci-scl5i5.webp"
+      },
+      "hope_diamond": {
+        "nom": "Hope Diamond",
+        "kind": "persona",
+        "el": "pur",
+        "arcane": "mort",
+        "rang": 2,
+        "cout": 4,
+        "effet": {
+          "deg": 3,
+          "yen": 2
+        },
+        "combo": {
+          "deg": 3
+        },
+        "lien": {
+          "yen": 1
+        },
+        "legendaire": false,
+        "niveau": 40,
+        "skills": [
+          "lunge",
+          "snap",
+          "megido"
+        ],
+        "image": "https://tojuxyrlqipsnxcwngzn.supabase.co/storage/v1/object/public/images/cartes/mwbua33j-qd46rd.webp"
+      },
+      "horus": {
+        "nom": "Horus",
+        "kind": "persona",
+        "el": "pur",
+        "arcane": "soleil",
+        "rang": 3,
+        "cout": 5,
+        "effet": {
+          "deg": 3,
+          "yen": 2
+        },
+        "combo": {
+          "deg": 3
+        },
+        "lien": {
+          "yen": 1
+        },
+        "legendaire": false,
+        "niveau": 47,
+        "skills": [
+          "kougaon",
+          "megidola",
+          "diarama",
+          "flash_bomb",
+          "masukukaja",
+          "hamaon"
+        ],
+        "image": "https://tojuxyrlqipsnxcwngzn.supabase.co/storage/v1/object/public/images/cartes/mwbuauiq-jamtlo.webp"
+      },
+      "hua_po": {
+        "nom": "Hua Po",
+        "kind": "persona",
+        "el": "feu",
+        "arcane": "pendu",
+        "rang": 1,
+        "cout": 3,
+        "effet": {
+          "deg": 5
+        },
+        "combo": {
+          "deg": 2
+        },
+        "lien": {
+          "yen": 1
+        },
+        "legendaire": false,
+        "niveau": 9,
+        "skills": [
+          "agi",
+          "dormina",
+          "tarunda",
+          "maragi"
+        ],
+        "image": "https://tojuxyrlqipsnxcwngzn.supabase.co/storage/v1/object/public/images/cartes/mwbub4ie-uool4d.webp"
+      },
+      "incubus": {
+        "nom": "Incubus",
+        "kind": "persona",
+        "el": "pur",
+        "arcane": "diable",
+        "rang": 1,
+        "cout": 3,
+        "effet": {
+          "deg": 4,
+          "vision": 1
+        },
+        "combo": {
+          "vision": 1,
+          "deg": 2
+        },
+        "lien": {
+          "yen": 1
+        },
+        "legendaire": false,
+        "niveau": 5,
+        "skills": [
+          "dream_needle",
+          "life_drain",
+          "dormina",
+          "tarunda"
+        ],
+        "image": "https://tojuxyrlqipsnxcwngzn.supabase.co/storage/v1/object/public/images/cartes/mwbubeks-daess7.webp"
+      },
+      "inugami": {
+        "nom": "Inugami",
+        "kind": "persona",
+        "el": "feu",
+        "arcane": "pendu",
+        "rang": 1,
+        "cout": 3,
+        "effet": {
+          "deg": 5
+        },
+        "combo": {
+          "deg": 2
+        },
+        "lien": {
+          "yen": 1
+        },
+        "legendaire": false,
+        "niveau": 14,
+        "skills": [
+          "giant_slice",
+          "pulinpa",
+          "tarukaja",
+          "dream_needle",
+          "lucky_punch",
+          "brain_shake"
+        ],
+        "image": "https://tojuxyrlqipsnxcwngzn.supabase.co/storage/v1/object/public/images/cartes/mwbubnnn-e4ngfa.webp"
+      },
+      "ippon_datara": {
+        "nom": "Ippon-Datara",
+        "kind": "persona",
+        "el": "phy",
+        "arcane": "ermite",
         "rang": 1,
         "cout": 3,
         "effet": {
@@ -630,20 +2080,365 @@
         },
         "parPhysique": 1,
         "legendaire": false,
-        "niveau": 9,
+        "niveau": 13,
         "skills": [
-          "cleave",
-          "rakukaja",
+          "sledgehammer",
           "tarukaja",
-          "power_slash"
+          "rampage"
         ],
-        "image": "https://tojuxyrlqipsnxcwngzn.supabase.co/storage/v1/object/public/images/cartes/mwb996kx-1euyu2.webp"
+        "image": "https://tojuxyrlqipsnxcwngzn.supabase.co/storage/v1/object/public/images/cartes/mwbuc0oz-e26npv.webp"
       },
-      "bicorn": {
-        "nom": "Bicorn",
+      "ishtar": {
+        "nom": "Ishtar",
+        "kind": "persona",
+        "el": "sac",
+        "arcane": "amants",
+        "rang": 5,
+        "cout": 7,
+        "effet": {
+          "pv": 8,
+          "deg": 4
+        },
+        "combo": {
+          "pv": 5
+        },
+        "lien": {
+          "yen": 1
+        },
+        "legendaire": true,
+        "niveau": 85,
+        "skills": [
+          "samarecarm",
+          "mediarahan",
+          "maziodyne",
+          "salvation"
+        ],
+        "image": "https://tojuxyrlqipsnxcwngzn.supabase.co/storage/v1/object/public/images/cartes/mwbucbze-fbtwo3.webp"
+      },
+      "isis": {
+        "nom": "Isis",
+        "kind": "persona",
+        "el": "sac",
+        "arcane": "pretresse",
+        "rang": 2,
+        "cout": 4,
+        "effet": {
+          "pv": 5,
+          "deg": 2
+        },
+        "combo": {
+          "pv": 4
+        },
+        "lien": {
+          "yen": 1
+        },
+        "legendaire": false,
+        "niveau": 26,
+        "skills": [
+          "mahama",
+          "makouga",
+          "diarama",
+          "hamaon",
+          "makarakarn"
+        ],
+        "image": "https://tojuxyrlqipsnxcwngzn.supabase.co/storage/v1/object/public/images/cartes/mwbud870-3uee3x.webp"
+      },
+      "izanagi": {
+        "nom": "Izanagi",
+        "kind": "persona",
+        "el": "ele",
+        "arcane": "fou",
+        "rang": 1,
+        "cout": 3,
+        "effet": {
+          "deg": 2,
+          "yen": 1
+        },
+        "combo": {
+          "deg": 2
+        },
+        "lien": {
+          "yen": 1
+        },
+        "legendaire": true,
+        "niveau": 20,
+        "skills": [
+          "cross_slash",
+          "zionga",
+          "tarukaja",
+          "rising_slash",
+          "mazionga"
+        ],
+        "image": "https://tojuxyrlqipsnxcwngzn.supabase.co/storage/v1/object/public/images/cartes/mwbue0mf-phnkxb.webp",
+        "unique": true
+      },
+      "izanagi_no_okami": {
+        "nom": "Izanagi-no-Okami",
+        "kind": "persona",
+        "el": "pur",
+        "arcane": "monde",
+        "rang": 4,
+        "cout": 6,
+        "effet": {
+          "deg": 4,
+          "yen": 3
+        },
+        "combo": {
+          "deg": 3
+        },
+        "lien": {
+          "yen": 1
+        },
+        "legendaire": true,
+        "niveau": 80,
+        "skills": [
+          "myriad_truths",
+          "concentrate",
+          "heat_riser",
+          "salvation"
+        ],
+        "image": "https://tojuxyrlqipsnxcwngzn.supabase.co/storage/v1/object/public/images/cartes/mwbuep2x-mtmvek.webp",
+        "unique": true
+      },
+      "jack_frost": {
+        "nom": "Jack Frost",
+        "kind": "persona",
+        "el": "gla",
+        "arcane": "magicien",
+        "rang": 1,
+        "cout": 3,
+        "effet": {
+          "deg": 5
+        },
+        "combo": {
+          "defausse": 1
+        },
+        "lien": {
+          "yen": 1
+        },
+        "legendaire": false,
+        "niveau": 11,
+        "skills": [
+          "bufu",
+          "baisudi",
+          "ice_break",
+          "mabufu",
+          "rakunda"
+        ],
+        "image": "https://tojuxyrlqipsnxcwngzn.supabase.co/storage/v1/object/public/images/cartes/mwbuiaw7-v8e3t7.webp"
+      },
+      "pyro_jack": {
+        "nom": "Jack-o'-Lantern",
+        "kind": "persona",
+        "el": "feu",
+        "arcane": "magicien",
+        "rang": 1,
+        "cout": 3,
+        "effet": {
+          "deg": 5
+        },
+        "combo": {
+          "deg": 2
+        },
+        "lien": {
+          "yen": 1
+        },
+        "legendaire": false,
+        "niveau": 2,
+        "skills": [
+          "agi",
+          "rakunda",
+          "dazzler"
+        ],
+        "image": "https://tojuxyrlqipsnxcwngzn.supabase.co/storage/v1/object/public/images/cartes/mwbujh7f-3zpggu.webp"
+      },
+      "jikokuten": {
+        "nom": "Jikokuten",
+        "kind": "persona",
+        "el": "phy",
+        "arcane": "temperance",
+        "rang": 2,
+        "cout": 4,
+        "effet": {
+          "deg": 6
+        },
+        "combo": {
+          "deg": 3
+        },
+        "lien": {
+          "yen": 1
+        },
+        "parPhysique": 1,
+        "legendaire": false,
+        "niveau": 22,
+        "skills": [
+          "assault_dive",
+          "rakunda",
+          "kill_rush",
+          "matarukaja"
+        ],
+        "image": "https://tojuxyrlqipsnxcwngzn.supabase.co/storage/v1/object/public/images/cartes/mwbukd1a-eekggm.webp"
+      },
+      "jatayu": {
+        "nom": "Jatayu",
         "kind": "persona",
         "el": "ven",
-        "arcane": "ermite",
+        "arcane": "pendu",
+        "rang": 3,
+        "cout": 5,
+        "effet": {
+          "yen": 2,
+          "deg": 5
+        },
+        "combo": {
+          "yen": 1,
+          "deg": 2
+        },
+        "lien": {
+          "yen": 1
+        },
+        "legendaire": false,
+        "niveau": 51,
+        "skills": [
+          "garudyne",
+          "nocturnal_flash",
+          "masukukaja",
+          "magarudyne"
+        ],
+        "image": "https://tojuxyrlqipsnxcwngzn.supabase.co/storage/v1/object/public/images/cartes/mwbukltp-xv9g7u.webp"
+      },
+      "johanna": {
+        "nom": "Johanna",
+        "kind": "persona",
+        "el": "nuc",
+        "arcane": "pretresse",
+        "rang": 2,
+        "cout": 4,
+        "effet": {
+          "deg": 6
+        },
+        "combo": {
+          "deg": 1,
+          "parCombo": 1
+        },
+        "lien": {
+          "yen": 1
+        },
+        "legendaire": true,
+        "niveau": 21,
+        "skills": [
+          "vajra_blast",
+          "frei",
+          "mafrei",
+          "makajam",
+          "diarama",
+          "rakukaja",
+          "freila",
+          "energy_shower",
+          "flash_bomb",
+          "dekunda",
+          "mafreila",
+          "mediarama",
+          "nuke_break",
+          "marakukaja",
+          "freidyne",
+          "diarahan",
+          "mafreidyne",
+          "mediarahan",
+          "atomic_flare"
+        ],
+        "reservee": true,
+        "image": "https://tojuxyrlqipsnxcwngzn.supabase.co/storage/v1/object/public/images/cartes/mwbukyba-bcq5xl.webp",
+        "unique": true
+      },
+      "kaguya": {
+        "nom": "Kaguya",
+        "kind": "persona",
+        "el": "sac",
+        "arcane": "lune",
+        "rang": 1,
+        "cout": 3,
+        "effet": {
+          "deg": 2,
+          "yen": 1
+        },
+        "combo": {
+          "deg": 2
+        },
+        "lien": {
+          "yen": 1
+        },
+        "legendaire": true,
+        "niveau": 16,
+        "skills": [
+          "shining_arrows",
+          "mediarama",
+          "amrita_shower",
+          "diarahan"
+        ],
+        "image": "https://tojuxyrlqipsnxcwngzn.supabase.co/storage/v1/object/public/images/cartes/mwbumi49-gkcpqw.webp",
+        "unique": true
+      },
+      "kaiwan": {
+        "nom": "Kaiwan",
+        "kind": "persona",
+        "el": "psy",
+        "arcane": "etoile",
+        "rang": 2,
+        "cout": 4,
+        "effet": {
+          "deg": 3,
+          "yen": 2
+        },
+        "combo": {
+          "deg": 3
+        },
+        "lien": {
+          "yen": 1
+        },
+        "legendaire": false,
+        "niveau": 36,
+        "skills": [
+          "psio",
+          "makajam",
+          "makajamaon",
+          "psiodyne",
+          "marakunda"
+        ],
+        "image": "https://tojuxyrlqipsnxcwngzn.supabase.co/storage/v1/object/public/images/cartes/mwbv0eav-5yd99g.webp"
+      },
+      "kali": {
+        "nom": "Kali",
+        "kind": "persona",
+        "el": "feu",
+        "arcane": "imperatrice",
+        "rang": 4,
+        "cout": 6,
+        "effet": {
+          "deg": 8
+        },
+        "combo": {
+          "deg": 3
+        },
+        "lien": {
+          "yen": 1
+        },
+        "legendaire": false,
+        "niveau": 63,
+        "skills": [
+          "bloodbath",
+          "heat_wave",
+          "brave_blade",
+          "charge",
+          "vorpal_blade"
+        ],
+        "image": "https://tojuxyrlqipsnxcwngzn.supabase.co/storage/v1/object/public/images/cartes/mwbv15wf-wmrnkc.webp"
+      },
+      "kelpie": {
+        "nom": "Kelpie",
+        "kind": "persona",
+        "el": "ven",
+        "arcane": "force",
         "rang": 1,
         "cout": 3,
         "effet": {
@@ -658,54 +2453,414 @@
           "yen": 1
         },
         "legendaire": false,
-        "niveau": 4,
+        "niveau": 6,
         "skills": [
           "lunge",
-          "tarunda",
           "garu",
-          "ice_wall"
+          "sukukaja",
+          "terror_claw"
         ],
-        "image": "https://tojuxyrlqipsnxcwngzn.supabase.co/storage/v1/object/public/images/cartes/mwb99hyi-ha0inx.webp"
+        "image": "https://tojuxyrlqipsnxcwngzn.supabase.co/storage/v1/object/public/images/cartes/mwbv1g38-1kbvxc.webp"
       },
-      "bishamonten": {
-        "nom": "Bishamonten",
+      "kikuri_hime": {
+        "nom": "Kikuri-Hime",
         "kind": "persona",
-        "el": "nuc",
-        "arcane": "hierophante",
+        "el": "sac",
+        "arcane": "pretresse",
+        "rang": 2,
+        "cout": 4,
+        "effet": {
+          "pv": 5,
+          "deg": 2
+        },
+        "combo": {
+          "pv": 4
+        },
+        "lien": {
+          "yen": 1
+        },
+        "legendaire": false,
+        "niveau": 40,
+        "skills": [
+          "lullaby",
+          "energy_drop",
+          "marakukaja",
+          "mediarama",
+          "tetraja"
+        ],
+        "image": "https://tojuxyrlqipsnxcwngzn.supabase.co/storage/v1/object/public/images/cartes/mwbv1yq9-xbzrxy.webp"
+      },
+      "kin_ki": {
+        "nom": "Kin-Ki",
+        "kind": "persona",
+        "el": "phy",
+        "arcane": "chariot",
+        "rang": 2,
+        "cout": 4,
+        "effet": {
+          "deg": 6
+        },
+        "combo": {
+          "deg": 3
+        },
+        "lien": {
+          "yen": 1
+        },
+        "parPhysique": 1,
+        "legendaire": false,
+        "niveau": 25,
+        "skills": [
+          "vajra_blast",
+          "rakukaja",
+          "sledgehammer",
+          "bad_beat"
+        ],
+        "image": "https://tojuxyrlqipsnxcwngzn.supabase.co/storage/v1/object/public/images/cartes/mwbv2cil-te5ysf.webp"
+      },
+      "king_frost": {
+        "nom": "King Frost",
+        "kind": "persona",
+        "el": "gla",
+        "arcane": "empereur",
         "rang": 4,
         "cout": 6,
         "effet": {
           "deg": 8
         },
         "combo": {
-          "deg": 2,
-          "parCombo": 1
+          "defausse": 1
         },
         "lien": {
           "yen": 1
         },
         "legendaire": false,
-        "niveau": 67,
+        "niveau": 61,
         "skills": [
-          "deadly_fury",
-          "freidyne",
-          "diarahan",
-          "mafreidyne",
-          "tetrakarn",
-          "gods_hand"
+          "megaton_raid",
+          "bufudyne",
+          "ice_break",
+          "mabufudyne",
+          "concentrate"
         ],
-        "image": "https://tojuxyrlqipsnxcwngzn.supabase.co/storage/v1/object/public/images/cartes/mwb9bc6z-xicglq.webp"
+        "image": "https://tojuxyrlqipsnxcwngzn.supabase.co/storage/v1/object/public/images/cartes/mwbv2xwy-cdmwdv.webp"
       },
-      "black_frost": {
-        "nom": "Black Frost",
+      "kodama": {
+        "nom": "Kodama",
         "kind": "persona",
-        "el": "pur",
-        "arcane": "fou",
+        "el": "psy",
+        "arcane": "etoile",
+        "rang": 1,
+        "cout": 3,
+        "effet": {
+          "deg": 4,
+          "vision": 1
+        },
+        "combo": {
+          "vision": 1,
+          "deg": 2
+        },
+        "lien": {
+          "yen": 1
+        },
+        "legendaire": false,
+        "niveau": 11,
+        "skills": [
+          "garu",
+          "rakunda",
+          "psi",
+          "evil_touch",
+          "tarukaja"
+        ],
+        "image": "https://tojuxyrlqipsnxcwngzn.supabase.co/storage/v1/object/public/images/cartes/mwbv3ey1-pizuco.webp"
+      },
+      "kohryu": {
+        "nom": "Kohryu",
+        "kind": "persona",
+        "el": "psy",
+        "arcane": "hierophante",
         "rang": 4,
         "cout": 6,
         "effet": {
-          "deg": 4,
-          "yen": 3
+          "deg": 8,
+          "vision": 1
+        },
+        "combo": {
+          "vision": 1,
+          "deg": 2
+        },
+        "lien": {
+          "yen": 1
+        },
+        "legendaire": false,
+        "niveau": 76,
+        "skills": [
+          "mapsiodyne",
+          "psycho_force",
+          "mediarahan",
+          "concentrate"
+        ],
+        "image": "https://tojuxyrlqipsnxcwngzn.supabase.co/storage/v1/object/public/images/cartes/mwbv4bt0-ap7wg8.webp"
+      },
+      "koppa_tengu": {
+        "nom": "Koppa Tengu",
+        "kind": "persona",
+        "el": "ven",
+        "arcane": "temperance",
+        "rang": 1,
+        "cout": 3,
+        "effet": {
+          "yen": 1,
+          "deg": 3
+        },
+        "combo": {
+          "yen": 1,
+          "deg": 1
+        },
+        "lien": {
+          "yen": 1
+        },
+        "legendaire": false,
+        "niveau": 11,
+        "skills": [
+          "garu",
+          "sukukaja",
+          "taunt",
+          "wage_war"
+        ],
+        "image": "https://tojuxyrlqipsnxcwngzn.supabase.co/storage/v1/object/public/images/cartes/mwbv4y8t-b75u5t.webp"
+      },
+      "koropokguru": {
+        "nom": "Koropokkuru",
+        "kind": "persona",
+        "el": "gla",
+        "arcane": "ermite",
+        "rang": 1,
+        "cout": 3,
+        "effet": {
+          "deg": 5
+        },
+        "combo": {
+          "defausse": 1
+        },
+        "lien": {
+          "yen": 1
+        },
+        "legendaire": false,
+        "niveau": 9,
+        "skills": [
+          "bufu",
+          "makajam",
+          "sukunda",
+          "fire_wall",
+          "mabufu"
+        ],
+        "image": "https://tojuxyrlqipsnxcwngzn.supabase.co/storage/v1/object/public/images/cartes/mwbv5a5s-te33ml.webp"
+      },
+      "koumokuten": {
+        "nom": "Koumokuten",
+        "kind": "persona",
+        "el": "phy",
+        "arcane": "ermite",
+        "rang": 3,
+        "cout": 5,
+        "effet": {
+          "deg": 7
+        },
+        "combo": {
+          "deg": 3
+        },
+        "lien": {
+          "yen": 1
+        },
+        "parPhysique": 1,
+        "legendaire": false,
+        "niveau": 49,
+        "skills": [
+          "assault_dive",
+          "revolution",
+          "ice_wall",
+          "deadly_fury"
+        ],
+        "image": "https://tojuxyrlqipsnxcwngzn.supabase.co/storage/v1/object/public/images/cartes/mwbv5o8c-5df237.webp"
+      },
+      "kumbhanda": {
+        "nom": "Kumbhanda",
+        "kind": "persona",
+        "el": "ven",
+        "arcane": "ermite",
+        "rang": 3,
+        "cout": 5,
+        "effet": {
+          "deg": 6,
+          "vision": 1
+        },
+        "combo": {
+          "vision": 1,
+          "deg": 2
+        },
+        "lien": {
+          "yen": 1
+        },
+        "legendaire": false,
+        "niveau": 42,
+        "skills": [
+          "bloodbath",
+          "magarula",
+          "stagnant_air",
+          "tempest_slash",
+          "dekaja",
+          "revolution"
+        ],
+        "image": "https://tojuxyrlqipsnxcwngzn.supabase.co/storage/v1/object/public/images/cartes/mwbv60ao-ab8h6z.webp"
+      },
+      "kurama_tengu": {
+        "nom": "Kurama Tengu",
+        "kind": "persona",
+        "el": "ven",
+        "arcane": "ermite",
+        "rang": 2,
+        "cout": 4,
+        "effet": {
+          "yen": 2,
+          "deg": 4
+        },
+        "combo": {
+          "yen": 1,
+          "deg": 1
+        },
+        "lien": {
+          "yen": 1
+        },
+        "legendaire": false,
+        "niveau": 31,
+        "skills": [
+          "double_shot",
+          "magarula",
+          "masukunda",
+          "brain_jack"
+        ],
+        "image": "https://tojuxyrlqipsnxcwngzn.supabase.co/storage/v1/object/public/images/cartes/mwbv734w-yh8561.webp"
+      },
+      "kushi_mitama": {
+        "nom": "Kushi Mitama",
+        "kind": "persona",
+        "el": "sac",
+        "arcane": "conseiller",
+        "rang": 1,
+        "cout": 3,
+        "effet": {
+          "pv": 4,
+          "deg": 2
+        },
+        "combo": {
+          "pv": 3
+        },
+        "lien": {
+          "yen": 1
+        },
+        "legendaire": false,
+        "niveau": 12,
+        "skills": [
+          "makajam",
+          "dia",
+          "media",
+          "wind_wall"
+        ],
+        "image": "https://tojuxyrlqipsnxcwngzn.supabase.co/storage/v1/object/public/images/cartes/mwbv7eis-x9402p.webp"
+      },
+      "kushinada": {
+        "nom": "Kushinada",
+        "kind": "persona",
+        "el": "sac",
+        "arcane": "amants",
+        "rang": 3,
+        "cout": 5,
+        "effet": {
+          "pv": 6,
+          "deg": 3
+        },
+        "combo": {
+          "pv": 4
+        },
+        "lien": {
+          "yen": 1
+        },
+        "legendaire": false,
+        "niveau": 42,
+        "skills": [
+          "hysterical_slap",
+          "mediarama",
+          "psy_wall",
+          "matarukaja",
+          "wind_wall",
+          "amrita_shower"
+        ],
+        "image": "https://tojuxyrlqipsnxcwngzn.supabase.co/storage/v1/object/public/images/cartes/mwbv7u58-0ldigm.webp"
+      },
+      "lachesis": {
+        "nom": "Lachesis",
+        "kind": "persona",
+        "el": "gla",
+        "arcane": "fortune",
+        "rang": 2,
+        "cout": 4,
+        "effet": {
+          "deg": 6
+        },
+        "combo": {
+          "defausse": 1
+        },
+        "lien": {
+          "yen": 1
+        },
+        "legendaire": false,
+        "niveau": 35,
+        "skills": [
+          "bufula",
+          "mabaisudi",
+          "marakukaja",
+          "elec_wall",
+          "mabufula"
+        ],
+        "image": "https://tojuxyrlqipsnxcwngzn.supabase.co/storage/v1/object/public/images/cartes/mwbv8644-yzpmqd.webp"
+      },
+      "lakshmi": {
+        "nom": "Lakshmi",
+        "kind": "persona",
+        "el": "sac",
+        "arcane": "fortune",
+        "rang": 4,
+        "cout": 6,
+        "effet": {
+          "pv": 7,
+          "deg": 3
+        },
+        "combo": {
+          "pv": 5
+        },
+        "lien": {
+          "yen": 1
+        },
+        "legendaire": false,
+        "niveau": 69,
+        "skills": [
+          "bufudyne",
+          "lullaby",
+          "diarahan",
+          "mediarahan",
+          "amrita_shower"
+        ],
+        "image": "https://tojuxyrlqipsnxcwngzn.supabase.co/storage/v1/object/public/images/cartes/mwbv8goo-xjfdbk.webp"
+      },
+      "lamia": {
+        "nom": "Lamia",
+        "kind": "persona",
+        "el": "feu",
+        "arcane": "imperatrice",
+        "rang": 2,
+        "cout": 4,
+        "effet": {
+          "deg": 6
         },
         "combo": {
           "deg": 3
@@ -714,17 +2869,1239 @@
           "yen": 1
         },
         "legendaire": false,
-        "niveau": 67,
+        "niveau": 26,
         "skills": [
-          "miracle_punch",
-          "one_shot_kill",
-          "mabufudyne",
-          "diamond_dust"
+          "rising_slash",
+          "mudo",
+          "rakukaja",
+          "ominous_words",
+          "foul_breath",
+          "mamudo"
         ],
-        "image": "https://tojuxyrlqipsnxcwngzn.supabase.co/storage/v1/object/public/images/cartes/mwb9bwtv-oxbtzs.webp"
+        "image": "https://tojuxyrlqipsnxcwngzn.supabase.co/storage/v1/object/public/images/cartes/mwbv9237-c0fzrk.webp"
       },
-      "black_ooze": {
-        "nom": "Black Ooze",
+      "leanan_sidhe": {
+        "nom": "Leanan Sidhe",
+        "kind": "persona",
+        "el": "psy",
+        "arcane": "amants",
+        "rang": 1,
+        "cout": 3,
+        "effet": {
+          "deg": 2,
+          "yen": 1
+        },
+        "combo": {
+          "deg": 2
+        },
+        "lien": {
+          "yen": 1
+        },
+        "legendaire": false,
+        "niveau": 19,
+        "skills": [
+          "psio",
+          "rakunda",
+          "marin_karin",
+          "mamudo",
+          "mapsi",
+          "eiga"
+        ],
+        "image": "https://tojuxyrlqipsnxcwngzn.supabase.co/storage/v1/object/public/images/cartes/mwbv9hil-2rm4st.webp"
+      },
+      "legion": {
+        "nom": "Legion",
+        "kind": "persona",
+        "el": "phy",
+        "arcane": "fou",
+        "rang": 2,
+        "cout": 4,
+        "effet": {
+          "deg": 5,
+          "vision": 1
+        },
+        "combo": {
+          "vision": 1,
+          "deg": 2
+        },
+        "lien": {
+          "yen": 1
+        },
+        "legendaire": false,
+        "niveau": 38,
+        "skills": [
+          "bloodbath",
+          "life_drain",
+          "evil_smile",
+          "foul_breath",
+          "tetra_break",
+          "eigaon"
+        ],
+        "image": "https://tojuxyrlqipsnxcwngzn.supabase.co/storage/v1/object/public/images/cartes/mwbva6tv-hpwsln.webp"
+      },
+      "lilim": {
+        "nom": "Lilim",
+        "kind": "persona",
+        "el": "gla",
+        "arcane": "diable",
+        "rang": 2,
+        "cout": 4,
+        "effet": {
+          "deg": 6
+        },
+        "combo": {
+          "defausse": 1
+        },
+        "lien": {
+          "yen": 1
+        },
+        "legendaire": false,
+        "niveau": 32,
+        "skills": [
+          "bufula",
+          "lullaby",
+          "masukunda",
+          "spirit_drain",
+          "mabufula"
+        ],
+        "image": "https://tojuxyrlqipsnxcwngzn.supabase.co/storage/v1/object/public/images/cartes/mwbvbfnn-fjugbq.webp"
+      },
+      "lilith": {
+        "nom": "Lilith",
+        "kind": "persona",
+        "el": "nuc",
+        "arcane": "lune",
+        "rang": 3,
+        "cout": 5,
+        "effet": {
+          "deg": 3,
+          "yen": 2
+        },
+        "combo": {
+          "deg": 3
+        },
+        "lien": {
+          "yen": 1
+        },
+        "legendaire": false,
+        "niveau": 60,
+        "skills": [
+          "mabufudyne",
+          "freidyne",
+          "makarakarn",
+          "mafreidyne",
+          "spirit_drain"
+        ],
+        "image": "https://tojuxyrlqipsnxcwngzn.supabase.co/storage/v1/object/public/images/cartes/mwbvc41a-6ng4gl.webp"
+      },
+      "loa": {
+        "nom": "Loa",
+        "kind": "persona",
+        "el": "mau",
+        "arcane": "ermite",
+        "rang": 4,
+        "cout": 6,
+        "effet": {
+          "deg": 7,
+          "pv": 2
+        },
+        "combo": {
+          "purge": 2
+        },
+        "lien": {
+          "yen": 1
+        },
+        "legendaire": false,
+        "niveau": 70,
+        "skills": [
+          "mamudoon",
+          "life_drain",
+          "abysmal_surge",
+          "maeigaon",
+          "spirit_drain"
+        ],
+        "image": "https://tojuxyrlqipsnxcwngzn.supabase.co/storage/v1/object/public/images/cartes/mwbvcjgk-unfnlt.webp"
+      },
+      "loki": {
+        "nom": "Loki",
+        "kind": "persona",
+        "el": "pur",
+        "arcane": "justice",
+        "rang": 4,
+        "cout": 6,
+        "effet": {
+          "deg": 7,
+          "pv": 2
+        },
+        "combo": {
+          "purge": 2
+        },
+        "lien": {
+          "yen": 1
+        },
+        "legendaire": true,
+        "niveau": 75,
+        "skills": [
+          "laevateinn",
+          "riot_gun",
+          "eigaon",
+          "megidolaon",
+          "debilitate"
+        ],
+        "reservee": true,
+        "image": "https://tojuxyrlqipsnxcwngzn.supabase.co/storage/v1/object/public/images/cartes/mwbvdr0k-wen2gw.webp",
+        "unique": true
+      },
+      "lucifer": {
+        "nom": "Lucifer",
+        "kind": "persona",
+        "el": "pur",
+        "arcane": "etoile",
+        "rang": 5,
+        "cout": 7,
+        "effet": {
+          "deg": 4,
+          "yen": 3
+        },
+        "combo": {
+          "deg": 4
+        },
+        "lien": {
+          "yen": 1
+        },
+        "legendaire": true,
+        "niveau": 93,
+        "skills": [
+          "gigantomachia",
+          "morning_star",
+          "heat_riser"
+        ],
+        "image": "https://tojuxyrlqipsnxcwngzn.supabase.co/storage/v1/object/public/images/cartes/mwbvfp2g-gdcyry.webp"
+      },
+      "macabre": {
+        "nom": "Macabre",
+        "kind": "persona",
+        "el": "phy",
+        "arcane": "pendu",
+        "rang": 4,
+        "cout": 6,
+        "effet": {
+          "deg": 8,
+          "vision": 1
+        },
+        "combo": {
+          "vision": 1,
+          "deg": 2
+        },
+        "lien": {
+          "yen": 1
+        },
+        "legendaire": false,
+        "niveau": 73,
+        "skills": [
+          "death_scythe",
+          "mamudoon",
+          "evil_smile",
+          "ghastly_wail",
+          "myriad_slashes"
+        ],
+        "image": "https://tojuxyrlqipsnxcwngzn.supabase.co/storage/v1/object/public/images/cartes/mwbvgbjh-qdbh6h.webp"
+      },
+      "mada": {
+        "nom": "Mada",
+        "kind": "persona",
+        "el": "feu",
+        "arcane": "tour",
+        "rang": 5,
+        "cout": 7,
+        "effet": {
+          "deg": 10
+        },
+        "combo": {
+          "deg": 4
+        },
+        "lien": {
+          "yen": 1
+        },
+        "legendaire": true,
+        "niveau": 90,
+        "skills": [
+          "inferno",
+          "blazing_hell",
+          "amrita_shower"
+        ],
+        "image": "https://tojuxyrlqipsnxcwngzn.supabase.co/storage/v1/object/public/images/cartes/mwbvh8ek-qlm5d7.webp"
+      },
+      "magatsu_izanagi": {
+        "nom": "Magatsu-Izanagi",
+        "kind": "persona",
+        "el": "mau",
+        "arcane": "tour",
+        "rang": 3,
+        "cout": 5,
+        "effet": {
+          "deg": 3,
+          "yen": 2
+        },
+        "combo": {
+          "deg": 3
+        },
+        "lien": {
+          "yen": 1
+        },
+        "legendaire": true,
+        "niveau": 44,
+        "skills": [
+          "magatsu_mandala",
+          "megidola",
+          "ghastly_wail",
+          "maziodyne",
+          "bloodbath",
+          "heat_riser"
+        ],
+        "image": "https://tojuxyrlqipsnxcwngzn.supabase.co/storage/v1/object/public/images/cartes/mwbvhvev-bcixd0.webp",
+        "unique": true
+      },
+      "makami": {
+        "nom": "Makami",
+        "kind": "persona",
+        "el": "nuc",
+        "arcane": "temperance",
+        "rang": 1,
+        "cout": 3,
+        "effet": {
+          "deg": 5
+        },
+        "combo": {
+          "deg": 1,
+          "parCombo": 1
+        },
+        "lien": {
+          "yen": 1
+        },
+        "legendaire": false,
+        "niveau": 15,
+        "skills": [
+          "double_fangs",
+          "frei",
+          "energy_drop",
+          "mafrei",
+          "makajam"
+        ],
+        "image": "https://tojuxyrlqipsnxcwngzn.supabase.co/storage/v1/object/public/images/cartes/mwbvjm80-zes5on.webp"
+      },
+      "mandrake": {
+        "nom": "Mandrake",
+        "kind": "persona",
+        "el": "phy",
+        "arcane": "mort",
+        "rang": 1,
+        "cout": 3,
+        "effet": {
+          "deg": 4,
+          "vision": 1
+        },
+        "combo": {
+          "vision": 1,
+          "deg": 2
+        },
+        "lien": {
+          "yen": 1
+        },
+        "legendaire": false,
+        "niveau": 3,
+        "skills": [
+          "pulinpa",
+          "energy_drop",
+          "lunge",
+          "sukunda"
+        ],
+        "image": "https://tojuxyrlqipsnxcwngzn.supabase.co/storage/v1/object/public/images/cartes/mwbvjvek-mmxf2f.webp"
+      },
+      "mara": {
+        "nom": "Mara",
+        "kind": "persona",
+        "el": "psy",
+        "arcane": "tour",
+        "rang": 4,
+        "cout": 6,
+        "effet": {
+          "deg": 8,
+          "vision": 1
+        },
+        "combo": {
+          "vision": 1,
+          "deg": 2
+        },
+        "lien": {
+          "yen": 1
+        },
+        "legendaire": false,
+        "niveau": 73,
+        "skills": [
+          "one_shot_kill",
+          "mapsiodyne",
+          "tetra_break",
+          "charge",
+          "brain_buster",
+          "psycho_force"
+        ],
+        "image": "https://tojuxyrlqipsnxcwngzn.supabase.co/storage/v1/object/public/images/cartes/mwbvklfh-52yw8x.webp"
+      },
+      "maria": {
+        "nom": "Maria",
+        "kind": "persona",
+        "el": "sac",
+        "arcane": "foi",
+        "rang": 5,
+        "cout": 7,
+        "effet": {
+          "pv": 8,
+          "deg": 4
+        },
+        "combo": {
+          "pv": 5
+        },
+        "lien": {
+          "yen": 1
+        },
+        "legendaire": true,
+        "niveau": 93,
+        "skills": [
+          "salvation",
+          "holy_benevolence",
+          "heat_riser"
+        ],
+        "image": "https://tojuxyrlqipsnxcwngzn.supabase.co/storage/v1/object/public/images/cartes/mwbvl9t4-beu8yd.webp"
+      },
+      "matador": {
+        "nom": "Matador",
+        "kind": "persona",
+        "el": "psy",
+        "arcane": "mort",
+        "rang": 1,
+        "cout": 3,
+        "effet": {
+          "deg": 4,
+          "vision": 1
+        },
+        "combo": {
+          "vision": 1,
+          "deg": 2
+        },
+        "lien": {
+          "yen": 1
+        },
+        "legendaire": false,
+        "niveau": 17,
+        "skills": [
+          "psi",
+          "sukukaja",
+          "mapsi",
+          "double_shot",
+          "swift_strike"
+        ],
+        "image": "https://tojuxyrlqipsnxcwngzn.supabase.co/storage/v1/object/public/images/cartes/mwbvly3y-b6wi38.webp"
+      },
+      "melchizedek": {
+        "nom": "Melchizedek",
+        "kind": "persona",
+        "el": "sac",
+        "arcane": "justice",
+        "rang": 3,
+        "cout": 5,
+        "effet": {
+          "pv": 6,
+          "deg": 3
+        },
+        "combo": {
+          "pv": 4
+        },
+        "lien": {
+          "yen": 1
+        },
+        "legendaire": false,
+        "niveau": 58,
+        "skills": [
+          "megaton_raid",
+          "hamaon",
+          "revolution",
+          "mahamaon",
+          "matarukaja",
+          "gods_hand"
+        ],
+        "image": "https://tojuxyrlqipsnxcwngzn.supabase.co/storage/v1/object/public/images/cartes/mwbvmhk0-18xudv.webp"
+      },
+      "messiah": {
+        "nom": "Messiah",
+        "kind": "persona",
+        "el": "pur",
+        "arcane": "jugement",
+        "rang": 5,
+        "cout": 7,
+        "effet": {
+          "deg": 4,
+          "yen": 3
+        },
+        "combo": {
+          "deg": 4
+        },
+        "lien": {
+          "yen": 1
+        },
+        "legendaire": true,
+        "niveau": 81,
+        "skills": [
+          "gods_hand",
+          "megidolaon",
+          "oratorio"
+        ],
+        "image": "https://tojuxyrlqipsnxcwngzn.supabase.co/storage/v1/object/public/images/cartes/mwbvmxep-zz907r.webp",
+        "unique": true
+      },
+      "metatron": {
+        "nom": "Metatron",
+        "kind": "persona",
+        "el": "sac",
+        "arcane": "justice",
+        "rang": 5,
+        "cout": 7,
+        "effet": {
+          "pv": 8,
+          "deg": 4
+        },
+        "combo": {
+          "pv": 5
+        },
+        "lien": {
+          "yen": 1
+        },
+        "legendaire": true,
+        "niveau": 89,
+        "skills": [
+          "sword_dance",
+          "mahamaon",
+          "makougaon",
+          "megidolaon",
+          "concentrate",
+          "divine_judgement"
+        ],
+        "image": "https://tojuxyrlqipsnxcwngzn.supabase.co/storage/v1/object/public/images/cartes/mwbvnxve-hn0x2p.webp"
+      },
+      "michael": {
+        "nom": "Michael",
+        "kind": "persona",
+        "el": "sac",
+        "arcane": "jugement",
+        "rang": 5,
+        "cout": 7,
+        "effet": {
+          "deg": 4,
+          "yen": 3
+        },
+        "combo": {
+          "deg": 4
+        },
+        "lien": {
+          "yen": 1
+        },
+        "legendaire": true,
+        "niveau": 87,
+        "skills": [
+          "mabufudyne",
+          "divine_judgement",
+          "debilitate",
+          "sword_dance",
+          "mahamaon",
+          "megidolaon",
+          "cosmic_flare"
+        ],
+        "image": "https://tojuxyrlqipsnxcwngzn.supabase.co/storage/v1/object/public/images/cartes/mwbvofl0-yap0ye.webp"
+      },
+      "milady": {
+        "nom": "Milady",
+        "kind": "persona",
+        "el": "psy",
+        "arcane": "imperatrice",
+        "rang": 2,
+        "cout": 4,
+        "effet": {
+          "deg": 5,
+          "vision": 1
+        },
+        "combo": {
+          "vision": 1,
+          "deg": 2
+        },
+        "lien": {
+          "yen": 1
+        },
+        "legendaire": true,
+        "niveau": 36,
+        "skills": [
+          "triple_down",
+          "psio",
+          "mapsio",
+          "tentarafoo",
+          "amrita_drop",
+          "psy_break",
+          "tetrakarn",
+          "makarakarn",
+          "psiodyne",
+          "one_shot_kill",
+          "amrita_shower",
+          "mapsiodyne",
+          "heat_riser"
+        ],
+        "reservee": true,
+        "unique": true,
+        "image": "https://tojuxyrlqipsnxcwngzn.supabase.co/storage/v1/object/public/images/cartes/mwbvp5hw-8b4755.webp"
+      },
+      "mishaguji": {
+        "nom": "Mishaguji",
+        "kind": "persona",
+        "el": "psy",
+        "arcane": "hierophante",
+        "rang": 3,
+        "cout": 5,
+        "effet": {
+          "deg": 6,
+          "vision": 1
+        },
+        "combo": {
+          "vision": 1,
+          "deg": 2
+        },
+        "lien": {
+          "yen": 1
+        },
+        "legendaire": false,
+        "niveau": 52,
+        "skills": [
+          "psiodyne",
+          "brain_jack",
+          "one_shot_kill",
+          "deathbound"
+        ],
+        "image": "https://tojuxyrlqipsnxcwngzn.supabase.co/storage/v1/object/public/images/cartes/mwbvpt6y-3wdrdw.webp"
+      },
+      "mithras": {
+        "nom": "Mithras",
+        "kind": "persona",
+        "el": "nuc",
+        "arcane": "soleil",
+        "rang": 2,
+        "cout": 4,
+        "effet": {
+          "deg": 6
+        },
+        "combo": {
+          "deg": 1,
+          "parCombo": 1
+        },
+        "lien": {
+          "yen": 1
+        },
+        "legendaire": false,
+        "niveau": 39,
+        "skills": [
+          "heat_wave",
+          "mafreila",
+          "tentarafoo",
+          "tetra_break",
+          "nuke_break",
+          "mabaisudi",
+          "freidyne"
+        ],
+        "image": "https://tojuxyrlqipsnxcwngzn.supabase.co/storage/v1/object/public/images/cartes/mwbvqujp-kydjha.webp"
+      },
+      "mitra": {
+        "nom": "Mitra",
+        "kind": "persona",
+        "el": "sac",
+        "arcane": "temperance",
+        "rang": 2,
+        "cout": 4,
+        "effet": {
+          "pv": 5,
+          "deg": 2
+        },
+        "combo": {
+          "pv": 4
+        },
+        "lien": {
+          "yen": 1
+        },
+        "legendaire": false,
+        "niveau": 33,
+        "skills": [
+          "mahama",
+          "kouga",
+          "diarama",
+          "makouga",
+          "dekunda",
+          "thermopylae"
+        ],
+        "image": "https://tojuxyrlqipsnxcwngzn.supabase.co/storage/v1/object/public/images/cartes/mwbvr0ai-d6s66x.webp"
+      },
+      "mokoi": {
+        "nom": "Mokoi",
+        "kind": "persona",
+        "el": "phy",
+        "arcane": "mort",
+        "rang": 1,
+        "cout": 3,
+        "effet": {
+          "deg": 4,
+          "vision": 1
+        },
+        "combo": {
+          "vision": 1,
+          "deg": 2
+        },
+        "lien": {
+          "yen": 1
+        },
+        "legendaire": false,
+        "niveau": 9,
+        "skills": [
+          "dazzler",
+          "tarukaja",
+          "skull_cracker",
+          "marin_karin",
+          "dekunda"
+        ],
+        "image": "https://tojuxyrlqipsnxcwngzn.supabase.co/storage/v1/object/public/images/cartes/mwbvrfpq-l09cd3.webp"
+      },
+      "moloch": {
+        "nom": "Moloch",
+        "kind": "persona",
+        "el": "feu",
+        "arcane": "pendu",
+        "rang": 3,
+        "cout": 5,
+        "effet": {
+          "deg": 7
+        },
+        "combo": {
+          "deg": 3
+        },
+        "lien": {
+          "yen": 1
+        },
+        "legendaire": false,
+        "niveau": 60,
+        "skills": [
+          "agidyne",
+          "stagnant_air",
+          "evil_smile",
+          "maragidyne",
+          "ghastly_wail"
+        ],
+        "image": "https://tojuxyrlqipsnxcwngzn.supabase.co/storage/v1/object/public/images/cartes/mwbvrv2q-6sntcx.webp"
+      },
+      "mot": {
+        "nom": "Mot",
+        "kind": "persona",
+        "el": "pur",
+        "arcane": "mort",
+        "rang": 4,
+        "cout": 6,
+        "effet": {
+          "deg": 8,
+          "vision": 1
+        },
+        "combo": {
+          "vision": 1,
+          "deg": 2
+        },
+        "lien": {
+          "yen": 1
+        },
+        "legendaire": false,
+        "niveau": 72,
+        "skills": [
+          "maeigaon",
+          "megidola",
+          "matarukaja",
+          "concentrate",
+          "megidolaon"
+        ],
+        "image": "https://tojuxyrlqipsnxcwngzn.supabase.co/storage/v1/object/public/images/cartes/mwbvt11d-0an5q8.webp"
+      },
+      "mother_harlot": {
+        "nom": "Mother Harlot",
+        "kind": "persona",
+        "el": "gla",
+        "arcane": "imperatrice",
+        "rang": 5,
+        "cout": 7,
+        "effet": {
+          "deg": 10
+        },
+        "combo": {
+          "defausse": 1
+        },
+        "lien": {
+          "yen": 1
+        },
+        "legendaire": true,
+        "niveau": 85,
+        "skills": [
+          "mabufudyne",
+          "mamudoon",
+          "ice_age",
+          "debilitate"
+        ],
+        "image": "https://tojuxyrlqipsnxcwngzn.supabase.co/storage/v1/object/public/images/cartes/mwbvu5b9-5h1up9.webp"
+      },
+      "mothman": {
+        "nom": "Mothman",
+        "kind": "persona",
+        "el": "ele",
+        "arcane": "lune",
+        "rang": 2,
+        "cout": 4,
+        "effet": {
+          "deg": 4
+        },
+        "combo": {
+          "pioche": 1
+        },
+        "lien": {
+          "yen": 1
+        },
+        "legendaire": false,
+        "niveau": 33,
+        "skills": [
+          "skull_cracker",
+          "mazionga",
+          "tentarafoo",
+          "makajamaon",
+          "ziodyne"
+        ],
+        "image": "https://tojuxyrlqipsnxcwngzn.supabase.co/storage/v1/object/public/images/cartes/mwbvudqy-148p9j.webp"
+      },
+      "naga": {
+        "nom": "Naga",
+        "kind": "persona",
+        "el": "ele",
+        "arcane": "ermite",
+        "rang": 2,
+        "cout": 4,
+        "effet": {
+          "deg": 4
+        },
+        "combo": {
+          "pioche": 1
+        },
+        "lien": {
+          "yen": 1
+        },
+        "legendaire": false,
+        "niveau": 24,
+        "skills": [
+          "memory_blow",
+          "power_slash",
+          "zionga",
+          "mazionga",
+          "marakukaja"
+        ],
+        "image": "https://tojuxyrlqipsnxcwngzn.supabase.co/storage/v1/object/public/images/cartes/mwbvuuws-ly0b45.webp"
+      },
+      "narcissus": {
+        "nom": "Narcissus",
+        "kind": "persona",
+        "el": "ven",
+        "arcane": "amants",
+        "rang": 3,
+        "cout": 5,
+        "effet": {
+          "deg": 6,
+          "vision": 1
+        },
+        "combo": {
+          "vision": 1,
+          "deg": 2
+        },
+        "lien": {
+          "yen": 1
+        },
+        "legendaire": false,
+        "niveau": 48,
+        "skills": [
+          "magarula",
+          "dazzler",
+          "energy_drop",
+          "mediarama"
+        ],
+        "image": "https://tojuxyrlqipsnxcwngzn.supabase.co/storage/v1/object/public/images/cartes/mwbvv5cs-9ze3rs.webp"
+      },
+      "nebiros": {
+        "nom": "Nebiros",
+        "kind": "persona",
+        "el": "mau",
+        "arcane": "diable",
+        "rang": 4,
+        "cout": 6,
+        "effet": {
+          "deg": 7,
+          "pv": 2
+        },
+        "combo": {
+          "purge": 2
+        },
+        "lien": {
+          "yen": 1
+        },
+        "legendaire": false,
+        "niveau": 74,
+        "skills": [
+          "mapsiodyne",
+          "marin_karin",
+          "marakukaja",
+          "brain_jack",
+          "megidolaon"
+        ],
+        "image": "https://tojuxyrlqipsnxcwngzn.supabase.co/storage/v1/object/public/images/cartes/mwbvwdil-i52lna.webp"
+      },
+      "necronomicon": {
+        "nom": "Necronomicon",
+        "kind": "persona",
+        "el": "pur",
+        "arcane": "ermite",
+        "rang": 2,
+        "cout": 4,
+        "effet": {
+          "deg": 3,
+          "yen": 2
+        },
+        "combo": {
+          "deg": 3
+        },
+        "lien": {
+          "yen": 1
+        },
+        "legendaire": true,
+        "niveau": 30,
+        "skills": [
+          "dia",
+          "tarukaja",
+          "media"
+        ],
+        "reservee": true,
+        "image": "https://tojuxyrlqipsnxcwngzn.supabase.co/storage/v1/object/public/images/cartes/mwbvwycw-1g4nyd.webp",
+        "unique": true
+      },
+      "neko_shogun": {
+        "nom": "Neko Shogun",
+        "kind": "persona",
+        "el": "psy",
+        "arcane": "etoile",
+        "rang": 2,
+        "cout": 4,
+        "effet": {
+          "deg": 3,
+          "yen": 2
+        },
+        "combo": {
+          "deg": 3
+        },
+        "lien": {
+          "yen": 1
+        },
+        "legendaire": false,
+        "niveau": 30,
+        "skills": [
+          "psio",
+          "diarama",
+          "masukukaja",
+          "cornered_fang"
+        ],
+        "image": "https://tojuxyrlqipsnxcwngzn.supabase.co/storage/v1/object/public/images/cartes/mwbvxptv-f2xvvb.webp"
+      },
+      "nekomata": {
+        "nom": "Nekomata",
+        "kind": "persona",
+        "el": "phy",
+        "arcane": "magicien",
+        "rang": 1,
+        "cout": 3,
+        "effet": {
+          "deg": 4,
+          "vision": 1
+        },
+        "combo": {
+          "vision": 1,
+          "deg": 2
+        },
+        "lien": {
+          "yen": 1
+        },
+        "legendaire": false,
+        "niveau": 17,
+        "skills": [
+          "terror_claw",
+          "magaru",
+          "evil_touch",
+          "hysterical_slap",
+          "wind_break",
+          "elec_wall"
+        ],
+        "image": "https://tojuxyrlqipsnxcwngzn.supabase.co/storage/v1/object/public/images/cartes/mwbvyxk1-3e2tbp.webp"
+      },
+      "nigi_mitama": {
+        "nom": "Nigi Mitama",
+        "kind": "persona",
+        "el": "sac",
+        "arcane": "conseiller",
+        "rang": 2,
+        "cout": 4,
+        "effet": {
+          "pv": 5,
+          "deg": 2
+        },
+        "combo": {
+          "pv": 4
+        },
+        "lien": {
+          "yen": 1
+        },
+        "legendaire": false,
+        "niveau": 22,
+        "skills": [
+          "makouha",
+          "baisudi",
+          "diarama",
+          "me_patra"
+        ],
+        "image": "https://tojuxyrlqipsnxcwngzn.supabase.co/storage/v1/object/public/images/cartes/mwbvzc8v-hiitmc.webp"
+      },
+      "norn": {
+        "nom": "Norn",
+        "kind": "persona",
+        "el": "sac",
+        "arcane": "fortune",
+        "rang": 3,
+        "cout": 5,
+        "effet": {
+          "deg": 3,
+          "yen": 2
+        },
+        "combo": {
+          "deg": 3
+        },
+        "lien": {
+          "yen": 1
+        },
+        "legendaire": false,
+        "niveau": 52,
+        "skills": [
+          "ziodyne",
+          "garudyne",
+          "nocturnal_flash",
+          "diarahan",
+          "amrita_drop",
+          "tetraja",
+          "samarecarm"
+        ],
+        "image": "https://tojuxyrlqipsnxcwngzn.supabase.co/storage/v1/object/public/images/cartes/mwbvznkz-z5jmss.webp"
+      },
+      "nue": {
+        "nom": "Nue",
+        "kind": "persona",
+        "el": "mau",
+        "arcane": "mort",
+        "rang": 1,
+        "cout": 3,
+        "effet": {
+          "deg": 4,
+          "pv": 1
+        },
+        "combo": {
+          "purge": 1
+        },
+        "lien": {
+          "yen": 1
+        },
+        "legendaire": false,
+        "niveau": 20,
+        "skills": [
+          "skull_cracker",
+          "maeiha",
+          "mudo",
+          "pulinpa",
+          "mamudo",
+          "assault_dive"
+        ],
+        "image": "https://tojuxyrlqipsnxcwngzn.supabase.co/storage/v1/object/public/images/cartes/mwbw0p39-tnn6v9.webp"
+      },
+      "obariyon": {
+        "nom": "Obariyon",
+        "kind": "persona",
+        "el": "phy",
+        "arcane": "fou",
+        "rang": 1,
+        "cout": 3,
+        "effet": {
+          "deg": 5
+        },
+        "combo": {
+          "deg": 2
+        },
+        "lien": {
+          "yen": 1
+        },
+        "parPhysique": 1,
+        "legendaire": false,
+        "niveau": 8,
+        "skills": [
+          "snap",
+          "sukunda",
+          "lucky_punch",
+          "dekaja"
+        ],
+        "image": "https://tojuxyrlqipsnxcwngzn.supabase.co/storage/v1/object/public/images/cartes/mwbw19nq-far5bh.webp"
+      },
+      "oberon": {
+        "nom": "Oberon",
+        "kind": "persona",
+        "el": "ele",
+        "arcane": "empereur",
+        "rang": 4,
+        "cout": 6,
+        "effet": {
+          "deg": 6
+        },
+        "combo": {
+          "pioche": 1
+        },
+        "lien": {
+          "yen": 1
+        },
+        "legendaire": false,
+        "niveau": 66,
+        "skills": [
+          "heat_wave",
+          "ziodyne",
+          "nocturnal_flash",
+          "matarukaja",
+          "myriad_slashes",
+          "samarecarm"
+        ],
+        "image": "https://tojuxyrlqipsnxcwngzn.supabase.co/storage/v1/object/public/images/cartes/mwbw1mf2-wws9hg.webp"
+      },
+      "odin": {
+        "nom": "Odin",
+        "kind": "persona",
+        "el": "ele",
+        "arcane": "empereur",
+        "rang": 5,
+        "cout": 7,
+        "effet": {
+          "deg": 7
+        },
+        "combo": {
+          "pioche": 1
+        },
+        "lien": {
+          "yen": 1
+        },
+        "legendaire": true,
+        "niveau": 84,
+        "skills": [
+          "myriad_slashes",
+          "thunder_reign",
+          "marakukaja",
+          "wild_thunder",
+          "concentrate"
+        ],
+        "image": "https://tojuxyrlqipsnxcwngzn.supabase.co/storage/v1/object/public/images/cartes/mwbw2i81-tvaiid.webp"
+      },
+      "okuninushi": {
+        "nom": "Okuninushi",
+        "kind": "persona",
+        "el": "psy",
+        "arcane": "foi",
+        "rang": 3,
+        "cout": 5,
+        "effet": {
+          "deg": 6,
+          "vision": 1
+        },
+        "combo": {
+          "vision": 1,
+          "deg": 2
+        },
+        "lien": {
+          "yen": 1
+        },
+        "legendaire": false,
+        "niveau": 54,
+        "skills": [
+          "myriad_slashes",
+          "mapsio",
+          "matarukaja",
+          "psy_break",
+          "heat_wave"
+        ],
+        "image": "https://tojuxyrlqipsnxcwngzn.supabase.co/storage/v1/object/public/images/cartes/mwbw330x-6r2biz.webp"
+      },
+      "ongyo_ki": {
+        "nom": "Ongyo-Ki",
+        "kind": "persona",
+        "el": "phy",
+        "arcane": "ermite",
+        "rang": 5,
+        "cout": 7,
+        "effet": {
+          "deg": 10
+        },
+        "combo": {
+          "deg": 4
+        },
+        "lien": {
+          "yen": 1
+        },
+        "parPhysique": 1,
+        "legendaire": true,
+        "niveau": 89,
+        "skills": [
+          "myriad_slashes",
+          "makajamaon",
+          "agneyastra"
+        ],
+        "image": "https://tojuxyrlqipsnxcwngzn.supabase.co/storage/v1/object/public/images/cartes/mwbw4w7l-eqdtfj.webp"
+      },
+      "oni": {
+        "nom": "Oni",
+        "kind": "persona",
+        "el": "phy",
+        "arcane": "force",
+        "rang": 1,
+        "cout": 3,
+        "effet": {
+          "deg": 5
+        },
+        "combo": {
+          "deg": 2
+        },
+        "lien": {
+          "yen": 1
+        },
+        "parPhysique": 1,
+        "legendaire": false,
+        "niveau": 20,
+        "skills": [
+          "rampage",
+          "snap",
+          "giant_slice",
+          "memory_blow"
+        ],
+        "image": "https://tojuxyrlqipsnxcwngzn.supabase.co/storage/v1/object/public/images/cartes/mwbw4p43-tmtboh.webp"
+      },
+      "onmoraki": {
+        "nom": "Onmoraki",
         "kind": "persona",
         "el": "mau",
         "arcane": "lune",
@@ -741,22 +4118,163 @@
           "yen": 1
         },
         "legendaire": false,
-        "niveau": 18,
+        "niveau": 12,
         "skills": [
-          "sledgehammer",
-          "foul_breath",
+          "eiha",
+          "ice_wall",
+          "agi",
           "evil_touch",
-          "headbutt",
-          "brain_jack",
-          "flash_bomb"
+          "pulinpa"
         ],
-        "image": "https://tojuxyrlqipsnxcwngzn.supabase.co/storage/v1/object/public/images/cartes/mwb9epbm-hvvv73.webp"
+        "image": "https://tojuxyrlqipsnxcwngzn.supabase.co/storage/v1/object/public/images/cartes/mwbw5l91-1a07er.webp"
       },
-      "black_rider": {
-        "nom": "Black Rider",
+      "orobas": {
+        "nom": "Orobas",
+        "kind": "persona",
+        "el": "feu",
+        "arcane": "hierophante",
+        "rang": 1,
+        "cout": 3,
+        "effet": {
+          "deg": 5
+        },
+        "combo": {
+          "deg": 2
+        },
+        "lien": {
+          "yen": 1
+        },
+        "legendaire": false,
+        "niveau": 17,
+        "skills": [
+          "maragi",
+          "sukukaja",
+          "dekaja",
+          "marakunda",
+          "fire_break",
+          "makajamaon"
+        ],
+        "image": "https://tojuxyrlqipsnxcwngzn.supabase.co/storage/v1/object/public/images/cartes/mwbw6ilx-eyg9vt.webp"
+      },
+      "orpheus": {
+        "nom": "Orpheus",
+        "kind": "persona",
+        "el": "feu",
+        "arcane": "fou",
+        "rang": 2,
+        "cout": 4,
+        "effet": {
+          "deg": 3,
+          "yen": 2
+        },
+        "combo": {
+          "deg": 3
+        },
+        "lien": {
+          "yen": 1
+        },
+        "legendaire": true,
+        "niveau": 26,
+        "skills": [
+          "agilao",
+          "cadenza",
+          "tarunda",
+          "maragion",
+          "marakukaja"
+        ],
+        "image": "https://tojuxyrlqipsnxcwngzn.supabase.co/storage/v1/object/public/images/cartes/mwbw736k-fv3qzq.webp",
+        "unique": true
+      },
+      "orpheus_f": {
+        "nom": "Orpheus F",
+        "kind": "persona",
+        "el": "feu",
+        "arcane": "fou",
+        "rang": 1,
+        "cout": 3,
+        "effet": {
+          "deg": 2,
+          "yen": 1
+        },
+        "combo": {
+          "deg": 2
+        },
+        "lien": {
+          "yen": 1
+        },
+        "legendaire": true,
+        "niveau": 11,
+        "skills": [
+          "agi",
+          "neo_cadenza",
+          "tarunda",
+          "maragion",
+          "marakukaja"
+        ],
+        "image": "https://tojuxyrlqipsnxcwngzn.supabase.co/storage/v1/object/public/images/cartes/mwbw7t9l-uabz6x.webp",
+        "unique": true
+      },
+      "orthrus": {
+        "nom": "Orthrus",
+        "kind": "persona",
+        "el": "feu",
+        "arcane": "pendu",
+        "rang": 2,
+        "cout": 4,
+        "effet": {
+          "deg": 6
+        },
+        "combo": {
+          "deg": 3
+        },
+        "lien": {
+          "yen": 1
+        },
+        "legendaire": false,
+        "niveau": 21,
+        "skills": [
+          "double_fangs",
+          "maragi",
+          "agilao",
+          "cornered_fang",
+          "matarukaja"
+        ],
+        "image": "https://tojuxyrlqipsnxcwngzn.supabase.co/storage/v1/object/public/images/cartes/mwbw8pet-d9ume0.webp"
+      },
+      "ose": {
+        "nom": "Ose",
+        "kind": "persona",
+        "el": "phy",
+        "arcane": "fou",
+        "rang": 3,
+        "cout": 5,
+        "effet": {
+          "deg": 6,
+          "vision": 1
+        },
+        "combo": {
+          "vision": 1,
+          "deg": 2
+        },
+        "lien": {
+          "yen": 1
+        },
+        "legendaire": false,
+        "niveau": 42,
+        "skills": [
+          "oni_kagura",
+          "charge",
+          "tempest_slash",
+          "matarukaja",
+          "heat_wave"
+        ],
+        "image": "https://tojuxyrlqipsnxcwngzn.supabase.co/storage/v1/object/public/images/cartes/mwbw9xsy-o5zwg4.webp"
+      },
+      "pale_rider": {
+        "nom": "Pale Rider",
         "kind": "persona",
         "el": "mau",
-        "arcane": "tour",
+        "arcane": "mort",
         "rang": 3,
         "cout": 5,
         "effet": {
@@ -770,22 +4288,219 @@
           "yen": 1
         },
         "legendaire": false,
-        "niveau": 59,
+        "niveau": 54,
         "skills": [
-          "flash_bomb",
-          "mamudoon",
-          "maeigaon",
-          "bloodbath",
-          "ghastly_wail",
-          "megidola"
+          "brain_shake",
+          "eigaon",
+          "abysmal_surge",
+          "megidola",
+          "deathbound"
         ],
-        "image": "https://tojuxyrlqipsnxcwngzn.supabase.co/storage/v1/object/public/images/cartes/mwb9ghjg-331xkr.webp"
+        "image": "https://tojuxyrlqipsnxcwngzn.supabase.co/storage/v1/object/public/images/cartes/mwbwahbf-slx3pi.webp"
       },
-      "bugs": {
-        "nom": "Bugs",
+      "parvati": {
+        "nom": "Parvati",
         "kind": "persona",
-        "el": "pur",
-        "arcane": "fou",
+        "el": "psy",
+        "arcane": "amants",
+        "rang": 3,
+        "cout": 5,
+        "effet": {
+          "deg": 6,
+          "vision": 1
+        },
+        "combo": {
+          "vision": 1,
+          "deg": 2
+        },
+        "lien": {
+          "yen": 1
+        },
+        "legendaire": false,
+        "niveau": 56,
+        "skills": [
+          "psiodyne",
+          "diarama",
+          "psy_break",
+          "energy_shower",
+          "diarahan",
+          "mapsiodyne"
+        ],
+        "image": "https://tojuxyrlqipsnxcwngzn.supabase.co/storage/v1/object/public/images/cartes/mwbwayws-ulcori.webp"
+      },
+      "pazuzu": {
+        "nom": "Pazuzu",
+        "kind": "persona",
+        "el": "mau",
+        "arcane": "diable",
+        "rang": 3,
+        "cout": 5,
+        "effet": {
+          "deg": 6,
+          "pv": 2
+        },
+        "combo": {
+          "purge": 1
+        },
+        "lien": {
+          "yen": 1
+        },
+        "legendaire": false,
+        "niveau": 45,
+        "skills": [
+          "maeiga",
+          "mudoon",
+          "tentarafoo",
+          "evil_smile",
+          "stagnant_air",
+          "eigaon"
+        ],
+        "image": "https://tojuxyrlqipsnxcwngzn.supabase.co/storage/v1/object/public/images/cartes/mwbwbqin-s6vb8d.webp"
+      },
+      "phoenix": {
+        "nom": "Phoenix",
+        "kind": "persona",
+        "el": "nuc",
+        "arcane": "foi",
+        "rang": 2,
+        "cout": 4,
+        "effet": {
+          "deg": 6
+        },
+        "combo": {
+          "deg": 1,
+          "parCombo": 1
+        },
+        "lien": {
+          "yen": 1
+        },
+        "legendaire": false,
+        "niveau": 21,
+        "skills": [
+          "dream_needle",
+          "freila",
+          "diarama",
+          "recarm",
+          "mafreila"
+        ],
+        "image": "https://tojuxyrlqipsnxcwngzn.supabase.co/storage/v1/object/public/images/cartes/mwbwc3iq-dmo7n1.webp"
+      },
+      "pisaca": {
+        "nom": "Pisaca",
+        "kind": "persona",
+        "el": "mau",
+        "arcane": "mort",
+        "rang": 2,
+        "cout": 4,
+        "effet": {
+          "deg": 5,
+          "pv": 2
+        },
+        "combo": {
+          "purge": 1
+        },
+        "lien": {
+          "yen": 1
+        },
+        "legendaire": false,
+        "niveau": 28,
+        "skills": [
+          "rampage",
+          "dream_needle",
+          "stagnant_air",
+          "mamudo",
+          "abysmal_surge",
+          "mudoon"
+        ],
+        "image": "https://tojuxyrlqipsnxcwngzn.supabase.co/storage/v1/object/public/images/cartes/mwbwcqj2-qp0jyu.webp"
+      },
+      "pixie": {
+        "nom": "Pixie",
+        "kind": "persona",
+        "el": "ele",
+        "arcane": "amants",
+        "rang": 1,
+        "cout": 3,
+        "effet": {
+          "deg": 4
+        },
+        "combo": {
+          "pioche": 1
+        },
+        "lien": {
+          "yen": 1
+        },
+        "legendaire": false,
+        "niveau": 2,
+        "skills": [
+          "zio",
+          "dia",
+          "patra",
+          "tarukaja"
+        ],
+        "image": "https://tojuxyrlqipsnxcwngzn.supabase.co/storage/v1/object/public/images/cartes/mwbwd5ok-bsiw1u.webp"
+      },
+      "power": {
+        "nom": "Power",
+        "kind": "persona",
+        "el": "sac",
+        "arcane": "justice",
+        "rang": 3,
+        "cout": 5,
+        "effet": {
+          "pv": 6,
+          "deg": 3
+        },
+        "combo": {
+          "pv": 4
+        },
+        "lien": {
+          "yen": 1
+        },
+        "legendaire": false,
+        "niveau": 41,
+        "skills": [
+          "brain_shake",
+          "hamaon",
+          "swift_strike",
+          "makouga",
+          "masukukaja"
+        ],
+        "image": "https://tojuxyrlqipsnxcwngzn.supabase.co/storage/v1/object/public/images/cartes/mwbwdmhd-ppte8y.webp"
+      },
+      "principality": {
+        "nom": "Principality",
+        "kind": "persona",
+        "el": "sac",
+        "arcane": "justice",
+        "rang": 2,
+        "cout": 4,
+        "effet": {
+          "pv": 5,
+          "deg": 2
+        },
+        "combo": {
+          "pv": 4
+        },
+        "lien": {
+          "yen": 1
+        },
+        "legendaire": false,
+        "niveau": 29,
+        "skills": [
+          "makouga",
+          "makajamaon",
+          "tetraja",
+          "mediarama",
+          "mabaisudi"
+        ],
+        "image": "https://tojuxyrlqipsnxcwngzn.supabase.co/storage/v1/object/public/images/cartes/mwbwes9x-th8k2p.webp"
+      },
+      "queen_mab": {
+        "nom": "Queen Mab",
+        "kind": "persona",
+        "el": "feu",
+        "arcane": "magicien",
         "rang": 3,
         "cout": 5,
         "effet": {
@@ -799,20 +4514,1499 @@
           "yen": 1
         },
         "legendaire": false,
-        "niveau": 49,
+        "niveau": 43,
         "skills": [
-          "miracle_punch",
-          "psiodyne",
-          "masukunda",
-          "triple_down"
+          "mazionga",
+          "makajamaon",
+          "matarunda",
+          "makara_break",
+          "agidyne",
+          "concentrate"
         ],
-        "image": "https://tojuxyrlqipsnxcwngzn.supabase.co/storage/v1/object/public/images/cartes/mwb9h0t6-s0020s.webp"
+        "image": "https://tojuxyrlqipsnxcwngzn.supabase.co/storage/v1/object/public/images/cartes/mwbwfb9s-bncx4d.webp"
       },
-      "byakhee": {
-        "nom": "Byakhee",
+      "quetzalcoatl": {
+        "nom": "Quetzalcoatl",
+        "kind": "persona",
+        "el": "ven",
+        "arcane": "soleil",
+        "rang": 4,
+        "cout": 6,
+        "effet": {
+          "yen": 2,
+          "deg": 5
+        },
+        "combo": {
+          "yen": 1,
+          "deg": 2
+        },
+        "lien": {
+          "yen": 1
+        },
+        "legendaire": false,
+        "niveau": 66,
+        "skills": [
+          "memory_blow",
+          "magarula",
+          "garudyne",
+          "magarudyne"
+        ],
+        "image": "https://tojuxyrlqipsnxcwngzn.supabase.co/storage/v1/object/public/images/cartes/mwbwh1wz-6r7gv3.webp"
+      },
+      "raja_naga": {
+        "nom": "Raja Naga",
+        "kind": "persona",
+        "el": "ele",
+        "arcane": "temperance",
+        "rang": 3,
+        "cout": 5,
+        "effet": {
+          "deg": 5
+        },
+        "combo": {
+          "pioche": 1
+        },
+        "lien": {
+          "yen": 1
+        },
+        "legendaire": false,
+        "niveau": 55,
+        "skills": [
+          "ziodyne",
+          "tentarafoo",
+          "elec_break",
+          "makarakarn",
+          "maziodyne"
+        ],
+        "image": "https://tojuxyrlqipsnxcwngzn.supabase.co/storage/v1/object/public/images/cartes/mwbwi15u-krh965.webp"
+      },
+      "rakshasa": {
+        "nom": "Rakshasa",
+        "kind": "persona",
+        "el": "phy",
+        "arcane": "force",
+        "rang": 2,
+        "cout": 4,
+        "effet": {
+          "deg": 6
+        },
+        "combo": {
+          "deg": 3
+        },
+        "lien": {
+          "yen": 1
+        },
+        "parPhysique": 1,
+        "legendaire": false,
+        "niveau": 24,
+        "skills": [
+          "giant_slice",
+          "tarukaja",
+          "wind_wall",
+          "mind_slice"
+        ],
+        "image": "https://tojuxyrlqipsnxcwngzn.supabase.co/storage/v1/object/public/images/cartes/mwbwiqlp-6niu8n.webp"
+      },
+      "rangda": {
+        "nom": "Rangda",
+        "kind": "persona",
+        "el": "mau",
+        "arcane": "magicien",
+        "rang": 3,
+        "cout": 5,
+        "effet": {
+          "deg": 6,
+          "pv": 2
+        },
+        "combo": {
+          "purge": 1
+        },
+        "lien": {
+          "yen": 1
+        },
+        "legendaire": false,
+        "niveau": 48,
+        "skills": [
+          "swift_strike",
+          "bloodbath",
+          "eigaon",
+          "matarunda",
+          "mudoon"
+        ],
+        "image": "https://tojuxyrlqipsnxcwngzn.supabase.co/storage/v1/object/public/images/cartes/mwbwk1ne-p545ym.webp"
+      },
+      "raoul": {
+        "nom": "Raoul",
+        "kind": "persona",
+        "el": "mau",
+        "arcane": "fou",
+        "rang": 4,
+        "cout": 6,
+        "effet": {
+          "deg": 4,
+          "yen": 3
+        },
+        "combo": {
+          "deg": 3
+        },
+        "lien": {
+          "yen": 1
+        },
+        "legendaire": true,
+        "niveau": 76,
+        "skills": [
+          "eigaon",
+          "phantom_show",
+          "maeigaon",
+          "heat_riser",
+          "concentrate"
+        ],
+        "reservee": true,
+        "image": "https://tojuxyrlqipsnxcwngzn.supabase.co/storage/v1/object/public/images/cartes/mwbwkec2-edf9vq.webp",
+        "unique": true
+      },
+      "raphael": {
+        "nom": "Raphael",
+        "kind": "persona",
+        "el": "phy",
+        "arcane": "amants",
+        "rang": 4,
+        "cout": 6,
+        "effet": {
+          "deg": 4,
+          "yen": 3
+        },
+        "combo": {
+          "deg": 3
+        },
+        "lien": {
+          "yen": 1
+        },
+        "legendaire": false,
+        "niveau": 78,
+        "skills": [
+          "sword_dance",
+          "dekaja",
+          "charge",
+          "heat_riser"
+        ],
+        "image": "https://tojuxyrlqipsnxcwngzn.supabase.co/storage/v1/object/public/images/cartes/mwbwlwpk-cbts5k.webp"
+      },
+      "red_rider": {
+        "nom": "Red Rider",
+        "kind": "persona",
+        "el": "psy",
+        "arcane": "tour",
+        "rang": 3,
+        "cout": 5,
+        "effet": {
+          "deg": 6,
+          "vision": 1
+        },
+        "combo": {
+          "vision": 1,
+          "deg": 2
+        },
+        "lien": {
+          "yen": 1
+        },
+        "legendaire": false,
+        "niveau": 41,
+        "skills": [
+          "rising_slash",
+          "mapsio",
+          "psy_break",
+          "negative_pile",
+          "ominous_words"
+        ],
+        "image": "https://tojuxyrlqipsnxcwngzn.supabase.co/storage/v1/object/public/images/cartes/mwbwmv8x-ncl0xf.webp"
+      },
+      "robin_hood": {
+        "nom": "Robin Hood",
+        "kind": "persona",
+        "el": "pur",
+        "arcane": "justice",
+        "rang": 3,
+        "cout": 5,
+        "effet": {
+          "deg": 3,
+          "yen": 2
+        },
+        "combo": {
+          "deg": 3
+        },
+        "lien": {
+          "yen": 1
+        },
+        "legendaire": true,
+        "niveau": 45,
+        "skills": [
+          "megaton_raid",
+          "kouga",
+          "hamaon",
+          "eiga",
+          "mudoon",
+          "megidola",
+          "kougaon",
+          "eigaon",
+          "samarecarm",
+          "mahamaon",
+          "mamudoon",
+          "megidolaon",
+          "debilitate"
+        ],
+        "reservee": true,
+        "image": "https://tojuxyrlqipsnxcwngzn.supabase.co/storage/v1/object/public/images/cartes/mwbwnu12-e0r3u6.webp",
+        "unique": true
+      },
+      "saki_mitama": {
+        "nom": "Saki Mitama",
+        "kind": "persona",
+        "el": "sac",
+        "arcane": "amants",
+        "rang": 1,
+        "cout": 3,
+        "effet": {
+          "pv": 4,
+          "deg": 2
+        },
+        "combo": {
+          "pv": 3
+        },
+        "lien": {
+          "yen": 1
+        },
+        "legendaire": false,
+        "niveau": 6,
+        "skills": [
+          "bufu",
+          "energy_drop",
+          "wind_wall",
+          "rakukaja"
+        ],
+        "image": "https://tojuxyrlqipsnxcwngzn.supabase.co/storage/v1/object/public/images/cartes/mwbwodxj-gs29ie.webp"
+      },
+      "sandalphon": {
+        "nom": "Sandalphon",
+        "kind": "persona",
+        "el": "sac",
+        "arcane": "lune",
+        "rang": 4,
+        "cout": 6,
+        "effet": {
+          "pv": 7,
+          "deg": 3
+        },
+        "combo": {
+          "pv": 5
+        },
+        "lien": {
+          "yen": 1
+        },
+        "legendaire": false,
+        "niveau": 75,
+        "skills": [
+          "mahamaon",
+          "amrita_shower",
+          "samarecarm",
+          "sword_dance",
+          "megidolaon"
+        ],
+        "image": "https://tojuxyrlqipsnxcwngzn.supabase.co/storage/v1/object/public/images/cartes/mwbwp2tp-p0uyl2.webp"
+      },
+      "sandman": {
+        "nom": "Sandman",
+        "kind": "persona",
+        "el": "ven",
+        "arcane": "magicien",
+        "rang": 2,
+        "cout": 4,
+        "effet": {
+          "yen": 2,
+          "deg": 4
+        },
+        "combo": {
+          "yen": 1,
+          "deg": 1
+        },
+        "lien": {
+          "yen": 1
+        },
+        "legendaire": false,
+        "niveau": 23,
+        "skills": [
+          "dormin_rush",
+          "garula",
+          "dormina",
+          "sukunda",
+          "magarula"
+        ],
+        "image": "https://tojuxyrlqipsnxcwngzn.supabase.co/storage/v1/object/public/images/cartes/mwbwprj2-ws4wc6.webp"
+      },
+      "sarasvati": {
+        "nom": "Sarasvati",
+        "kind": "persona",
+        "el": "sac",
+        "arcane": "pretresse",
+        "rang": 3,
+        "cout": 5,
+        "effet": {
+          "pv": 6,
+          "deg": 3
+        },
+        "combo": {
+          "pv": 4
+        },
+        "lien": {
+          "yen": 1
+        },
+        "legendaire": false,
+        "niveau": 50,
+        "skills": [
+          "tentarafoo",
+          "mediarama",
+          "ice_wall",
+          "psy_wall",
+          "dekaja",
+          "matarunda",
+          "diarahan"
+        ],
+        "image": "https://tojuxyrlqipsnxcwngzn.supabase.co/storage/v1/object/public/images/cartes/mwbwqrxb-3cfyia.webp"
+      },
+      "satan": {
+        "nom": "Satan",
+        "kind": "persona",
+        "el": "gla",
+        "arcane": "jugement",
+        "rang": 5,
+        "cout": 7,
+        "effet": {
+          "deg": 10
+        },
+        "combo": {
+          "defausse": 1
+        },
+        "lien": {
+          "yen": 1
+        },
+        "legendaire": true,
+        "niveau": 92,
+        "skills": [
+          "diamond_dust",
+          "ice_age",
+          "black_viper",
+          "concentrate"
+        ],
+        "image": "https://tojuxyrlqipsnxcwngzn.supabase.co/storage/v1/object/public/images/cartes/mwbwsx1h-ol4xjb.webp"
+      },
+      "satanael": {
+        "nom": "Satanael",
+        "kind": "persona",
+        "el": "pur",
+        "arcane": "fou",
+        "rang": 5,
+        "cout": 7,
+        "effet": {
+          "deg": 4,
+          "yen": 3
+        },
+        "combo": {
+          "deg": 4
+        },
+        "lien": {
+          "yen": 1
+        },
+        "legendaire": true,
+        "niveau": 95,
+        "skills": [
+          "riot_gun",
+          "maeigaon",
+          "megidolaon",
+          "black_viper",
+          "heat_riser"
+        ],
+        "reservee": true,
+        "image": "https://tojuxyrlqipsnxcwngzn.supabase.co/storage/v1/object/public/images/cartes/mwbwtkub-tnpq5r.webp",
+        "unique": true
+      },
+      "scathach": {
+        "nom": "Scathach",
+        "kind": "persona",
+        "el": "ven",
+        "arcane": "pretresse",
+        "rang": 4,
+        "cout": 6,
+        "effet": {
+          "yen": 2,
+          "deg": 5
+        },
+        "combo": {
+          "yen": 1,
+          "deg": 2
+        },
+        "lien": {
+          "yen": 1
+        },
+        "legendaire": false,
+        "niveau": 77,
+        "skills": [
+          "myriad_slashes",
+          "mabufudyne",
+          "makarakarn",
+          "matarukaja",
+          "vorpal_blade"
+        ],
+        "image": "https://tojuxyrlqipsnxcwngzn.supabase.co/storage/v1/object/public/images/cartes/mwbwvyhl-nrfy4v.webp"
+      },
+      "seiryu": {
+        "nom": "Seiryu",
+        "kind": "persona",
+        "el": "gla",
+        "arcane": "conseiller",
+        "rang": 4,
+        "cout": 6,
+        "effet": {
+          "deg": 8
+        },
+        "combo": {
+          "defausse": 1
+        },
+        "lien": {
+          "yen": 1
+        },
+        "legendaire": false,
+        "niveau": 62,
+        "skills": [
+          "bufudyne",
+          "diarahan",
+          "marakukaja",
+          "mabufudyne",
+          "amrita_drop",
+          "makarakarn"
+        ],
+        "image": "https://tojuxyrlqipsnxcwngzn.supabase.co/storage/v1/object/public/images/cartes/mwbwwehv-377oog.webp"
+      },
+      "setanta": {
+        "nom": "Setanta",
+        "kind": "persona",
+        "el": "phy",
+        "arcane": "empereur",
+        "rang": 2,
+        "cout": 4,
+        "effet": {
+          "deg": 6
+        },
+        "combo": {
+          "deg": 3
+        },
+        "lien": {
+          "yen": 1
+        },
+        "parPhysique": 1,
+        "legendaire": false,
+        "niveau": 25,
+        "skills": [
+          "giant_slice",
+          "dormin_rush",
+          "charge",
+          "rebellion",
+          "rising_slash"
+        ],
+        "image": "https://tojuxyrlqipsnxcwngzn.supabase.co/storage/v1/object/public/images/cartes/mwbwxcqk-xmcflf.webp"
+      },
+      "seth": {
+        "nom": "Seth",
+        "kind": "persona",
+        "el": "gun",
+        "arcane": "tour",
+        "rang": 3,
+        "cout": 5,
+        "effet": {
+          "deg": 7
+        },
+        "combo": {
+          "deg": 3
+        },
+        "lien": {
+          "yen": 1
+        },
+        "legendaire": false,
+        "niveau": 51,
+        "skills": [
+          "one_shot_kill",
+          "agidyne",
+          "masukukaja",
+          "fire_break"
+        ],
+        "image": "https://tojuxyrlqipsnxcwngzn.supabase.co/storage/v1/object/public/images/cartes/mwbwy8hj-4j22mg.webp"
+      },
+      "shiisaa": {
+        "nom": "Shiisaa",
+        "kind": "persona",
+        "el": "ele",
+        "arcane": "force",
+        "rang": 1,
+        "cout": 3,
+        "effet": {
+          "deg": 4
+        },
+        "combo": {
+          "pioche": 1
+        },
+        "lien": {
+          "yen": 1
+        },
+        "legendaire": false,
+        "niveau": 15,
+        "skills": [
+          "double_fangs",
+          "skull_cracker",
+          "frei",
+          "rampage"
+        ],
+        "image": "https://tojuxyrlqipsnxcwngzn.supabase.co/storage/v1/object/public/images/cartes/mwbwzw3v-72ilxg.webp"
+      },
+      "shiki_ouji": {
+        "nom": "Shiki-Ouji",
+        "kind": "persona",
+        "el": "psy",
+        "arcane": "chariot",
+        "rang": 1,
+        "cout": 3,
+        "effet": {
+          "deg": 4,
+          "vision": 1
+        },
+        "combo": {
+          "vision": 1,
+          "deg": 2
+        },
+        "lien": {
+          "yen": 1
+        },
+        "legendaire": false,
+        "niveau": 18,
+        "skills": [
+          "double_shot",
+          "taunt",
+          "tarukaja",
+          "mapsi",
+          "dekaja",
+          "psio",
+          "oni_kagura"
+        ],
+        "image": "https://tojuxyrlqipsnxcwngzn.supabase.co/storage/v1/object/public/images/cartes/mwbx0ger-6h6uj6.webp"
+      },
+      "shiva": {
+        "nom": "Shiva",
+        "kind": "persona",
+        "el": "psy",
+        "arcane": "jugement",
+        "rang": 5,
+        "cout": 7,
+        "effet": {
+          "deg": 9,
+          "vision": 1
+        },
+        "combo": {
+          "vision": 1,
+          "deg": 3
+        },
+        "lien": {
+          "yen": 1
+        },
+        "legendaire": true,
+        "niveau": 82,
+        "skills": [
+          "maziodyne",
+          "psycho_force",
+          "riot_gun",
+          "megidolaon",
+          "psycho_blast"
+        ],
+        "image": "https://tojuxyrlqipsnxcwngzn.supabase.co/storage/v1/object/public/images/cartes/mwbx0w3x-e66ea8.webp"
+      },
+      "siegfried": {
+        "nom": "Siegfried",
+        "kind": "persona",
+        "el": "phy",
+        "arcane": "foi",
+        "rang": 5,
+        "cout": 7,
+        "effet": {
+          "deg": 10
+        },
+        "combo": {
+          "deg": 4
+        },
+        "lien": {
+          "yen": 1
+        },
+        "parPhysique": 1,
+        "legendaire": true,
+        "niveau": 84,
+        "skills": [
+          "brave_blade",
+          "masukukaja",
+          "charge",
+          "vorpal_blade"
+        ],
+        "image": "https://tojuxyrlqipsnxcwngzn.supabase.co/storage/v1/object/public/images/cartes/mwbx1sat-tjb3cc.webp"
+      },
+      "silky": {
+        "nom": "Silky",
+        "kind": "persona",
+        "el": "sac",
+        "arcane": "pretresse",
+        "rang": 1,
+        "cout": 3,
+        "effet": {
+          "pv": 4,
+          "deg": 2
+        },
+        "combo": {
+          "pv": 3
+        },
+        "lien": {
+          "yen": 1
+        },
+        "legendaire": false,
+        "niveau": 6,
+        "skills": [
+          "bufu",
+          "dormina",
+          "dia",
+          "patra"
+        ],
+        "image": "https://tojuxyrlqipsnxcwngzn.supabase.co/storage/v1/object/public/images/cartes/mwbx24p3-5d7mjl.webp"
+      },
+      "skadi": {
+        "nom": "Skadi",
+        "kind": "persona",
+        "el": "gla",
+        "arcane": "pretresse",
+        "rang": 3,
+        "cout": 5,
+        "effet": {
+          "deg": 7
+        },
+        "combo": {
+          "defausse": 1
+        },
+        "lien": {
+          "yen": 1
+        },
+        "legendaire": false,
+        "niveau": 53,
+        "skills": [
+          "deadly_fury",
+          "evil_smile",
+          "ghastly_wail",
+          "mabufudyne",
+          "maeigaon",
+          "spirit_drain"
+        ],
+        "image": "https://tojuxyrlqipsnxcwngzn.supabase.co/storage/v1/object/public/images/cartes/mwbx30u6-6q8jkt.webp"
+      },
+      "slime": {
+        "nom": "Slime",
+        "kind": "persona",
+        "el": "mau",
+        "arcane": "chariot",
+        "rang": 1,
+        "cout": 3,
+        "effet": {
+          "deg": 4,
+          "pv": 1
+        },
+        "combo": {
+          "purge": 1
+        },
+        "lien": {
+          "yen": 1
+        },
+        "legendaire": false,
+        "niveau": 10,
+        "skills": [
+          "lunge",
+          "evil_touch",
+          "tarunda",
+          "fire_wall",
+          "headbutt"
+        ],
+        "image": "https://tojuxyrlqipsnxcwngzn.supabase.co/storage/v1/object/public/images/cartes/mwbx390t-jueot8.webp"
+      },
+      "sraosha": {
+        "nom": "Sraosha",
+        "kind": "persona",
+        "el": "sac",
+        "arcane": "etoile",
+        "rang": 4,
+        "cout": 6,
+        "effet": {
+          "pv": 7,
+          "deg": 3
+        },
+        "combo": {
+          "pv": 5
+        },
+        "lien": {
+          "yen": 1
+        },
+        "legendaire": true,
+        "niveau": 80,
+        "skills": [
+          "kougaon",
+          "mahamaon",
+          "makougaon",
+          "amrita_shower",
+          "debilitate"
+        ],
+        "image": "https://tojuxyrlqipsnxcwngzn.supabase.co/storage/v1/object/public/images/cartes/mwbx3u5t-2boi30.webp"
+      },
+      "succubus": {
+        "nom": "Succubus",
+        "kind": "persona",
+        "el": "mau",
+        "arcane": "lune",
+        "rang": 1,
+        "cout": 3,
+        "effet": {
+          "deg": 4,
+          "pv": 1
+        },
+        "combo": {
+          "purge": 1
+        },
+        "lien": {
+          "yen": 1
+        },
+        "legendaire": false,
+        "niveau": 7,
+        "skills": [
+          "dormina",
+          "rebellion",
+          "agi",
+          "dekaja",
+          "mudo"
+        ],
+        "image": "https://tojuxyrlqipsnxcwngzn.supabase.co/storage/v1/object/public/images/cartes/mwbx4dwh-xxln3y.webp"
+      },
+      "sudama": {
+        "nom": "Sudama",
+        "kind": "persona",
+        "el": "psy",
+        "arcane": "ermite",
+        "rang": 1,
+        "cout": 3,
+        "effet": {
+          "deg": 4,
+          "vision": 1
+        },
+        "combo": {
+          "vision": 1,
+          "deg": 2
+        },
+        "lien": {
+          "yen": 1
+        },
+        "legendaire": false,
+        "niveau": 17,
+        "skills": [
+          "lucky_punch",
+          "mapsi",
+          "tarukaja",
+          "wind_wall",
+          "psio"
+        ],
+        "image": "https://tojuxyrlqipsnxcwngzn.supabase.co/storage/v1/object/public/images/cartes/mwbx4u6c-oax6m6.webp"
+      },
+      "sui_ki": {
+        "nom": "Sui-Ki",
+        "kind": "persona",
+        "el": "gla",
+        "arcane": "lune",
+        "rang": 2,
+        "cout": 4,
+        "effet": {
+          "deg": 6
+        },
+        "combo": {
+          "defausse": 1
+        },
+        "lien": {
+          "yen": 1
+        },
+        "legendaire": false,
+        "niveau": 24,
+        "skills": [
+          "sledgehammer",
+          "mabufu",
+          "bufula",
+          "wage_war",
+          "mabufula"
+        ],
+        "image": "https://tojuxyrlqipsnxcwngzn.supabase.co/storage/v1/object/public/images/cartes/mwbx566p-l0elni.webp"
+      },
+      "surt": {
+        "nom": "Surt",
         "kind": "persona",
         "el": "feu",
+        "arcane": "magicien",
+        "rang": 5,
+        "cout": 7,
+        "effet": {
+          "deg": 10
+        },
+        "combo": {
+          "deg": 4
+        },
+        "lien": {
+          "yen": 1
+        },
+        "legendaire": true,
+        "niveau": 83,
+        "skills": [
+          "brave_blade",
+          "blazing_hell",
+          "marakunda",
+          "gigantomachia"
+        ],
+        "image": "https://tojuxyrlqipsnxcwngzn.supabase.co/storage/v1/object/public/images/cartes/mwbx5zpq-gtylw1.webp"
+      },
+      "suzaku": {
+        "nom": "Suzaku",
+        "kind": "persona",
+        "el": "nuc",
+        "arcane": "soleil",
+        "rang": 1,
+        "cout": 3,
+        "effet": {
+          "deg": 5
+        },
+        "combo": {
+          "deg": 1,
+          "parCombo": 1
+        },
+        "lien": {
+          "yen": 1
+        },
+        "legendaire": false,
+        "niveau": 16,
+        "skills": [
+          "frei",
+          "marin_karin",
+          "tarunda",
+          "dekunda",
+          "mafrei",
+          "matarunda"
+        ],
+        "image": "https://tojuxyrlqipsnxcwngzn.supabase.co/storage/v1/object/public/images/cartes/mwbx6a89-ctkfho.webp"
+      },
+      "take_minakata": {
+        "nom": "Take-Minakata",
+        "kind": "persona",
+        "el": "ele",
+        "arcane": "pendu",
+        "rang": 2,
+        "cout": 4,
+        "effet": {
+          "deg": 4
+        },
+        "combo": {
+          "pioche": 1
+        },
+        "lien": {
+          "yen": 1
+        },
+        "legendaire": false,
+        "niveau": 26,
+        "skills": [
+          "assault_dive",
+          "zionga",
+          "mazionga",
+          "swift_strike"
+        ],
+        "image": "https://tojuxyrlqipsnxcwngzn.supabase.co/storage/v1/object/public/images/cartes/mwbx6zkx-dbr29r.webp"
+      },
+      "tam_lin": {
+        "nom": "Tam Lin",
+        "kind": "persona",
+        "el": "phy",
+        "arcane": "foi",
+        "rang": 2,
+        "cout": 4,
+        "effet": {
+          "deg": 3,
+          "yen": 2
+        },
+        "combo": {
+          "deg": 3
+        },
+        "lien": {
+          "yen": 1
+        },
+        "legendaire": false,
+        "niveau": 27,
+        "skills": [
+          "brain_shake",
+          "assault_dive",
+          "rebellion",
+          "brain_buster"
+        ],
+        "image": "https://tojuxyrlqipsnxcwngzn.supabase.co/storage/v1/object/public/images/cartes/mwbx8g8q-1besei.webp"
+      },
+      "thanatos": {
+        "nom": "Thanatos",
+        "kind": "persona",
+        "el": "gun",
+        "arcane": "mort",
+        "rang": 4,
+        "cout": 6,
+        "effet": {
+          "deg": 4,
+          "yen": 3
+        },
+        "combo": {
+          "deg": 3
+        },
+        "lien": {
+          "yen": 1
+        },
+        "legendaire": true,
+        "niveau": 65,
+        "skills": [
+          "mamudoon",
+          "maeigaon",
+          "door_of_hades",
+          "one_shot_kill"
+        ],
+        "image": "https://tojuxyrlqipsnxcwngzn.supabase.co/storage/v1/object/public/images/cartes/mwbx938g-pwlu7c.webp"
+      },
+      "thor": {
+        "nom": "Thor",
+        "kind": "persona",
+        "el": "ele",
+        "arcane": "chariot",
+        "rang": 4,
+        "cout": 6,
+        "effet": {
+          "deg": 6
+        },
+        "combo": {
+          "pioche": 1
+        },
+        "lien": {
+          "yen": 1
+        },
+        "legendaire": false,
+        "niveau": 64,
+        "skills": [
+          "megaton_raid",
+          "ziodyne",
+          "maziodyne",
+          "wild_thunder"
+        ],
+        "image": "https://tojuxyrlqipsnxcwngzn.supabase.co/storage/v1/object/public/images/cartes/mwbxaxy6-8kmk69.webp"
+      },
+      "thoth": {
+        "nom": "Thoth",
+        "kind": "persona",
+        "el": "nuc",
+        "arcane": "empereur",
+        "rang": 2,
+        "cout": 4,
+        "effet": {
+          "deg": 6
+        },
+        "combo": {
+          "deg": 1,
+          "parCombo": 1
+        },
+        "lien": {
+          "yen": 1
+        },
+        "legendaire": false,
+        "niveau": 36,
+        "skills": [
+          "freila",
+          "taunt",
+          "masukunda",
+          "megido",
+          "psy_wall",
+          "concentrate"
+        ],
+        "image": "https://tojuxyrlqipsnxcwngzn.supabase.co/storage/v1/object/public/images/cartes/mwbxbqjq-gb7814.webp"
+      },
+      "throne": {
+        "nom": "Throne",
+        "kind": "persona",
+        "el": "feu",
+        "arcane": "justice",
+        "rang": 4,
+        "cout": 6,
+        "effet": {
+          "pv": 7,
+          "deg": 3
+        },
+        "combo": {
+          "pv": 5
+        },
+        "lien": {
+          "yen": 1
+        },
+        "legendaire": false,
+        "niveau": 72,
+        "skills": [
+          "agidyne",
+          "hamaon",
+          "makougaon",
+          "inferno"
+        ],
+        "image": "https://tojuxyrlqipsnxcwngzn.supabase.co/storage/v1/object/public/images/cartes/mwbxc4uq-0nc3u5.webp"
+      },
+      "thunderbird": {
+        "nom": "Thunderbird",
+        "kind": "persona",
+        "el": "ele",
+        "arcane": "soleil",
+        "rang": 2,
+        "cout": 4,
+        "effet": {
+          "deg": 4
+        },
+        "combo": {
+          "pioche": 1
+        },
+        "lien": {
+          "yen": 1
+        },
+        "legendaire": false,
+        "niveau": 34,
+        "skills": [
+          "mazionga",
+          "tarukaja",
+          "rebellion",
+          "ziodyne",
+          "maziodyne"
+        ],
+        "image": "https://tojuxyrlqipsnxcwngzn.supabase.co/storage/v1/object/public/images/cartes/mwbxday2-1kybfk.webp"
+      },
+      "titania": {
+        "nom": "Titania",
+        "kind": "persona",
+        "el": "nuc",
+        "arcane": "imperatrice",
+        "rang": 3,
+        "cout": 5,
+        "effet": {
+          "deg": 7
+        },
+        "combo": {
+          "deg": 2,
+          "parCombo": 1
+        },
+        "lien": {
+          "yen": 1
+        },
+        "legendaire": false,
+        "niveau": 56,
+        "skills": [
+          "ziodyne",
+          "freidyne",
+          "lullaby",
+          "concentrate",
+          "mediarahan"
+        ],
+        "image": "https://tojuxyrlqipsnxcwngzn.supabase.co/storage/v1/object/public/images/cartes/mwbxdzxc-baxnf0.webp"
+      },
+      "trumpeter": {
+        "nom": "Trumpeter",
+        "kind": "persona",
+        "el": "pur",
+        "arcane": "jugement",
+        "rang": 3,
+        "cout": 5,
+        "effet": {
+          "deg": 3,
+          "yen": 2
+        },
+        "combo": {
+          "deg": 3
+        },
+        "lien": {
+          "yen": 1
+        },
+        "legendaire": false,
+        "niveau": 59,
+        "skills": [
+          "brain_buster",
+          "mafreidyne",
+          "abysmal_surge",
+          "debilitate"
+        ],
+        "image": "https://tojuxyrlqipsnxcwngzn.supabase.co/storage/v1/object/public/images/cartes/mwbxet2i-qcofin.webp"
+      },
+      "tsukiyomi": {
+        "nom": "Tsukiyomi",
+        "kind": "persona",
+        "el": "mau",
         "arcane": "lune",
+        "rang": 3,
+        "cout": 5,
+        "effet": {
+          "deg": 3,
+          "yen": 2
+        },
+        "combo": {
+          "deg": 3
+        },
+        "lien": {
+          "yen": 1
+        },
+        "legendaire": true,
+        "niveau": 50,
+        "skills": [
+          "myriad_slashes",
+          "abyssal_wings",
+          "life_drain",
+          "vorpal_blade"
+        ],
+        "unique": true,
+        "image": "https://tojuxyrlqipsnxcwngzn.supabase.co/storage/v1/object/public/images/cartes/mwbxgbo4-048aup.webp"
+      },
+      "unicorn": {
+        "nom": "Unicorn",
+        "kind": "persona",
+        "el": "sac",
+        "arcane": "foi",
+        "rang": 2,
+        "cout": 4,
+        "effet": {
+          "pv": 5,
+          "deg": 2
+        },
+        "combo": {
+          "pv": 4
+        },
+        "lien": {
+          "yen": 1
+        },
+        "legendaire": false,
+        "niveau": 39,
+        "skills": [
+          "assault_dive",
+          "mahama",
+          "dekunda",
+          "samarecarm",
+          "swift_strike",
+          "kougaon",
+          "hamaon"
+        ],
+        "image": "https://tojuxyrlqipsnxcwngzn.supabase.co/storage/v1/object/public/images/cartes/mwbxhkny-8p9s5t.webp"
+      },
+      "uriel": {
+        "nom": "Uriel",
+        "kind": "persona",
+        "el": "phy",
+        "arcane": "justice",
+        "rang": 5,
+        "cout": 7,
+        "effet": {
+          "deg": 4,
+          "yen": 3
+        },
+        "combo": {
+          "deg": 4
+        },
+        "lien": {
+          "yen": 1
+        },
+        "legendaire": true,
+        "niveau": 81,
+        "skills": [
+          "bloodbath",
+          "deathbound",
+          "myriad_slashes",
+          "megidolaon"
+        ],
+        "image": "https://tojuxyrlqipsnxcwngzn.supabase.co/storage/v1/object/public/images/cartes/mwbxitx6-w2silu.webp"
+      },
+      "valkyrie": {
+        "nom": "Valkyrie",
+        "kind": "persona",
+        "el": "phy",
+        "arcane": "force",
+        "rang": 3,
+        "cout": 5,
+        "effet": {
+          "deg": 7
+        },
+        "combo": {
+          "deg": 3
+        },
+        "lien": {
+          "yen": 1
+        },
+        "parPhysique": 1,
+        "legendaire": false,
+        "niveau": 44,
+        "skills": [
+          "rising_slash",
+          "deathbound",
+          "matarukaja"
+        ],
+        "image": "https://tojuxyrlqipsnxcwngzn.supabase.co/storage/v1/object/public/images/cartes/mwbxjqxr-vazf51.webp"
+      },
+      "vasuki": {
+        "nom": "Vasuki",
+        "kind": "persona",
+        "el": "gun",
+        "arcane": "etoile",
+        "rang": 4,
+        "cout": 6,
+        "effet": {
+          "deg": 8,
+          "vision": 1
+        },
+        "combo": {
+          "vision": 1,
+          "deg": 2
+        },
+        "lien": {
+          "yen": 1
+        },
+        "legendaire": false,
+        "niveau": 68,
+        "skills": [
+          "triple_down",
+          "mahamaon",
+          "brain_jack",
+          "makarakarn"
+        ],
+        "image": "https://tojuxyrlqipsnxcwngzn.supabase.co/storage/v1/object/public/images/cartes/mwbxkhuk-5i9rtq.webp"
+      },
+      "vishnu": {
+        "nom": "Vishnu",
+        "kind": "persona",
+        "el": "ven",
+        "arcane": "fou",
+        "rang": 5,
+        "cout": 7,
+        "effet": {
+          "deg": 4,
+          "yen": 3
+        },
+        "combo": {
+          "deg": 4
+        },
+        "lien": {
+          "yen": 1
+        },
+        "legendaire": true,
+        "niveau": 83,
+        "skills": [
+          "magarudyne",
+          "megidolaon",
+          "vacuum_wave",
+          "concentrate",
+          "riot_gun"
+        ],
+        "image": "https://tojuxyrlqipsnxcwngzn.supabase.co/storage/v1/object/public/images/cartes/mwbxl8ah-8g2k4k.webp"
+      },
+      "vohu_manah": {
+        "nom": "Vohu Manah",
+        "kind": "persona",
+        "el": "sac",
+        "arcane": "conseiller",
+        "rang": 4,
+        "cout": 6,
+        "effet": {
+          "deg": 4,
+          "yen": 3
+        },
+        "combo": {
+          "deg": 3
+        },
+        "lien": {
+          "yen": 1
+        },
+        "legendaire": true,
+        "niveau": 80,
+        "skills": [
+          "makougaon",
+          "divine_judgement",
+          "salvation"
+        ],
+        "image": "https://tojuxyrlqipsnxcwngzn.supabase.co/storage/v1/object/public/images/cartes/mwbxlxf7-1oynj7.webp"
+      },
+      "white_rider": {
+        "nom": "White Rider",
+        "kind": "persona",
+        "el": "mau",
+        "arcane": "chariot",
+        "rang": 2,
+        "cout": 4,
+        "effet": {
+          "deg": 5,
+          "pv": 2
+        },
+        "combo": {
+          "purge": 1
+        },
+        "lien": {
+          "yen": 1
+        },
+        "legendaire": false,
+        "niveau": 38,
+        "skills": [
+          "oni_kagura",
+          "triple_down",
+          "evil_touch",
+          "maeiga",
+          "masukukaja",
+          "foul_breath"
+        ],
+        "image": "https://tojuxyrlqipsnxcwngzn.supabase.co/storage/v1/object/public/images/cartes/mwbxmo3a-5gc2vr.webp"
+      },
+      "yaksini": {
+        "nom": "Yaksini",
+        "kind": "persona",
+        "el": "gla",
+        "arcane": "imperatrice",
+        "rang": 1,
+        "cout": 3,
+        "effet": {
+          "deg": 5
+        },
+        "combo": {
+          "defausse": 1
+        },
+        "lien": {
+          "yen": 1
+        },
+        "legendaire": false,
+        "niveau": 20,
+        "skills": [
+          "hysterical_slap",
+          "wage_war",
+          "oni_kagura",
+          "vicious_strike"
+        ],
+        "image": "https://tojuxyrlqipsnxcwngzn.supabase.co/storage/v1/object/public/images/cartes/mwbxn1dj-6qqhfe.webp"
+      },
+      "yamata_no_orochi": {
+        "nom": "Yamata-no-Orochi",
+        "kind": "persona",
+        "el": "gla",
+        "arcane": "jugement",
+        "rang": 4,
+        "cout": 6,
+        "effet": {
+          "deg": 8
+        },
+        "combo": {
+          "defausse": 1
+        },
+        "lien": {
+          "yen": 1
+        },
+        "legendaire": false,
+        "niveau": 64,
+        "skills": [
+          "one_shot_kill",
+          "mabufudyne",
+          "diamond_dust"
+        ],
+        "image": "https://tojuxyrlqipsnxcwngzn.supabase.co/storage/v1/object/public/images/cartes/mwbxndxw-kjpd39.webp"
+      },
+      "yatagarasu": {
+        "nom": "Yatagarasu",
+        "kind": "persona",
+        "el": "feu",
+        "arcane": "conseiller",
+        "rang": 3,
+        "cout": 5,
+        "effet": {
+          "deg": 7
+        },
+        "combo": {
+          "deg": 3
+        },
+        "lien": {
+          "yen": 1
+        },
+        "legendaire": false,
+        "niveau": 57,
+        "skills": [
+          "agidyne",
+          "dekunda",
+          "makara_break",
+          "mediarahan",
+          "wind_break"
+        ],
+        "image": "https://tojuxyrlqipsnxcwngzn.supabase.co/storage/v1/object/public/images/cartes/mwbxnw9z-arjsa2.webp"
+      },
+      "yoshitsune": {
+        "nom": "Yoshitsune",
+        "kind": "persona",
+        "el": "phy",
+        "arcane": "tour",
+        "rang": 5,
+        "cout": 7,
+        "effet": {
+          "deg": 10
+        },
+        "combo": {
+          "deg": 4
+        },
+        "lien": {
+          "yen": 1
+        },
+        "parPhysique": 1,
+        "legendaire": true,
+        "niveau": 87,
+        "skills": [
+          "brave_blade",
+          "ziodyne",
+          "charge",
+          "hassou_tobi"
+        ],
+        "image": "https://tojuxyrlqipsnxcwngzn.supabase.co/storage/v1/object/public/images/cartes/mwbxoe4p-y3wcd4.webp"
+      },
+      "yurlungur": {
+        "nom": "Yurlungur",
+        "kind": "persona",
+        "el": "ele",
+        "arcane": "soleil",
+        "rang": 3,
+        "cout": 5,
+        "effet": {
+          "deg": 5
+        },
+        "combo": {
+          "pioche": 1
+        },
+        "lien": {
+          "yen": 1
+        },
+        "legendaire": false,
+        "niveau": 43,
+        "skills": [
+          "mazionga",
+          "megidola",
+          "brain_jack",
+          "revolution",
+          "elec_break",
+          "tetra_break"
+        ],
+        "image": "https://tojuxyrlqipsnxcwngzn.supabase.co/storage/v1/object/public/images/cartes/mwbxoqya-uaabh3.webp"
+      },
+      "zaou_gongen": {
+        "nom": "Zaou-Gongen",
+        "kind": "persona",
+        "el": "feu",
+        "arcane": "force",
         "rang": 4,
         "cout": 6,
         "effet": {
@@ -824,20 +6018,112 @@
         "lien": {
           "yen": 1
         },
-        "legendaire": false,
-        "niveau": 70,
+        "legendaire": true,
+        "niveau": 80,
         "skills": [
-          "death_scythe",
-          "agidyne",
-          "foul_breath",
+          "gods_hand",
           "maragidyne",
-          "fire_break",
-          "heat_riser"
+          "abysmal_surge",
+          "blazing_hell"
         ],
-        "image": "https://tojuxyrlqipsnxcwngzn.supabase.co/storage/v1/object/public/images/cartes/mwb9hjxe-yi4qgy.webp"
+        "image": "https://tojuxyrlqipsnxcwngzn.supabase.co/storage/v1/object/public/images/cartes/mwbxpg8k-bk2ks9.webp"
+      },
+      "zorro": {
+        "nom": "Zorro",
+        "kind": "persona",
+        "el": "ven",
+        "arcane": "magicien",
+        "rang": 1,
+        "cout": 3,
+        "effet": {
+          "yen": 1,
+          "deg": 3
+        },
+        "combo": {
+          "yen": 1,
+          "deg": 1
+        },
+        "lien": {
+          "yen": 1
+        },
+        "legendaire": false,
+        "niveau": 2,
+        "skills": [
+          "garu",
+          "dia",
+          "patra",
+          "media",
+          "lucky_punch",
+          "magaru",
+          "pulinpa",
+          "me_patra",
+          "diarama",
+          "garula",
+          "recarm",
+          "wind_break",
+          "mediarama",
+          "magarula",
+          "miracle_punch",
+          "samarecarm",
+          "diarahan",
+          "garudyne",
+          "masukunda",
+          "mediarahan",
+          "magarudyne",
+          "salvation"
+        ],
+        "reservee": true,
+        "image": "https://tojuxyrlqipsnxcwngzn.supabase.co/storage/v1/object/public/images/cartes/mwbxpv7q-c63lmn.webp"
+      },
+      "zouchouten": {
+        "nom": "Zouchouten",
+        "kind": "persona",
+        "el": "ele",
+        "arcane": "force",
+        "rang": 2,
+        "cout": 4,
+        "effet": {
+          "deg": 4
+        },
+        "combo": {
+          "pioche": 1
+        },
+        "lien": {
+          "yen": 1
+        },
+        "legendaire": false,
+        "niveau": 31,
+        "skills": [
+          "kill_rush",
+          "zionga",
+          "terror_claw",
+          "swift_strike"
+        ],
+        "image": "https://tojuxyrlqipsnxcwngzn.supabase.co/storage/v1/object/public/images/cartes/mwbxqddk-0q2mok.webp"
       }
     },
-    "supprimees": []
+    "supprimees": [
+      "ariadne_picaro",
+      "asterius_picaro",
+      "athena_picaro",
+      "crystal_skull",
+      "emperors_amulet",
+      "izanagi_picaro",
+      "izanagi_no_okami_picaro",
+      "kaguya_picaro",
+      "koh_i_noor",
+      "magatsu_izanagi_picaro",
+      "messiah_picaro",
+      "orichalcum",
+      "orlov",
+      "orpheus_f_picaro",
+      "orpheus_picaro",
+      "queens_necklace",
+      "regent",
+      "stone_of_scone",
+      "thanatos_picaro",
+      "tsukiyomi_picaro"
+    ]
   },
   "leaders": {
     "fox": {
@@ -873,5 +6159,40 @@
   },
   "regles": {},
   "progression": {},
-  "fusion": {}
+  "fusion": {},
+  "elements": {
+    "ele": {
+      "icone": "https://tojuxyrlqipsnxcwngzn.supabase.co/storage/v1/object/public/images/elements/mwb9ul7m-hst9u5.webp"
+    },
+    "feu": {
+      "icone": "https://tojuxyrlqipsnxcwngzn.supabase.co/storage/v1/object/public/images/elements/mwb9uesx-4d6z7b.webp"
+    },
+    "gla": {
+      "icone": "https://tojuxyrlqipsnxcwngzn.supabase.co/storage/v1/object/public/images/elements/mwb9uixu-888jdy.webp"
+    },
+    "gun": {
+      "icone": "https://tojuxyrlqipsnxcwngzn.supabase.co/storage/v1/object/public/images/elements/mwb9v9ty-jlar0c.webp"
+    },
+    "mau": {
+      "icone": "https://tojuxyrlqipsnxcwngzn.supabase.co/storage/v1/object/public/images/elements/mwb9v2gx-i0parx.webp"
+    },
+    "nuc": {
+      "icone": "https://tojuxyrlqipsnxcwngzn.supabase.co/storage/v1/object/public/images/elements/mwb9uvam-tbjxtn.webp"
+    },
+    "phy": {
+      "icone": "https://tojuxyrlqipsnxcwngzn.supabase.co/storage/v1/object/public/images/elements/mwb9v7g4-avagnr.webp"
+    },
+    "psy": {
+      "icone": "https://tojuxyrlqipsnxcwngzn.supabase.co/storage/v1/object/public/images/elements/mwb9usq9-dgk3eq.webp"
+    },
+    "pur": {
+      "icone": "https://tojuxyrlqipsnxcwngzn.supabase.co/storage/v1/object/public/images/elements/mwb9vbv2-qs82jc.webp"
+    },
+    "sac": {
+      "icone": "https://tojuxyrlqipsnxcwngzn.supabase.co/storage/v1/object/public/images/elements/mwb9uxea-qil7fx.webp"
+    },
+    "ven": {
+      "icone": "https://tojuxyrlqipsnxcwngzn.supabase.co/storage/v1/object/public/images/elements/mwb9up5b-f5lx0d.webp"
+    }
+  }
 }
