@@ -2672,15 +2672,23 @@ function finHTML(){
 }
 
 /* ---------- Rendu et effets ---------- */
+// Zones qui défilent à l’intérieur de la page : leur position est gardée d’un affichage à l’autre
+const ZONES_DEFILEMENT = [".a-items", ".ed-deck", ".deck-liste", ".detail", ".journal", ".rangee", ".a-liste", ".fenetre"];
 function render(){
   const x = window.scrollX, y = window.scrollY, dockMain = document.querySelector(".main-cartes"), sx = dockMain ? dockMain.scrollLeft : 0;
+  const ecranAvant = ui.ecran, defilements = ZONES_DEFILEMENT.map(sel => [...document.querySelectorAll(sel)].map(e => [e.scrollTop, e.scrollLeft]));
   if(ui.ecran === "jeu" && S) recompense();
   const actif = document.activeElement, idActif = actif && actif.id, pos = actif && actif.selectionStart;
   if(!PROFIL.etat.pret){ app.innerHTML = `<div class="chargement"><p>Chargement…</p></div>`; return; }
   if(STOCKAGE.connexionRequise()){ S = null; ui.ecran = "accueil"; app.innerHTML = connexionHTML(); return; }
   if(ui.ecran === "admin" && !PROFIL.etat.admin) ui.ecran = "accueil";
   app.innerHTML = ui.ecran === "admin" ? ADMIN.html() : ui.ecran === "jeu" && S ? jeuHTML() : ui.ecran === "accueil" ? accueilHTML() : ui.ecran === "bientot" ? bientotHTML() : ui.ecran === "leblanc" ? leblancHTML() : ui.ecran === "velvet" ? velvetHTML() : prepHTML();
-  if(idActif){ const el = document.getElementById(idActif); if(el){ el.focus(); try { if(pos != null) el.setSelectionRange(pos, pos); } catch(e){} } }
+  if(idActif){ const el = document.getElementById(idActif); if(el){ el.focus({preventScroll:true}); try { if(pos != null) el.setSelectionRange(pos, pos); } catch(e){} } }
+  // Sur le même écran, rien ne bouge : ni la page, ni les listes qui défilent
+  if(ui.ecran === ecranAvant){
+    ZONES_DEFILEMENT.forEach((sel, k) => document.querySelectorAll(sel).forEach((e, i) => { const p = defilements[k][i]; if(p){ e.scrollTop = p[0]; e.scrollLeft = p[1]; } }));
+    window.scrollTo(x, y);
+  }
   if(ui.ecran === "jeu" && S){ effets(); const m = document.querySelector(".main-cartes"); if(m) m.scrollLeft = sx; window.scrollTo(x, y); }
 }
 function cutin(texte, petit){
