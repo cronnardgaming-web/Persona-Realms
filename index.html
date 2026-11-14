@@ -775,6 +775,8 @@ body:has(.musique-ctrl:not([hidden])) .entete .droite,body:has(.musique-ctrl:not
 .c-texte{font-size:calc(var(--w) * .075);line-height:1.2;color:#333;overflow:hidden}
 .a-skills-table tr.passif td{color:var(--encre-2)}
 
+.a-reste{border:2px solid #e0a400;background:rgba(224,164,0,.12);padding:8px 10px;margin:8px 0;font-size:14px;display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+
 </style>
 </head>
 <body>
@@ -2142,6 +2144,8 @@ function editeurCarte(id){
         ${c.kind === "persona" ? sectionSkills(id, c) : ""}
         <div class="a-jauge-place">${jaugeBudget(c)}</div>
         ${blocEffets(`${base}.effet`, c.effet, "Effet", "Ce que la carte donne quand on la joue.")}
+        ${c.kind === "persona" && c.combo ? `<div class="a-reste"><b>One More inactif.</b> Cette Persona garde un One More de l’ancien système : il ne se déclenche jamais (seuls les skills ont un One More) et n’est plus affiché en jeu.
+          <button type="button" class="btn petit" data-act="a-retirer-combo" data-id="${esc(id)}">Retirer ce One More</button></div>` : ""}
         ${c.kind !== "persona" ? blocEffets(`${base}.combo`, c.combo, "One More", "Se déclenche si une Persona du même élément (ou Pur) est jouée dans le tour, ou si le Leader est de cet élément. Tout à 0 = pas de One More.") : ""}
         ${c.kind === "persona" ? blocEffets(`${base}.lien`, c.lien, "Lien d’Arcane", "Se déclenche si une autre Persona de la même Arcane est jouée dans le tour, ou si le Leader est de cette Arcane.", true) : ""}
         ${blocEffets(`${base}.sacrifice`, c.sacrifice, "Sacrifice", "Effet obtenu en retirant la carte du deck après l’avoir jouée. Tout à 0 = pas de sacrifice.")}
@@ -2339,6 +2343,8 @@ function ongletSauvegarde(){
   return `<fieldset class="a-bloc"><legend>Ce qui est publié</legend>
       <p>${nb} carte${nb > 1 ? "s" : ""} modifiée${nb > 1 ? "s" : ""} ou ajoutée${nb > 1 ? "s" : ""}, ${sup} supprimée${sup > 1 ? "s" : ""}, ${Object.keys(A.b.leaders).length} Leader(s) modifié(s), ${Object.keys(A.b.regles).length + Object.keys(A.b.progression).length} règle(s) modifiée(s), ${Object.keys(A.b.fusion || {}).length} paire(s) de fusion corrigée(s), ${Object.values(A.b.elements || {}).filter(x => x && x.icone).length} icône(s) d’élément, ${Object.values(A.b.musiques || {}).reduce((n, l) => n + (l || []).length, 0)} morceau(x) de musique.
       ${CONFIGJEU.majLe ? `Dernière publication : ${new Date(CONFIGJEU.majLe).toLocaleString("fr-FR", {dateStyle:"long", timeStyle:"short"})}.` : "Rien n’a encore été publié."}</p></fieldset>
+    <fieldset class="a-bloc"><legend>Nettoyer les restes de l’ancien système</legend><p>${Object.values(A.b.cartes.modifiees).filter(c => c.kind === "persona" && c.combo).length} Persona(s) modifiée(s) gardent un One More inactif.</p>
+      <button type="button" class="btn" data-act="a-nettoyer-combos">Retirer tous les One More des Personas</button></fieldset>
     <fieldset class="a-bloc"><legend>Exporter</legend><p>Télécharge toute la configuration (le brouillon en cours) dans un fichier JSON, pour la garder ou la transférer.</p>
       <button type="button" class="btn" data-act="a-exporter">Exporter la configuration</button></fieldset>
     <fieldset class="a-bloc"><legend>Importer</legend><p>Remplace le brouillon par le contenu d’un fichier exporté. Rien n’est appliqué avant « Publier ».</p>
@@ -2465,6 +2471,8 @@ async function clic(act, id){
     case "a-onglet": A.onglet = id; A.confirmer = null; break;
     case "a-sel": if(enPersonas()) A.selP = id; else A.sel = id; A.confirmer = null; break;
     case "a-voir-skill": A.onglet = "cartes"; A.sel = id; A.q = ""; A.fType = ""; A.fEl = ""; A.fModif = ""; U().render(); window.scrollTo(0, 0); return;
+    case "a-retirer-combo": delete carteEditable(id).combo; break;
+    case "a-nettoyer-combos": { let n = 0; for(const [k, c] of Object.entries(A.b.cartes.modifiees)) if(c.kind === "persona" && c.combo){ delete c.combo; n++; } A.sale = A.sale || n > 0; A.msg = `${n} One More inactif${n > 1 ? "s" : ""} retiré${n > 1 ? "s" : ""}. Pensez à publier.`; break; }
     case "a-skill-retirer": majSkill(id, (c, i) => c.skills.splice(i, 1)); break;
     case "a-skill-inne": majSkill(id, (c, i) => { c.skills[i][1] = c.niveau || 1; }); break;
     case "a-skill-ajouter": {
@@ -2650,7 +2658,7 @@ function carteHTML(c, o = {}){
   const type = d.kind === "persona" ? `Persona · ${nomEl(d.el)} · ${ARCANES[d.arcane] || ""}` : d.kind === "skill" ? `Skill · ${nomEl(d.el) || "sans élément"}` : d.kind === "visite" ? "Carte de visite" : "Objet";
   const lignes = [`<span class="ligne">${txtEffet(d.effet, d)}</span>`];
   if(d.parPhysique) lignes.push(`<span class="ligne">+1 dégât par autre carte Physique jouée.</span>`);
-  if(d.combo) lignes.push(`<span class="ligne om"><b>One More (${esc(nomEl(d.el))})</b> : ${txtEffet(d.combo, d)}</span>`);
+  if(d.combo && d.kind !== "persona") lignes.push(`<span class="ligne om"><b>One More (${esc(nomEl(d.el))})</b> : ${txtEffet(d.combo, d)}</span>`);
   if(d.lien) lignes.push(`<span class="ligne"><b>Lien d’Arcane</b> : ${txtEffet(d.lien)}</span>`);
   if(d.sacrifice) lignes.push(`<span class="ligne"><b>Sacrifice</b> : ${txtEffet(d.sacrifice)}</span>`);
   const tag = o.act ? "button" : "div";
@@ -3041,7 +3049,7 @@ function carteJeu(c, o = {}){
     <span class="c-art el-aucun">${d.image ? `<img class="c-img" src="${esc(d.image)}" alt="">` : `<span class="c-filigrane">${esc(d.nom.charAt(0))}</span>`}<span class="c-rang">rang ${d.rang}</span><span class="c-nom ${d.nom.length > 15 ? "long" : ""}">${esc(d.nom)}</span></span>
     <span class="c-corps"><span class="c-type">Passif · pas encore en jeu</span><span class="c-texte">${esc(d.texteFr || d.texte || "")}</span></span></${o.act ? "button" : "div"}>`;
   const lignes = [`<span class="c-ligne">${pillsHTML(d.effet, d)}${d.parPhysique ? `<span class="pill deg">+1 ⚔/Phy</span>` : ""}</span>`];
-  if(d.combo) lignes.push(`<span class="c-ligne c-om ${etatOM}"><span class="c-lbl">${iconeEl(d.el)}One More${etatOM === "fait" ? " ✓" : ""}</span>${pillsHTML(d.combo, d)}</span>`);
+  if(d.combo && d.kind !== "persona") lignes.push(`<span class="c-ligne c-om ${etatOM}"><span class="c-lbl">${iconeEl(d.el)}One More${etatOM === "fait" ? " ✓" : ""}</span>${pillsHTML(d.combo, d)}</span>`);
   if(d.lien) lignes.push(`<span class="c-ligne c-lien ${o.etat && o.etat.lien ? "fait" : ""}"><span class="c-lbl">Lien${o.etat && o.etat.lien ? " ✓" : ""}</span>${pillsHTML(d.lien)}</span>`);
   if(d.sacrifice) lignes.push(`<span class="c-ligne c-sac"><span class="c-lbl">Sacrifice</span>${pillsHTML(d.sacrifice)}</span>`);
   const ind = [];
@@ -3074,7 +3082,7 @@ function loupeHTML(cid, dDirect){
     <div class="loupe-txt"><span class="type">Passif · rang ${d.rang}</span><p>${esc(d.texteFr || "")}</p>${d.texte ? `<p class="discret">Dans P5R : ${esc(d.texte)}</p>` : ""}
     <p class="discret">Les passifs sont appris par les Personas mais n’ont pas encore d’effet dans le jeu.</p></div></div>`;
   const mots = [];
-  if(d.combo) mots.push(["One More", `se déclenche si une Persona ${nomEl(d.el) === "Pur" ? "de n’importe quel élément" : nomEl(d.el) + " (ou Pur)"} est jouée dans le même tour, avant ou après, ou si votre Leader est de l’élément ${nomEl(d.el)}.`]);
+  if(d.combo && d.kind !== "persona") mots.push(["One More", `se déclenche si une Persona ${nomEl(d.el) === "Pur" ? "de n’importe quel élément" : nomEl(d.el) + " (ou Pur)"} est jouée dans le même tour, avant ou après, ou si votre Leader est de l’élément ${nomEl(d.el)}.`]);
   if(d.lien) mots.push(["Lien d’Arcane", `se déclenche si une autre Persona ${ARCANES[d.arcane] || ""} est jouée dans le même tour, ou si votre Leader est de l’Arcane ${ARCANES[d.arcane] || ""}.`]);
   if(d.sacrifice) mots.push(["Sacrifice", "après l’avoir jouée, vous pouvez la retirer définitivement de votre deck pour cet effet."]);
   const e = Object.assign({}, d.effet, d.combo || {}, d.lien || {}, d.sacrifice || {});
@@ -3089,7 +3097,7 @@ function loupeHTML(cid, dDirect){
     <div class="loupe-grande">${carteJeu({id:cid || "x", uid:"loupe"}, {def:d, classe:"grande"})}</div>
     <div class="loupe-txt"><span class="type">${esc(d.kind === "persona" ? `Persona · ${nomEl(d.el)} · ${ARCANES[d.arcane] || ""}` : d.kind === "skill" ? `Skill · ${nomEl(d.el) || "neutre"}` : d.kind === "visite" ? "Carte de visite" : "Objet")}${d.cout ? ` · ${d.cout} ¥` : ""}</span>
       <p>${txtEffet(d.effet, d)}${d.parPhysique ? " +1 dégât par autre carte Physique jouée ce tour." : ""}</p>
-      ${d.combo ? `<p><b>One More (${esc(nomEl(d.el))})</b> : ${txtEffet(d.combo, d)}</p>` : ""}
+      ${d.combo && d.kind !== "persona" ? `<p><b>One More (${esc(nomEl(d.el))})</b> : ${txtEffet(d.combo, d)}</p>` : ""}
       ${d.lien ? `<p><b>Lien d’Arcane</b> : ${txtEffet(d.lien)}</p>` : ""}
       ${d.sacrifice ? `<p><b>Sacrifice</b> : ${txtEffet(d.sacrifice)}</p>` : ""}
       ${mots.length ? `<dl class="glossaire">${mots.map(([m, t]) => `<dt>${m}</dt><dd>${esc(t)}</dd>`).join("")}</dl>` : ""}
