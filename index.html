@@ -849,7 +849,9 @@ const MOTEUR = (function(){
 const C = (typeof CARTES !== "undefined") ? CARTES : require("./cartes.json");
 const VAL = (typeof VALEURS !== "undefined") ? VALEURS : require("./valeurs.js");
 const R = {pv:100, tailleMarche:5, mainPremier:3, mainDepart:5, pioche:5, prixTresor:2,
-  aoaCartes:3, aoaDegats:5, faiblesse:1, seuilVisite:20, defausseMax:2};
+  aoaCartes:3, aoaDegats:5, faiblesse:1, seuilVisite:20, defausseMax:2,
+  // Budget des cartes (jauge de l’Administration) : base + points par ¥ de coût ; les coûts en PV sont convertis en ¥
+  budgetBase:1.5, budgetParYen:0.95, pvParYen:4};
 const ELEMENTS = {
   phy:{nom:"Physique", court:"Phy"}, gun:{nom:"Gun", court:"Gun"}, feu:{nom:"Feu", court:"Feu"}, gla:{nom:"Glace", court:"Gla"},
   ele:{nom:"Électricité", court:"Élec"}, ven:{nom:"Vent", court:"Vent"}, psy:{nom:"Psy", court:"Psy"}, nuc:{nom:"Nucléaire", court:"Nuc"},
@@ -2048,12 +2050,18 @@ function blocEffets(base, e, titre, aide, avecCondition){
     ${caseA(`${base}.parCombo`, "+1 dégât par combo déclenché ce tour", e.parCombo)}</fieldset>`;
 }
 // Jauge : valeur de la carte comparée au budget de son rang
+// Budget calculé à partir du coût : base + points par ¥ × coût (un coût en PV est converti en ¥)
+function budgetCarte(c){
+  const coutEq = (c.coutPV || 0) > 0 ? c.coutPV / (M.R.pvParYen || 4) : (c.cout || 0);
+  return {b: Math.round((M.R.budgetBase + M.R.budgetParYen * coutEq) * 100) / 100, coutEq, pv: (c.coutPV || 0) > 0};
+}
+const virgule = n => String(Math.round(n * 100) / 100).replace(".", ",");
 function jaugeBudget(c){
-  const v = VALEURS.valeurCarte(c), b = VALEURS.budget(c.rang), r = v / b;
+  const {b, coutEq, pv} = budgetCarte(c), v = VALEURS.valeurCarte(c), r = b > 0 ? v / b : 0;
   const etat = r > 1.15 ? "trop" : r > 1.03 ? "limite" : r < 0.75 ? "faible" : "ok";
   const txt = {trop:"au-dessus du budget", limite:"légèrement au-dessus", faible:"bien en dessous", ok:"dans le budget"}[etat];
   return `<div class="a-jauge ${etat}"><div class="a-jauge-barre"><i style="width:${Math.min(100, Math.round(100 * r / 1.3))}%"></i><span class="a-jauge-repere" style="left:${Math.round(100 / 1.3)}%"></span></div>
-    <span><b>Valeur ${String(v).replace(".", ",")}</b> pour un budget de ${String(b).replace(".", ",")} (rang ${c.rang}) : ${txt}.</span></div>`;
+    <span><b>Valeur ${virgule(v)}</b> pour un budget de ${virgule(b)} (${pv ? `coût ${c.coutPV} PV, soit ${virgule(coutEq)} ¥` : `coût ${c.cout || 0} ¥`}) : ${txt}.</span></div>`;
 }
 
 /* ---------- Niveau et skills d’une Persona ---------- */
@@ -2268,7 +2276,10 @@ function ongletLeaders(){
 function ongletRegles(){
   const r = Object.assign({}, ORI.regles, A.b.regles), p = Object.assign({}, ORI.progression, A.b.progression);
   const ligne = (table, k, l, v, o) => champ(l, `<input type="number" step="1" min="0" data-a-f="${table}.${k}" data-t="n" value="${v}">`, v !== o ? `Origine : ${o}` : "");
-  return `<fieldset class="a-bloc"><legend>Combat</legend><div class="a-regles">${REGLES_COMBAT.map(([k, l]) => ligne("regles", k, l, r[k], ORI.regles[k])).join("")}</div></fieldset>
+  const dec = (k, l, aide) => champ(l, `<input type="number" step="0.05" min="0" data-a-f="regles.${k}" data-t="d" value="${r[k]}">`, r[k] !== ORI.regles[k] ? `Origine : ${ORI.regles[k]}. ${aide}` : aide);
+  return `<fieldset class="a-bloc"><legend>Budget des cartes</legend><p class="a-aide">Budget = base + points par ¥ × coût de la carte. Pour une carte payée en PV, le coût est converti en ¥. Sert à la jauge de l’éditeur des cartes. Actuellement : ${virgule(r.budgetBase)} + ${virgule(r.budgetParYen)} × coût.</p>
+      <div class="a-regles">${dec("budgetBase", "Budget : base", "Budget d’une carte à 0 ¥.")}${dec("budgetParYen", "Budget : points par ¥ de coût", "")}${dec("pvParYen", "PV équivalents à 1 ¥", "Une carte à 12 PV compte comme une carte à 12 ÷ ce nombre ¥.")}</div></fieldset>
+    <fieldset class="a-bloc"><legend>Combat</legend><div class="a-regles">${REGLES_COMBAT.map(([k, l]) => ligne("regles", k, l, r[k], ORI.regles[k])).join("")}</div></fieldset>
     <fieldset class="a-bloc"><legend>Progression</legend><div class="a-regles">${REGLES_PROG.map(([k, l]) => ligne("progression", k, l, p[k], ORI.progression[k])).join("")}</div>
     <p class="a-aide">La collection de départ ne concerne que les nouveaux comptes.</p></fieldset>`;
 }
@@ -2463,7 +2474,7 @@ function saisie(t, evt){
   const chemin = t.dataset.aF; if(!chemin) return;
   const type = t.dataset.t;
   if(evt === "input" && (t.tagName === "SELECT" || type === "b")) return;
-  let v = type === "n" ? (t.value === "" ? 0 : Math.max(0, Math.round(+t.value))) : type === "b" ? t.checked : t.value;
+  let v = type === "n" ? (t.value === "" ? 0 : Math.max(0, Math.round(+t.value))) : type === "d" ? (t.value === "" ? 0 : Math.max(0, Math.round(+String(t.value).replace(",", ".") * 100) / 100)) : type === "b" ? t.checked : t.value;
   if(type === "el") v = t.value || null;
   ecrire(chemin, v);
   if(/^cartes\.[^.]+\.rang$/.test(chemin) && (carte(chemin.split(".")[1]) || {}).kind !== "passif"){ ecrire(chemin.replace(/rang$/, "cout"), v); const c = carte(chemin.split(".")[1]); if(c && c.kind === "persona") carteEditable(chemin.split(".")[1]).rangManuel = true; }
