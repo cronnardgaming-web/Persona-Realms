@@ -2055,7 +2055,7 @@ const REGLES_PROG = [
   ["tailleDeck","Cartes dans un deck de marché"],["plafondClasse","Mode Classé : somme des rangs maximum"],["departPersonas","Collection de départ : Personas de rang 1"],["departSkills","Collection de départ : skills de rang 1"],
   ["prixCompendium","Compendium : Fragments par rang de la Persona"]];
 
-const A = {selP:null, fArc:"", nouveauSkill:"", catGroupe:"kind", catOuverts:{}, arcFusion:"fou", envoyees:[], onglet:"cartes", sel:null, selLeader:"joker", q:"", fType:"", fEl:"", fModif:"", b:null, sale:false, msg:null, erreur:null, enCours:false, stats:null, confirmer:null, envoiImage:false};
+const A = {selP:null, fArc:"", nouveauSkill:"", catGroupe:"kind", catOuverts:{}, arcFusion:"fou", envoyees:[], onglet:"cartes", sel:null, selLeader:"joker", q:"", fType:"", fEl:"", fModif:"", fRang:"", tri:"nom", b:null, sale:false, msg:null, erreur:null, enCours:false, stats:null, confirmer:null, envoiImage:false};
 
 function ouvrir(){ A.b = CONFIGJEU.actuelle; A.sale = false; A.msg = null; A.erreur = null; A.confirmer = null; }
 const peutQuitter = () => !A.sale;
@@ -2159,11 +2159,17 @@ function listeCartes(){
     if(!enPersonas() && A.fType && c.kind !== A.fType) return false;
     if(enPersonas() && A.fArc && c.arcane !== A.fArc) return false;
     if(A.fEl && (c.el || "") !== (A.fEl === "aucun" ? "" : A.fEl)) return false;
+    if(A.fRang && String(c.rang || 0) !== A.fRang) return false;
     if(A.fModif === "modifiees" && !estModifiee(id)) return false;
     if(A.fModif === "nouvelles" && !estNouvelle(id)) return false;
     if(A.fModif === "supprimees" && !supprimee(id)) return false;
     return !q || c.nom.toLowerCase().includes(q) || id.includes(q);
-  }).sort((a, b) => (carte(a) || ORI.cartes[a]).nom.localeCompare((carte(b) || ORI.cartes[b]).nom));
+  }).sort((a, b) => {
+    const ca = carte(a) || ORI.cartes[a], cb = carte(b) || ORI.cartes[b];
+    // Tri par rang (croissant ou décroissant), puis par nom à rang égal
+    const d = A.tri === "rang" ? (ca.rang || 0) - (cb.rang || 0) : A.tri === "rang-desc" ? (cb.rang || 0) - (ca.rang || 0) : 0;
+    return d || ca.nom.localeCompare(cb.nom);
+  });
   return ids.map(id => {
     const c = carte(id) || ORI.cartes[id];
     const tag = supprimee(id) ? `<span class="a-tag sup">supprimée</span>` : c.reservee ? `<span class="a-tag">Leader</span>` : estNouvelle(id) ? `<span class="a-tag nou">nouvelle</span>` : estModifiee(id) ? `<span class="a-tag mod">modifiée</span>` : "";
@@ -2251,6 +2257,8 @@ function ongletCartes(){
           : `<select data-a-filtre="fType" aria-label="Type">${opt("", "Skills, passifs et objets", A.fType)}${[["skill","Skills"],["passif","Passifs"],["objet","Objets"]].map(([k, l]) => opt(k, l, A.fType)).join("")}</select>`}
         <select data-a-filtre="fEl" aria-label="Élément">${opt("", "Tous les éléments", A.fEl)}${opt("aucun", "Sans élément", A.fEl)}${U().ORDRE_EL.map(e => opt(e, M.ELEMENTS[e].nom, A.fEl)).join("")}</select>
         <select data-a-filtre="fModif" aria-label="État">${[["","Toutes"],["modifiees","Modifiées"],["nouvelles","Nouvelles"],["supprimees","Supprimées"]].map(([k, l]) => opt(k, l, A.fModif)).join("")}</select>
+        <select data-a-filtre="fRang" aria-label="Rang">${opt("", "Tous les rangs", A.fRang)}${[...new Set(idsCartes().map(id => (carte(id) || ORI.cartes[id])).filter(c => P ? c.kind === "persona" : c.kind !== "persona").map(c => c.rang || 0))].sort((a, b) => a - b).map(n => opt(String(n), n ? `Rang ${n}` : "Sans rang", A.fRang)).join("")}</select>
+        <select data-a-filtre="tri" aria-label="Trier">${[["nom","Tri : nom"],["rang","Tri : rang croissant"],["rang-desc","Tri : rang décroissant"]].map(([k, l]) => opt(k, l, A.tri)).join("")}</select>
       </div>
       <ul class="a-items">${listeCartes()}</ul>
     </div>
@@ -2565,7 +2573,7 @@ async function clic(act, id){
       A.b = null; U().aller("accueil"); return;
     case "a-onglet": A.onglet = id; A.confirmer = null; break;
     case "a-sel": if(enPersonas()) A.selP = id; else A.sel = id; A.confirmer = null; break;
-    case "a-voir-skill": A.onglet = "cartes"; A.sel = id; A.q = ""; A.fType = ""; A.fEl = ""; A.fModif = ""; U().render(); window.scrollTo(0, 0); return;
+    case "a-voir-skill": A.onglet = "cartes"; A.sel = id; A.q = ""; A.fType = ""; A.fEl = ""; A.fModif = ""; A.fRang = ""; U().render(); window.scrollTo(0, 0); return;
     case "a-retirer-combo": delete carteEditable(id).combo; break;
     case "a-nettoyer-combos": { let n = 0; for(const [k, c] of Object.entries(A.b.cartes.modifiees)) if(c.kind === "persona" && c.combo){ delete c.combo; n++; } A.sale = A.sale || n > 0; A.msg = `${n} One More inactif${n > 1 ? "s" : ""} retiré${n > 1 ? "s" : ""}. Pensez à publier.`; break; }
     case "a-skill-retirer": majSkill(id, (c, i) => c.skills.splice(i, 1)); break;
@@ -2593,7 +2601,7 @@ async function clic(act, id){
     case "a-leader-origine": delete A.b.leaders[id]; A.sale = true; break;
     case "a-fusion-defaut": A.b.fusion = {}; A.sale = true; break;
     case "a-musique-retirer": { const [slot, i] = id.split("|"); (A.b.musiques[slot] || []).splice(+i, 1); A.sale = true; break; }
-    case "a-cat-ouvrir": if(carte(id).kind === "persona"){ A.selP = id; A.onglet = "personas"; } else { A.sel = id; A.onglet = "cartes"; } A.q = ""; A.fType = ""; A.fEl = ""; A.fModif = ""; U().render(); window.scrollTo(0, 0); return;
+    case "a-cat-ouvrir": if(carte(id).kind === "persona"){ A.selP = id; A.onglet = "personas"; } else { A.sel = id; A.onglet = "cartes"; } A.q = ""; A.fType = ""; A.fEl = ""; A.fModif = ""; A.fRang = ""; U().render(); window.scrollTo(0, 0); return;
     case "a-cat-tout": document.querySelectorAll(".a-groupe").forEach(x => { A.catOuverts[x.dataset.cat] = id === "1"; }); break;
     case "a-stats":
       A.enCours = true; U().render();
