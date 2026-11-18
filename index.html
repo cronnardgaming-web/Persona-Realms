@@ -886,8 +886,8 @@ const R = {pv:100, tailleMarche:5, mainPremier:3, mainDepart:5, pioche:5, prixTr
   budgetBase:2.5, budgetParYen:1.5, pvParYen:2.75,
   // SP : les Yens non dépensés en fin de tour deviennent des SP, qui s’accumulent et achètent les skills
   spParYen:5, spMax:100,
-  // Budget (jauge de l’Administration) : rang effectif = rang + écart de coût par rapport à la moyenne du rang (limité)
-  budgetSensibilite:1, budgetLimite:0.45,
+  // Budget (jauge de l’Administration) : rang effectif = rang + écart de coût par rapport à la moyenne du rang
+  budgetSensibilite:1,
   moySP1:5, moySP2:7, moySP3:8, moySP4:15, moySP5:17, moySP6:22, moySP7:34, moySP8:46, moySP9:51,
   moyPV1:5, moyPV2:8, moyPV3:9, moyPV4:15, moyPV5:17, moyPV6:18, moyPV7:20, moyPV8:22, moyPV9:24};
 const ELEMENTS = {
@@ -2182,20 +2182,19 @@ function blocEffets(base, e, titre, aide, avecCondition){
 function budgetCarte(c){
   const pv = (c.coutPV || 0) > 0, sp = !pv && (c.coutSP || 0) > 0;
   const R = M.R, rang = c.rang || c.cout || 0;
-  // Rang effectif : rang + écart relatif du coût (SP ou PV) à la moyenne du rang, limité à ± budgetLimite
+  // Rang effectif : rang + écart relatif du coût (SP ou PV) à la moyenne du rang, sans limite
   const moy = rang ? (pv ? R["moyPV" + rang] : sp ? R["moySP" + rang] : 0) : 0, cout = pv ? c.coutPV : sp ? c.coutSP : 0;
-  const lim = R.budgetLimite ?? 0.45;
-  const ecart = moy > 0 ? Math.max(-lim, Math.min(lim, (R.budgetSensibilite ?? 1) * (cout - moy) / moy)) : 0;
+  const ecart = moy > 0 ? (R.budgetSensibilite ?? 1) * (cout - moy) / moy : 0;
   const rangEff = rang + ecart;
-  return {b: Math.round((R.budgetBase + R.budgetParYen * rangEff) * 100) / 100, rang, rangEff, moy, cout, pv, sp, limite: Math.abs(ecart) >= lim && moy > 0};
+  return {b: Math.round((R.budgetBase + R.budgetParYen * rangEff) * 100) / 100, rang, rangEff, moy, cout, pv, sp};
 }
 const virgule = n => String(Math.round(n * 100) / 100).replace(".", ",");
 function jaugeBudget(c){
-  const {b, rang, rangEff, moy, cout, pv, sp, limite} = budgetCarte(c), v = VALEURS.valeurCarte(c), r = b > 0 ? v / b : 0;
+  const {b, rang, rangEff, moy, cout, pv, sp} = budgetCarte(c), v = VALEURS.valeurCarte(c), r = b > 0 ? v / b : 0;
   const etat = r > 1.15 ? "trop" : r > 1.03 ? "limite" : r < 0.75 ? "faible" : "ok";
   const txt = {trop:"au-dessus du budget", limite:"légèrement au-dessus", faible:"bien en dessous", ok:"dans le budget"}[etat];
   return `<div class="a-jauge ${etat}"><div class="a-jauge-barre"><i style="width:${Math.min(100, Math.round(100 * r / 1.3))}%"></i><span class="a-jauge-repere" style="left:${Math.round(100 / 1.3)}%"></span></div>
-    <span><b>Valeur ${virgule(v)}</b> pour un budget de ${virgule(b)} (${moy ? `rang ${rang} · ${cout} ${pv ? "PV" : "SP"} (moyenne ${moy}) → rang effectif ${virgule(Math.round(rangEff * 100) / 100)}${limite ? ", limité" : ""}` : `rang ${rang}`}) : ${txt}.</span></div>`;
+    <span><b>Valeur ${virgule(v)}</b> pour un budget de ${virgule(b)} (${moy ? `rang ${rang} · ${cout} ${pv ? "PV" : "SP"} (moyenne ${moy}) → rang effectif ${virgule(Math.round(rangEff * 100) / 100)}` : `rang ${rang}`}) : ${txt}.</span></div>`;
 }
 
 /* ---------- Niveau et skills d’une Persona ---------- */
@@ -2421,8 +2420,8 @@ function ongletRegles(){
   const ligne = (table, k, l, v, o) => champ(l, `<input type="number" step="1" min="0" data-a-f="${table}.${k}" data-t="n" value="${v}">`, v !== o ? `Origine : ${o}` : "");
   const dec = (k, l, aide) => champ(l, `<input type="number" step="0.05" min="0" data-a-f="regles.${k}" data-t="d" value="${r[k]}">`, r[k] !== ORI.regles[k] ? `Origine : ${ORI.regles[k]}. ${aide}` : aide);
   const moyCase = (k) => `<td><input type="number" step="1" min="1" data-a-f="regles.${k}" data-t="n" value="${r[k]}"${r[k] !== ORI.regles[k] ? ` title="Origine : ${ORI.regles[k]}" class="modifie"` : ""}></td>`;
-  return `<fieldset class="a-bloc"><legend>Budget des cartes</legend><p class="a-aide">Budget = base + points par rang × rang effectif. Pour un skill, le rang effectif = rang + écart, avec écart = sensibilité × (coût − coût moyen du rang) ÷ coût moyen du rang, limité à ± la limite. Les coûts moyens en SP servent aux skills payés en SP, ceux en PV aux skills Physique. Pour les Personas, le rang effectif est le rang. Avec une limite inférieure à 0,5, un skill d’un rang supérieur a toujours un budget plus haut. Actuellement : ${virgule(r.budgetBase)} + ${virgule(r.budgetParYen)} × rang effectif.</p>
-      <div class="a-regles">${dec("budgetBase", "Budget : base", "Budget d’une carte de rang 0.")}${dec("budgetParYen", "Budget : points par rang", "")}${dec("budgetSensibilite", "Sensibilité au coût", "1 : un skill 20 % plus cher que la moyenne gagne 0,2 rang.")}${dec("budgetLimite", "Limite de l’écart (en rang)", "0,45 : au maximum presque un demi-rang de plus ou de moins.")}</div>
+  return `<fieldset class="a-bloc"><legend>Budget des cartes</legend><p class="a-aide">Budget = base + points par rang × rang effectif. Pour un skill, le rang effectif = rang + sensibilité × (coût − coût moyen du rang) ÷ coût moyen du rang, sans limite : un skill deux fois plus cher que la moyenne gagne un rang entier. Les coûts moyens en SP servent aux skills payés en SP, ceux en PV aux skills Physique. Pour les Personas, le rang effectif est le rang. Actuellement : ${virgule(r.budgetBase)} + ${virgule(r.budgetParYen)} × rang effectif.</p>
+      <div class="a-regles">${dec("budgetBase", "Budget : base", "Budget d’une carte de rang 0.")}${dec("budgetParYen", "Budget : points par rang", "")}${dec("budgetSensibilite", "Sensibilité au coût", "1 : un skill 20 % plus cher que la moyenne gagne 0,2 rang.")}</div>
       <table class="a-moy"><thead><tr><th>Coût moyen</th>${[1,2,3,4,5,6,7,8,9].map(n => `<th>Rang ${n}</th>`).join("")}</tr></thead><tbody>
         <tr><th>SP</th>${[1,2,3,4,5,6,7,8,9].map(n => moyCase("moySP" + n)).join("")}</tr>
         <tr><th>PV</th>${[1,2,3,4,5,6,7,8,9].map(n => moyCase("moyPV" + n)).join("")}</tr></tbody></table></fieldset>
