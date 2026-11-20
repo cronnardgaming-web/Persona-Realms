@@ -2311,7 +2311,8 @@ function editeurCarte(id){
           ${caseA(`${base}.legendaire`, "Légendaire", c.legendaire, "1 exemplaire par deck")}
           ${caseA(`${base}.unique`, "Unique", c.unique, "jamais en récompense ni au marché")}
           ${caseA(`${base}.finition`, "Finition", c.finition, "dégâts doublés sous 20 PV adverses")}
-          ${caseA(`${base}.parPhysique`, "Bonus Physique", c.parPhysique, "+1 dégât par autre carte Physique")}
+          ${caseA(`${base}.parPhysique`, "Puissance", c.parPhysique, "+1 dégât par autre carte Physique jouée ce tour")}
+          ${caseA(`${base}.perce`, "Sniper", c.perce, "ignore et détruit le Bouclier et le Renvoi adverses")}
         </div>
         ${c.kind === "persona" ? sectionSkills(id, c) : ""}
         <div class="a-jauge-place">${jaugeBudget(c)}</div>
